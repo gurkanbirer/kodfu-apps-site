@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Free 18th Edition and ECS HS&amp;E Practice Questions | Sparkwise</title>
+<meta name="description" content="20 free practice questions for the 18th Edition (2382-26) and ECS HS&amp;E tests, explained. Independent app, not affiliated with the IET, BSI or the ECS.">
+<link rel="canonical" href="https://gurkanbirer.github.io/kodfu-apps-site/sparkwise/practice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sparkwise">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://gurkanbirer.github.io/kodfu-apps-site/sparkwise/practice/">
+<meta property="og:title" content="Free 18th Edition and ECS HS&amp;E practice questions">
+<meta property="og:description" content="20 free practice questions for the 18th Edition (2382-26) and ECS HS&amp;E tests, explained. Independent app, not affiliated with the IET, BSI or the ECS.">
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --bg:#F6F7F9;--surface:#FFFFFF;--surface-2:#FBFBFC;--text:#14171C;--text-2:#3A414D;--text-3:#525A68;
+  --border:#D5D8DE;--divider:#E3E6EB;--accent:#1D4ED8;--on-accent:#FFFFFF;--accent-text:#1D4ED8;
+  --container:#EEF2FF;--on-container:#1E2A4A;--success:#17733A;--success-bg:#E7F4EC;--error:#C62828;--error-bg:#FDECEC;
+  --warn:#8A5A00;--warn-bg:#FFF3D6;--shadow:0 1px 2px rgba(20,23,28,.06),0 0 0 1px rgba(20,23,28,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0F1115;--surface:#181B21;--surface-2:#20242B;--text:#F2F4F7;--text-2:#C7CCD6;--text-3:#A9B0BC;
+  --border:#2C313A;--divider:#2C313A;--accent:#60A5FA;--on-accent:#0B1220;--accent-text:#93C5FD;
+  --container:#1E2A4A;--on-container:#C7D2FE;--success:#4ADE80;--success-bg:#10301C;--error:#F87171;--error-bg:#3B1515;
+  --warn:#FBBF24;--warn-bg:#3A2A08;--shadow:0 0 0 1px #2C313A;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:600px;margin:0 auto;padding:16px}
+a{color:var(--accent-text)}
+h1{font-size:1.75rem;line-height:1.2;letter-spacing:-.01em;margin:0 0 8px}
+h2{font-size:1.25rem;line-height:1.3;margin:0 0 12px}
+p{margin:0 0 12px}
+.brand{display:flex;align-items:center;gap:12px;margin:8px 0 16px}
+.brand svg{width:44px;height:44px;border-radius:11px;flex:none}
+.brand b{font-size:1.25rem}
+.notice{background:var(--warn-bg);color:var(--text);border-radius:12px;padding:12px 14px;font-size:.9375rem;margin:0 0 16px}
+.notice strong{color:var(--warn)}
+.card{background:var(--surface);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin:0 0 16px}
+.muted{color:var(--text-3);font-size:.9375rem}
+.progress-row{display:flex;justify-content:space-between;gap:12px;font-size:.9375rem;font-weight:600;color:var(--text-3);margin-bottom:8px}
+.track{height:6px;border-radius:3px;background:var(--divider);overflow:hidden;margin-bottom:16px}
+.track i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .2s}
+.hint{font-size:.875rem;font-weight:700;color:var(--accent-text);margin:0 0 4px}
+.stem{font-size:1.1875rem;line-height:1.42;font-weight:600;margin:0 0 14px}
+.opts{display:grid;gap:10px;margin:0 0 4px;padding:0;list-style:none}
+.opt{width:100%;min-height:52px;display:flex;align-items:center;gap:12px;text-align:left;padding:10px 14px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.opt[aria-pressed=true]{background:var(--container);border:2px solid var(--accent)}
+.opt:disabled{cursor:default;opacity:1;color:var(--text)}
+.opt.dim{background:var(--surface-2);color:var(--text-3)}
+.opt.ok{background:var(--success-bg);border:2px solid var(--success);color:var(--text)}
+.opt.bad{background:var(--error-bg);border:2px solid var(--error);color:var(--text)}
+.let{width:28px;height:28px;flex:none;border-radius:14px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8125rem;font-weight:700;color:var(--text-3)}
+.opt.ok .let{background:var(--success);border-color:var(--success);color:var(--bg)}
+.opt.bad .let{background:var(--error);border-color:var(--error);color:var(--bg)}
+.lbl{flex:1;min-width:0;overflow-wrap:anywhere}
+.tag{display:block;font-size:.75rem;font-weight:700;margin-top:2px}
+.opt.ok .tag{color:var(--success)}
+.opt.bad .tag{color:var(--error)}
+.feedback{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--container);color:var(--on-container)}
+.feedback h3{font-size:1.0625rem;margin:0 0 4px;outline:none}
+.feedback p{margin:0}
+.feedback .src{font-size:.8125rem;margin-top:6px;opacity:.85}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;margin-top:14px;padding:10px 16px;border:0;border-radius:12px;background:var(--accent);color:var(--on-accent);font-family:inherit;font-size:1.0625rem;font-weight:600;line-height:1.3;text-decoration:none;text-align:center;cursor:pointer}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn.ghost{background:transparent;color:var(--accent-text);border:1.5px solid var(--border)}
+.score{font-size:2.5rem;line-height:1.15;font-weight:700;margin:0 0 4px}
+ul.plain{margin:0;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+.sources{font-size:.9375rem}
+.sources li{margin-bottom:8px;overflow-wrap:anywhere}
+footer{font-size:.875rem;color:var(--text-3);padding:4px 0 24px}
+footer a{color:inherit}
+.crumb{font-size:.9375rem;margin:0 0 12px}
+.links{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.links a{display:block;min-height:44px;padding:10px 14px;border:1.5px solid var(--border);border-radius:12px;text-decoration:none;font-weight:600;overflow-wrap:anywhere}
+.links a span{display:block;font-weight:400;font-size:.9375rem;color:var(--text-3)}
+.links a:hover{border-color:var(--accent)}
+section.card>h3{font-size:1.0625rem;margin:14px 0 6px}
+.feedback h4{font-size:1.0625rem;margin:0 0 4px;outline:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 1024 1024"><defs><linearGradient id="swbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2233"/><stop offset="1" stop-color="#0F1522"/></linearGradient><radialGradient id="swglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#1D4ED8" stop-opacity="0.55"/><stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/></radialGradient></defs><rect width="1024" height="1024" fill="url(#swbg)"/><circle cx="512" cy="512" r="430" fill="url(#swglow)"/><g transform="translate(512 512) scale(34) translate(-13 -12)"><path d="M13 2.2 L5 13 h6 l-1 8.8 7 -10.8 h-6 z" fill="#FFC21A" stroke="#FFC21A" stroke-width="1.6" stroke-linejoin="round"/><path d="M16.4 18.2 l2 2 4 -5" fill="none" stroke="#FFC21A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg> <b>Sparkwise</b></header>
+
+  <p class="notice"><strong>Not a government app.</strong> Sparkwise is an independent study app made by Kodfu Bilisim. It is not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, the ECS, the JIB, EAL or HSE. It does not contain the real exam questions and never reproduces BS 7671 text.</p>
+
+  <h1>Free 18th Edition and ECS HS&amp;E practice questions</h1>
+  <p class="muted">Free, with no sign-up and nothing saved. All 20 questions are original, and each answer comes with an explanation. No app or website can show you the real exam questions.</p>
+  <p><a href="#eighteenth">18th Edition section</a> · <a href="#ecs">ECS HS&amp;E section</a></p>
+
+  <main>
+  <section class="card" id="eighteenth">
+    <h2>18th Edition practice (BS 7671:2018+A4:2026)</h2>
+    <p>The City &amp; Guilds 2382-26 exam tests whether you can find and apply the requirements of the current Wiring Regulations. It is one online multiple-choice exam of 60 questions in 120 minutes, with a pass mark of about 60%.</p>
+    <p>It is open book, so have your own copy of BS 7671 ready. Bookmarks, highlighting and short cross-reference notes are allowed, written notes are not, and you need a non-programmable calculator. Check the exact rules with your exam centre.</p>
+    <p class="muted">These 10 questions run across the book, from scope and definitions to protection, inspection and testing, special locations and a voltage drop calculation. Each answer points to a regulation, table or appendix to look up. We never reproduce BS 7671 text.</p>
+    <div id="quiz18" aria-live="polite">
+      <noscript><p>This quiz needs JavaScript. You can also practise in the <a href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise" rel="noopener">Sparkwise app on Google Play</a>.</p></noscript>
+    </div>
+  </section>
+
+  <section class="card" id="ecs">
+    <h2>ECS HS&amp;E practice</h2>
+    <p>The ECS Health, Safety and Environmental assessment is the test most electrotechnical workers pass to get or renew an ECS card. It has 50 multiple-choice questions in 30 minutes, it is closed book, and you need 43 right (86%). The CITB HS&amp;E test used for CSCS cards does not count for ECS.</p>
+    <p class="muted">These 10 questions are spread across the syllabus: general health and safety, manual handling, reporting accidents, PPE, fire, work at height, work equipment, asbestos, waste and safe isolation. They are written from legislation and HSE guidance, and are not taken from the ECS revision guide.</p>
+    <div id="quizecs" aria-live="polite">
+      <noscript><p>This quiz needs JavaScript. You can also practise in the <a href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise" rel="noopener">Sparkwise app on Google Play</a>.</p></noscript>
+    </div>
+  </section>
+  </main>
+
+  <section class="card">
+    <h2>Want more practice?</h2>
+    <p>Sparkwise is an Android app for both exams, with original questions, full-length timed mock exams, worked solutions for calculation questions and explanations that show where to look in BS 7671.</p>
+    <ul class="plain">
+      <li>18th Edition: questions across every Part, 60-question mock exams in 2 hours, a maximum Z<sub>s</sub> calculator and a guide to what changed in Amendment 4</li>
+      <li>ECS HS&amp;E: every syllabus area and 50-question mock tests in 30 minutes</li>
+      <li>Spaced review and a readiness score (a guide, not a guarantee)</li>
+      <li>Works offline. No ads and no account.</li>
+    </ul>
+    <p style="margin-top:12px"><strong>Free:</strong> two full topics in each exam, three questions in every other topic, one full mock exam for each exam, the maximum Z<sub>s</sub> calculator and checklists.<br><strong>Sparkwise Pro, £12.99 one-off:</strong> every question, every mock exam and every worked solution, for both exams. No subscription.</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise" rel="noopener">Get Sparkwise on Google Play</a>
+    <p class="muted" style="margin:10px 0 0">For Android phones.</p>
+  </section>
+
+  <section class="card sources">
+    <h2>Official sources</h2>
+    <p class="muted">Check these public pages before you book or apply.</p>
+    <ul class="plain">
+      <li><a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/" rel="noopener">BS 7671 18th Edition wiring regulations (IET)</a></li>
+      <li><a href="https://www.cityandguilds.com/qualifications-and-apprenticeships/building-services-industry/electrical-installation/2382-requirements-for-electrical-installations" rel="noopener">Requirements for Electrical Installations, 2382 (City &amp; Guilds)</a></li>
+      <li><a href="https://www.ecscard.org.uk/hse-assessment" rel="noopener">Health, Safety &amp; Environmental Assessment (ECS, run by the JIB)</a></li>
+      <li><a href="https://www.hse.gov.uk/electricity/" rel="noopener">Electrical safety at work (HSE)</a></li>
+      <li><a href="https://www.legislation.gov.uk/uksi/1989/635/contents" rel="noopener">The Electricity at Work Regulations 1989 (legislation.gov.uk)</a></li>
+    </ul>
+    <p class="muted" style="margin:10px 0 0">Exam details can change. Check with the awarding body or your exam centre before you book. Always check real installations against your own copy of BS 7671.</p>
+  </section>
+
+  <footer>
+    <p>This page has no cookies, analytics or trackers.</p>
+    <p>Sparkwise is independent and not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, the ECS or the JIB.</p>
+    <p><a href="https://gurkanbirer.github.io/kodfu-apps-site/sparkwise/" rel="noopener">Support</a> · <a href="https://gurkanbirer.github.io/kodfu-apps-site/sparkwise/privacy/" rel="noopener">Privacy</a> · © Kodfu Bilisim</p>
+  </footer>
+</div>
+<script>
+(function () {
+  "use strict";
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  function hint(q) {
+    if (q.type === "multi") return "Select TWO answers";
+    if (q.type === "truefalse") return "True or false?";
+    return "Choose one answer";
+  }
+
+  function same(a, b) {
+    return a.length === b.length && a.every(function (v) { return b.indexOf(v) !== -1; });
+  }
+
+  function quiz(root, QUESTIONS, cfg) {
+    var index = 0, score = 0;
+
+    function renderQuestion() {
+      var q = QUESTIONS[index], chosen = [], locked = false;
+      root.textContent = "";
+
+      var row = el("div", "progress-row");
+      row.appendChild(el("span", "", "Question " + (index + 1) + " of " + QUESTIONS.length));
+      row.appendChild(el("span", "", score + " correct"));
+      root.appendChild(row);
+      var track = el("div", "track"), bar = document.createElement("i");
+      bar.style.width = ((index + 1) / QUESTIONS.length * 100) + "%";
+      track.appendChild(bar);
+      root.appendChild(track);
+
+      root.appendChild(el("p", "hint", hint(q)));
+      var stem = el("h3", "stem", q.stem);
+      stem.tabIndex = -1;
+      root.appendChild(stem);
+
+      var list = el("ul", "opts"), buttons = [];
+      q.options.forEach(function (text, i) {
+        var li = document.createElement("li");
+        var b = el("button", "opt");
+        b.type = "button";
+        b.setAttribute("aria-pressed", "false");
+        var mark = q.type === "truefalse" ? text.charAt(0) : "ABCD".charAt(i);
+        var let_ = el("span", "let", mark);
+        let_.setAttribute("aria-hidden", "true");
+        var lbl = el("span", "lbl", text);
+        b.appendChild(let_);
+        b.appendChild(lbl);
+        b.addEventListener("click", function () { choose(i); });
+        li.appendChild(b);
+        list.appendChild(li);
+        buttons.push({ button: b, label: lbl, mark: let_ });
+      });
+      root.appendChild(list);
+
+      var check = null;
+      if (q.type === "multi") {
+        check = el("button", "btn", "Check answer");
+        check.type = "button";
+        check.disabled = true;
+        check.addEventListener("click", finish);
+        root.appendChild(check);
+      }
+
+      function choose(i) {
+        if (locked) return;
+        if (q.type !== "multi") { chosen = [i]; finish(); return; }
+        var at = chosen.indexOf(i);
+        if (at !== -1) chosen.splice(at, 1);
+        else if (chosen.length < 2) chosen.push(i);
+        buttons.forEach(function (o, n) {
+          o.button.setAttribute("aria-pressed", chosen.indexOf(n) !== -1 ? "true" : "false");
+        });
+        check.disabled = chosen.length !== 2;
+      }
+
+      function tag(o, text) {
+        o.label.appendChild(el("span", "tag", text));
+      }
+
+      function finish() {
+        if (locked) return;
+        locked = true;
+        var right = same(chosen, q.correct);
+        if (right) score += 1;
+        buttons.forEach(function (o, i) {
+          var isCorrect = q.correct.indexOf(i) !== -1, isChosen = chosen.indexOf(i) !== -1;
+          o.button.disabled = true;
+          o.button.removeAttribute("aria-pressed");
+          if (isCorrect) { o.button.classList.add("ok"); o.mark.textContent = "✓"; tag(o, isChosen ? "Correct answer, your answer" : "Correct answer"); }
+          else if (isChosen) { o.button.classList.add("bad"); o.mark.textContent = "✕"; tag(o, "Your answer"); }
+          else { o.button.classList.add("dim"); }
+        });
+        if (check) check.remove();
+        var fb = el("div", "feedback");
+        var head = el("h4", "", right ? "✓ Correct" : "Not quite");
+        head.tabIndex = -1;
+        fb.appendChild(head);
+        fb.appendChild(el("p", "", q.explanation));
+        fb.appendChild(el("p", "src", cfg.sourceLabel + q.source));
+        root.appendChild(fb);
+        var next = el("button", "btn", index + 1 < QUESTIONS.length ? "Next question" : "See my score");
+        next.type = "button";
+        next.addEventListener("click", function () {
+          index += 1;
+          if (index < QUESTIONS.length) { renderQuestion(); focusTop(); } else { renderResult(); focusTop(); }
+        });
+        root.appendChild(next);
+        head.focus({ preventScroll: true });
+      }
+    }
+
+    function focusTop() {
+      var target = root.querySelector("[tabindex='-1']");
+      if (target) target.focus({ preventScroll: true });
+      var top = root.getBoundingClientRect().top + window.pageYOffset - 8;
+      if (window.pageYOffset > top) window.scrollTo(0, top);
+    }
+
+    function renderResult() {
+      root.textContent = "";
+      root.appendChild(el("p", "hint", "Your score"));
+      var s = el("h3", "score", score + " out of " + QUESTIONS.length);
+      s.tabIndex = -1;
+      root.appendChild(s);
+      root.appendChild(el("p", "", "This is a practice result. It does not predict your official result."));
+      root.appendChild(el("p", "muted", cfg.resultNote));
+      var play = el("a", "btn", "Practise more on Google Play");
+      play.href = cfg.play;
+      play.rel = "noopener";
+      root.appendChild(play);
+      var again = el("button", "btn ghost", "Try the " + QUESTIONS.length + " questions again");
+      again.type = "button";
+      again.addEventListener("click", function () { index = 0; score = 0; renderQuestion(); focusTop(); });
+      root.appendChild(again);
+    }
+
+    renderQuestion();
+  }
+
+  var Q18 = [
+ {
+  "type": "single",
+  "stem": "Which statement best describes the legal status of BS 7671?",
+  "options": [
+   "It is an Act of Parliament",
+   "It is a statutory instrument enforced by the HSE",
+   "It is a non-statutory British Standard",
+   "It applies only to work done by registered contractors"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "BS 7671 is a British Standard and is non-statutory. Complying with it is likely to help satisfy statutory duties, but it is not itself law.",
+  "source": "Reg 114 · Appendix 2"
+ },
+ {
+  "type": "single",
+  "stem": "Which chapter of BS 7671 sets out the fundamental principles?",
+  "options": [
+   "Chapter 11",
+   "Chapter 13",
+   "Chapter 31",
+   "Chapter 41"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Part 1 has Chapter 11 (scope), Chapter 12 (object and effects) and Chapter 13 (fundamental principles). Chapter 31 starts Part 3.",
+  "source": "Part 1 · Chapter 13"
+ },
+ {
+  "type": "single",
+  "stem": "A metal water service pipe entering a building from the ground is an example of which kind of part?",
+  "options": [
+   "An exposed-conductive-part",
+   "A circuit protective conductor",
+   "An extraneous-conductive-part",
+   "A PEN conductor"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "It is not part of the electrical installation but can introduce earth potential into the building, so it is extraneous and needs main bonding.",
+  "source": "Part 2"
+ },
+ {
+  "type": "single",
+  "stem": "In the system type 'TN-C-S', what does the first letter T tell you?",
+  "options": [
+   "The installation has its own earth electrode",
+   "One point of the source is directly earthed",
+   "The source is isolated from earth",
+   "The supply is a three-phase system"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "The first letter describes the source: T means one point (usually the star point) is connected directly to earth.",
+  "source": "Reg 312.2"
+ },
+ {
+  "type": "single",
+  "stem": "A house on a TT supply has a 20 A radial circuit (U0 230 V). Within what time must it disconnect under earth fault?",
+  "options": [
+   "0.07 s",
+   "0.2 s",
+   "0.4 s",
+   "1 s"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Table 41.1 gives 0.2 s for TT final circuits at 230 V. TT times are shorter because touch voltages can be higher.",
+  "source": "Table 41.1"
+ },
+ {
+  "type": "single",
+  "stem": "A three-phase variable speed drive could produce smooth DC residual current. Which RCD type is suitable?",
+  "options": [
+   "Type AC",
+   "Type A",
+   "Type F",
+   "Type B"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Type B detects smooth DC as well as AC and pulsating DC, so it suits three-phase drives and some inverters.",
+  "source": "Reg 531.3.3"
+ },
+ {
+  "type": "single",
+  "stem": "A 2.5 mm² cable has a voltage drop of 18 mV/A/m. It carries 16 A over 30 m. What is the voltage drop?",
+  "options": [
+   "0.86 V",
+   "8.64 V",
+   "86.4 V",
+   "11.5 V"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "VD = 18 × 16 × 30 ÷ 1000 = 8.64 V. Forgetting to divide by 1000 gives 8640; misplacing the decimal gives 0.86 or 86.4.",
+  "source": "Appendix 4 · voltage drop"
+ },
+ {
+  "type": "single",
+  "stem": "What insulation resistance test voltage is used for a 230 V final circuit?",
+  "options": [
+   "250 V DC",
+   "500 V DC",
+   "1000 V DC",
+   "230 V AC"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Circuits up to and including 500 V (other than SELV/PELV) are tested at 500 V DC.",
+  "source": "Table 64"
+ },
+ {
+  "type": "multi",
+  "stem": "Which TWO schedules must accompany an Electrical Installation Certificate? Select TWO.",
+  "options": [
+   "Schedule of inspections",
+   "Schedule of test results",
+   "Schedule of materials used",
+   "Schedule of labour hours"
+  ],
+  "correct": [
+   0,
+   1
+  ],
+  "explanation": "An EIC is only valid with its schedule of inspections and its schedule of circuit details and test results.",
+  "source": "Reg 644.1 · Appendix 6"
+ },
+ {
+  "type": "single",
+  "stem": "What is zone 0 in a room containing a bath?",
+  "options": [
+   "The whole of the bathroom floor area",
+   "The interior of the bath tub",
+   "The area within 0.6 m of the bath",
+   "The space above the bath to 2.25 m"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Zone 0 is the inside of the bath or shower basin, where immersion in water is possible.",
+  "source": "Reg 701.32.2"
+ }
+];
+  var QECS = [
+ {
+  "type": "single",
+  "stem": "An inspector sees work going on that risks serious personal injury. Which notice can stop the activity straight away?",
+  "options": [
+   "A prohibition notice",
+   "An improvement notice",
+   "A waste transfer notice",
+   "A warning letter"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "A prohibition notice stops an activity that involves a risk of serious personal injury, and can take effect immediately.",
+  "source": "HSWA 1974 ss20-22 · HSE enforcement"
+ },
+ {
+  "type": "single",
+  "stem": "What is the correct order of the employer's duties under the Manual Handling Operations Regulations?",
+  "options": [
+   "Reduce, avoid, assess",
+   "Lift, carry, report",
+   "Assess, train, ignore",
+   "Avoid, assess, reduce"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Avoid hazardous handling where possible, assess what cannot be avoided, then reduce the risk.",
+  "source": "Manual Handling Operations Regulations 1992"
+ },
+ {
+  "type": "single",
+  "stem": "What is a near miss?",
+  "options": [
+   "A hazard that has been reported and fixed",
+   "An event that could have caused harm but did not",
+   "An accident that caused only a minor cut or bruise",
+   "A fire that was put out before it spread"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Near misses are events where nobody was hurt this time, but could have been.",
+  "source": "HSE: Investigating accidents (HSG245)"
+ },
+ {
+  "type": "single",
+  "stem": "Where does PPE come in the hierarchy of risk control?",
+  "options": [
+   "Last, once other controls have been used",
+   "It is not part of the hierarchy at all",
+   "Only after an accident has happened",
+   "First, before anything else is considered"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "PPE only protects the wearer and only when worn properly, so it is used when other controls cannot adequately control the risk.",
+  "source": "PPE at Work Regulations 1992 (amended 2022)"
+ },
+ {
+  "type": "single",
+  "stem": "What three things does a fire need?",
+  "options": [
+   "Fuel, smoke and carbon dioxide",
+   "Oxygen, water and electricity",
+   "Heat, water and nitrogen",
+   "Heat, fuel and oxygen"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "These three sides make up the fire triangle. Remove any one and the fire cannot continue.",
+  "source": "HSE: Fire safety in construction (HSG168)"
+ },
+ {
+  "type": "truefalse",
+  "stem": "The Work at Height Regulations 2005 set no minimum height at which they apply.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "There is no minimum height for when the regulations apply. Any work where a fall could cause injury is covered.",
+  "source": "Work at Height Regulations 2005"
+ },
+ {
+  "type": "single",
+  "stem": "Which of these is a requirement of PUWER?",
+  "options": [
+   "Workers must provide their own power tools",
+   "Every tool must be PAT tested every month",
+   "Every tool must be less than five years old",
+   "Equipment must be kept in good working order"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Maintenance keeps equipment safe. PUWER also covers suitability, inspection, training and guarding.",
+  "source": "PUWER 1998"
+ },
+ {
+  "type": "single",
+  "stem": "Which buildings may contain asbestos?",
+  "options": [
+   "Any built or refurbished before 2000",
+   "Only buildings built before 1950",
+   "Only industrial and commercial buildings",
+   "Only buildings with flat roofs"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Asbestos was used widely until the full UK ban in 1999, so any building from before 2000 could contain it.",
+  "source": "HSE: asbestos · Control of Asbestos Regs 2012"
+ },
+ {
+  "type": "single",
+  "stem": "Before letting someone take away your site waste, what should you check?",
+  "options": [
+   "That they have a large enough van",
+   "That they are a registered waste carrier",
+   "That they are cheaper than the skip firm",
+   "That they can take it away today"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Using an unregistered carrier breaks your duty of care and risks your waste being fly-tipped.",
+  "source": "Environmental Protection Act 1990 s34"
+ },
+ {
+  "type": "single",
+  "stem": "After locking off a circuit, what must you do before testing that it is dead?",
+  "options": [
+   "Prove the voltage indicator on a known source",
+   "Remove your lock to check the switch moves",
+   "Switch the circuit on and off again",
+   "Carry out a continuity test on the whole circuit"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "You need to know the tester is working before you trust a 'dead' reading, so prove it first.",
+  "source": "EAWR 1989 regs 12-13 · HSE: HSG85"
+ }
+];
+  quiz(document.getElementById("quiz18"), Q18, {
+    play: "https://play.google.com/store/apps/details?id=com.kodfu.sparkwise",
+    sourceLabel: "Look it up in your copy of BS 7671: ",
+    resultNote: "The real 2382-26 exam has 60 questions in 120 minutes and is open book, with a pass mark of about 60%. One short quiz can only give a taste."
+  });
+  quiz(document.getElementById("quizecs"), QECS, {
+    play: "https://play.google.com/store/apps/details?id=com.kodfu.sparkwise",
+    sourceLabel: "Source: ",
+    resultNote: "The real ECS HS&E assessment has 50 questions in 30 minutes, and you need 43 right. One short quiz can only give a taste."
+  });
+}());
+</script>
+</body>
+</html>

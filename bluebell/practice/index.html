@@ -78,6 +78,12 @@ ul.plain li{margin-bottom:6px}
 .sources li{margin-bottom:8px;overflow-wrap:anywhere}
 footer{font-size:.875rem;color:var(--text-3);padding:4px 0 24px}
 footer a{color:inherit}
+.crumb{font-size:.9375rem;margin:0 0 12px}
+.links{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.links a{display:block;min-height:44px;padding:10px 14px;border:1.5px solid var(--border);border-radius:12px;text-decoration:none;font-weight:600;overflow-wrap:anywhere}
+.links a span{display:block;font-weight:400;font-size:.9375rem;color:var(--text-3)}
+.links a:hover{border-color:var(--accent)}
+section.card>h3{font-size:1.0625rem;margin:14px 0 6px}
 </style>
 </head>
 <body>
@@ -92,6 +98,24 @@ footer a{color:inherit}
   <main class="card" id="quiz" aria-live="polite">
     <noscript><p>This quiz needs JavaScript. You can also practise in the <a href="https://play.google.com/store/apps/details?id=com.kodfu.bluebell" rel="noopener">Bluebell app on Google Play</a>.</p></noscript>
   </main>
+
+  <!-- chapter-links -->
+  <section class="card">
+    <h2>Practise by handbook chapter</h2>
+    <p>Each chapter has its own free quiz, with a short summary of what the chapter covers and different questions from the ones above.</p>
+    <ul class="links">
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/values-and-principles/">Chapter 1: The values and principles of the UK<span>British values, freedoms, citizenship · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/what-is-the-uk/">Chapter 2: What is the UK?<span>The four countries and what the names mean · 5 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/a-long-and-illustrious-history/">Chapter 3: A long and illustrious history<span>British history, from the Stone Age to modern Britain · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/a-modern-thriving-society/">Chapter 4: A modern, thriving society<span>UK cities, customs, sport, arts and places · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/government-law-and-your-role/">Chapter 5: The UK government, the law and your role<span>Parliament, the law and taking part · 10 questions</span></a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Getting ready for test day?</h2>
+    <p>Read our plain-English <a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/guide/">guide to the test format, booking, what to bring and what happens on the day</a>, written from GOV.UK.</p>
+  </section>
 
   <section class="card">
     <h2>Want more practice?</h2>

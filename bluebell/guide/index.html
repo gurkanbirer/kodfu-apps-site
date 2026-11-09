@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Life in the UK Test Guide: Booking, ID and the Day | Bluebell</title>
+<meta name="description" content="How the Life in the UK Test works: the format, how to book for £50, what ID to bring and what happens on the day. Written from GOV.UK. Not a government app.">
+<link rel="canonical" href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/guide/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bluebell">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/guide/">
+<meta property="og:title" content="Life in the UK Test guide: format, booking, ID and the day">
+<meta property="og:description" content="How the Life in the UK Test works: the format, how to book for £50, what ID to bring and what happens on the day. Written from GOV.UK. Not a government app.">
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --bg:#F6F7F9;--surface:#FFFFFF;--surface-2:#FBFBFC;--text:#14171C;--text-2:#3A414D;--text-3:#525A68;
+  --border:#D5D8DE;--divider:#E3E6EB;--accent:#4A4FB8;--on-accent:#FFFFFF;--accent-text:#3F44A8;
+  --container:#E9EAFF;--on-container:#2E3290;--success:#17733A;--success-bg:#E7F4EC;--error:#C62828;--error-bg:#FDECEC;
+  --warn:#8A5A00;--warn-bg:#FFF3D6;--shadow:0 1px 2px rgba(20,23,28,.06),0 0 0 1px rgba(20,23,28,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0F1115;--surface:#181B21;--surface-2:#20242B;--text:#F2F4F7;--text-2:#C7CCD6;--text-3:#A9B0BC;
+  --border:#2C313A;--divider:#2C313A;--accent:#A5A9FF;--on-accent:#14171C;--accent-text:#A5A9FF;
+  --container:#2A2D5C;--on-container:#DCDDFF;--success:#4ADE80;--success-bg:#10301C;--error:#F87171;--error-bg:#3B1515;
+  --warn:#FBBF24;--warn-bg:#3A2A08;--shadow:0 0 0 1px #2C313A;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:600px;margin:0 auto;padding:16px}
+a{color:var(--accent-text)}
+h1{font-size:1.75rem;line-height:1.2;letter-spacing:-.01em;margin:0 0 8px}
+h2{font-size:1.25rem;line-height:1.3;margin:0 0 12px}
+p{margin:0 0 12px}
+.brand{display:flex;align-items:center;gap:12px;margin:8px 0 16px}
+.brand svg{width:44px;height:44px;border-radius:11px;flex:none}
+.brand b{font-size:1.25rem}
+.notice{background:var(--warn-bg);color:var(--text);border-radius:12px;padding:12px 14px;font-size:.9375rem;margin:0 0 16px}
+.notice strong{color:var(--warn)}
+.card{background:var(--surface);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin:0 0 16px}
+.muted{color:var(--text-3);font-size:.9375rem}
+.progress-row{display:flex;justify-content:space-between;gap:12px;font-size:.9375rem;font-weight:600;color:var(--text-3);margin-bottom:8px}
+.track{height:6px;border-radius:3px;background:var(--divider);overflow:hidden;margin-bottom:16px}
+.track i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .2s}
+.hint{font-size:.875rem;font-weight:700;color:var(--accent-text);margin:0 0 4px}
+.stem{font-size:1.1875rem;line-height:1.42;font-weight:600;margin:0 0 14px}
+.opts{display:grid;gap:10px;margin:0 0 4px;padding:0;list-style:none}
+.opt{width:100%;min-height:52px;display:flex;align-items:center;gap:12px;text-align:left;padding:10px 14px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.opt[aria-pressed=true]{background:var(--container);border:2px solid var(--accent)}
+.opt:disabled{cursor:default;opacity:1;color:var(--text)}
+.opt.dim{background:var(--surface-2);color:var(--text-3)}
+.opt.ok{background:var(--success-bg);border:2px solid var(--success);color:var(--text)}
+.opt.bad{background:var(--error-bg);border:2px solid var(--error);color:var(--text)}
+.let{width:28px;height:28px;flex:none;border-radius:14px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8125rem;font-weight:700;color:var(--text-3)}
+.opt.ok .let{background:var(--success);border-color:var(--success);color:var(--bg)}
+.opt.bad .let{background:var(--error);border-color:var(--error);color:var(--bg)}
+.lbl{flex:1;min-width:0;overflow-wrap:anywhere}
+.tag{display:block;font-size:.75rem;font-weight:700;margin-top:2px}
+.opt.ok .tag{color:var(--success)}
+.opt.bad .tag{color:var(--error)}
+.feedback{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--container);color:var(--on-container)}
+.feedback h3{font-size:1.0625rem;margin:0 0 4px;outline:none}
+.feedback p{margin:0}
+.feedback .src{font-size:.8125rem;margin-top:6px;opacity:.85}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;margin-top:14px;padding:10px 16px;border:0;border-radius:12px;background:var(--accent);color:var(--on-accent);font-family:inherit;font-size:1.0625rem;font-weight:600;line-height:1.3;text-decoration:none;text-align:center;cursor:pointer}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn.ghost{background:transparent;color:var(--accent-text);border:1.5px solid var(--border)}
+.score{font-size:2.5rem;line-height:1.15;font-weight:700;margin:0 0 4px}
+ul.plain{margin:0;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+.sources{font-size:.9375rem}
+.sources li{margin-bottom:8px;overflow-wrap:anywhere}
+footer{font-size:.875rem;color:var(--text-3);padding:4px 0 24px}
+footer a{color:inherit}
+.crumb{font-size:.9375rem;margin:0 0 12px}
+.links{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.links a{display:block;min-height:44px;padding:10px 14px;border:1.5px solid var(--border);border-radius:12px;text-decoration:none;font-weight:600;overflow-wrap:anywhere}
+.links a span{display:block;font-weight:400;font-size:.9375rem;color:var(--text-3)}
+.links a:hover{border-color:var(--accent)}
+section.card>h3{font-size:1.0625rem;margin:14px 0 6px}
+.feedback h4{font-size:1.0625rem;margin:0 0 4px;outline:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 1024 1024"> <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"> <stop offset="0" stop-color="#5257C2"/><stop offset="1" stop-color="#4348AE"/> </linearGradient></defs> <rect width="1024" height="1024" fill="url(#bg)"/> <g transform="translate(512 512) scale(9.6) translate(-52 -48)"> <path d="M22 56 L40 74 C52 54 62 38 80 22" fill="none" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M52.3 54.3 Q 61.30 50.3 62.3 59.3" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/><path d="M62.3 59.8 C 56.00 59.8, 55.40 66.55, 53.30 74.80 q 3.00 3.30 6.00 0 q 3.00 3.30 6.00 0 q 3.00 3.30 6.00 0 C 69.20 66.55, 68.60 59.8, 62.3 59.8 z" fill="#E4E5FF"/><path d="M61.6 41.5 Q 69.70 37.5 70.6 46.0" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/><path d="M70.6 46.5 C 65.35 46.5, 64.85 52.12, 63.10 59.00 q 2.50 2.75 5.00 0 q 2.50 2.75 5.00 0 q 2.50 2.75 5.00 0 C 76.35 52.12, 75.85 46.5, 70.6 46.5 z" fill="#CDD0FF"/><path d="M71.0 30.7 Q 78.20 26.7 79.0 34.7" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/><path d="M79.0 35.2 C 75.01 35.2, 74.63 39.61, 73.30 45.00 q 1.90 2.16 3.80 0 q 1.90 2.16 3.80 0 q 1.90 2.16 3.80 0 C 83.37 39.61, 82.99 35.2, 79.0 35.2 z" fill="#B3B7F7"/> </g></svg> <b>Bluebell</b></header>
+
+  <p class="notice"><strong>Not a government app.</strong> Bluebell is an independent study app made by Kodfu Bilisim. It does not represent the Home Office, UK Visas and Immigration or any government body, and it is not affiliated with or endorsed by them or by TSO.</p>
+
+  <p class="crumb"><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/">Free practice questions</a></p>
+  <main>
+  <h1>Life in the UK Test guide: format, booking, ID and the day itself</h1>
+  <p class="muted">A plain-English summary of what GOV.UK says about the test, read on 09/11/2026. Rules can change, so check <a href="https://www.gov.uk/life-in-the-uk-test" rel="noopener">GOV.UK</a> before you book or apply.</p>
+
+  <section class="card">
+    <h2>Do you need the test?</h2>
+    <p>You may need to pass it as part of an application for British citizenship or settlement in the UK. The guidance and form for your application say whether you do.</p>
+    <p>GOV.UK says you do not need to take it if you:</p>
+    <ul class="plain">
+      <li>are under 18</li>
+      <li>are 65 or over</li>
+      <li>have passed it before, for example for an earlier settlement application</li>
+      <li>have a long-term physical or mental condition, shown by an <a href="https://www.gov.uk/government/publications/life-in-the-uk-test-exemption-long-term-physical-or-mental-condition" rel="noopener">exemption form</a> or a letter from a doctor</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>The test format</h2>
+    <ul class="plain">
+      <li>24 questions in 45 minutes.</li>
+      <li>You need 75% or more to pass, which is 18 of the 24.</li>
+      <li>You are only tested on the handbook, <cite>Life in the United Kingdom: A Guide for New Residents</cite>. GOV.UK says to study it to prepare.</li>
+      <li>The handbook comes as a book, an eBook or in audio formats, from the <a href="https://www.officiallifeintheuk.co.uk/shop" rel="noopener">shop linked from GOV.UK</a>.</li>
+    </ul>
+    <p class="muted" style="margin:12px 0 0">Source: <a href="https://www.gov.uk/life-in-the-uk-test/what-happens-test" rel="noopener">What happens at the test (GOV.UK)</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Booking</h2>
+    <ul class="plain">
+      <li>Book online at least 3 days in advance. It costs £50.</li>
+      <li>GOV.UK links to the only government booking service for the test: <a href="https://www.lituktestbooking.co.uk/lituk-web/" rel="noopener">book the test</a>.</li>
+      <li>There are over 30 test centres in the UK, and you choose one when you book.</li>
+      <li>You need an email address, a debit or credit card and an accepted form of ID.</li>
+      <li>The name on your booking must exactly match the name on the ID you use to book.</li>
+      <li>You can make special requests when you book, for example if you have a disability and need extra equipment or help getting into the centre.</li>
+    </ul>
+    <p style="margin:12px 0 0">If you have changed gender and do not want test centre staff to see your previous gender, GOV.UK asks you to email the Home Office before booking. The address is on the <a href="https://www.gov.uk/life-in-the-uk-test" rel="noopener">GOV.UK booking page</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>What ID to bring</h2>
+    <p>If you have an eVisa, GOV.UK says you should use a share code to book. You get one by signing in to your UK Visas and Immigration account: <a href="https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status" rel="noopener">view your eVisa and get a share code</a>.</p>
+    <p>If you do not have an eVisa or cannot access it, you can use one of these:</p>
+    <ul class="plain">
+      <li>a valid passport</li>
+      <li>a valid ID card from the EU, Switzerland, Iceland, Liechtenstein or Norway</li>
+      <li>a valid travel document with a photo (not an emergency travel document)</li>
+      <li>a biometric residence permit or card, as long as your test is no later than 24 months after the expiry date printed on the card or before 31 December 2026, whichever comes first</li>
+    </ul>
+    <p style="margin:12px 0 0">The ID must have a photo that looks like you. If you have none of these, <a href="https://www.gov.uk/contact-ukvi-inside-outside-uk" rel="noopener">contact UK Visas and Immigration</a>.</p>
+    <p>On the day you must bring the same ID you used to book. It must be the original, not a copy or a screenshot.</p>
+  </section>
+
+  <section class="card">
+    <h2>What happens on the day</h2>
+    <ul class="plain">
+      <li>You cannot bring children or other family members with you to the centre.</li>
+      <li>Your photo is taken on the day to confirm your ID.</li>
+      <li>If you do not bring the correct ID, or you refuse to have your photo taken, you will not be able to take the test and you will not get a refund.</li>
+      <li>You then have 45 minutes to answer the 24 questions.</li>
+    </ul>
+    <h3>If you pass</h3>
+    <p>You get a unique reference number. You need it to complete your citizenship or settlement application, and the Home Office uses it to check that you passed.</p>
+    <h3>If you do not pass</h3>
+    <p>You can rebook as many times as you need, and you pay each time.</p>
+  </section>
+
+  <section class="card">
+    <h2>Cancelling or rearranging</h2>
+    <ul class="plain">
+      <li>You get a refund if you cancel at least 3 days (72 hours) before your test. You will not get one if you cancel or rearrange within 3 days of it.</li>
+      <li>To cancel, sign in to your <a href="https://www.lituktestbooking.co.uk/lituk-web/login" rel="noopener">Life in the UK account</a>, select Confirmed tests, then Cancel tests. The £50 goes back to the card you booked with.</li>
+      <li>You can ask for a refund if the test centre cancels the test, within 3 months of the test date.</li>
+      <li>You cannot ask for a refund if you brought the wrong ID or documents, were ill, were late, or refused to have your photo taken.</li>
+    </ul>
+    <p class="muted" style="margin:12px 0 0">Source: <a href="https://www.gov.uk/life-in-the-uk-test/cancellations-refunds-complaints" rel="noopener">Cancellations, refunds and complaints (GOV.UK)</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Practise for free</h2>
+    <p>Each chapter of the handbook has its own short quiz here, with explanations and no sign-up.</p>
+    <ul class="links">
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/values-and-principles/">Chapter 1: The values and principles of the UK<span>British values, freedoms, citizenship · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/what-is-the-uk/">Chapter 2: What is the UK?<span>The four countries and what the names mean · 5 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/a-long-and-illustrious-history/">Chapter 3: A long and illustrious history<span>British history, from the Stone Age to modern Britain · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/a-modern-thriving-society/">Chapter 4: A modern, thriving society<span>UK cities, customs, sport, arts and places · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/government-law-and-your-role/">Chapter 5: The UK government, the law and your role<span>Parliament, the law and taking part · 10 questions</span></a></li>
+      <li><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/practice/">Mixed practice test<span>10 questions from across the handbook</span></a></li>
+    </ul>
+  </section>
+  </main>
+
+  <section class="card">
+    <h2>Want more practice?</h2>
+    <p>Bluebell is an Android app with 900+ original practice questions across all five chapters, plain-English explanations, full mock tests of 24 questions in 45 minutes, spaced review and a mistakes list. It works offline, with no ads and no account.</p>
+    <p><strong>Free:</strong> Chapter 1 in full, six free questions in every other topic, two full mock tests and all the tools.<br><strong>Bluebell Pro, £6.99 one-off:</strong> every question, every mock test and every study note. No subscription.</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.kodfu.bluebell" rel="noopener">Get Bluebell on Google Play</a>
+    <p class="muted" style="margin:10px 0 0">For Android phones.</p>
+  </section>
+
+  <section class="card sources">
+    <h2>Official sources</h2>
+    <p class="muted">Check these public pages before you book or apply.</p>
+    <ul class="plain">
+      <li><a href="https://www.gov.uk/life-in-the-uk-test" rel="noopener">Life in the UK Test (GOV.UK)</a></li>
+      <li><a href="https://www.gov.uk/life-in-the-uk-test/what-happens-test" rel="noopener">What happens at the test and the pass mark (GOV.UK)</a></li>
+      <li><a href="https://www.officiallifeintheuk.co.uk/shop" rel="noopener">The handbook and study materials (the shop linked from GOV.UK)</a></li>
+      <li><a href="https://www.lituktestbooking.co.uk/lituk-web/" rel="noopener">Book the test (the booking service linked from GOV.UK)</a></li>
+    </ul>
+    <p class="muted" style="margin:10px 0 0">This guide is general information, not immigration advice.</p>
+  </section>
+
+  <footer>
+    <p>This page has no cookies, analytics or trackers.</p>
+    <p><a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/" rel="noopener">Support</a> · <a href="https://gurkanbirer.github.io/kodfu-apps-site/bluebell/privacy/" rel="noopener">Privacy</a> · © Kodfu Bilisim</p>
+  </footer>
+</div>
+</body>
+</html>
