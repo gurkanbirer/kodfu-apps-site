@@ -80,3 +80,11 @@ Search Console UI (owner's Google account). Submit each `https://<host>/sitemap.
 - 04/11/2026: support, privacy and terms pages on GitHub Pages (`gurkanbirer.github.io/kodfu-apps-site`).
 - 26/11/2026: Pages switched off, then back on the same day as a temporary host.
 - 27/11/2026: the five sites go live on kodfu-box (this runbook); Pages kept, with canonical links to the new hosts.
+
+## Google Search Console (27/11/2026)
+
+Account `info.kodfu@gmail.com`. Domain property `sc-domain:sparkwiseapp.co.uk`, verified by a DNS TXT record in the
+Cloudflare zone (`deploy/cloudflare.py txt …`; keep the record). URL-prefix properties `https://bluebell.kodfu.com/`,
+`https://hivis.kodfu.com/`, `https://fareback.kodfu.com/`, `https://tickover.kodfu.com/`, verified by the HTML file
+`googleea66026b8981bf38.html`: it lives at the repo root and `tools/build.py` copies it to every host's root. Do not delete
+it, or those properties lose verification. Every host's `sitemap.xml` is submitted.
