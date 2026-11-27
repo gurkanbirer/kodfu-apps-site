@@ -659,6 +659,11 @@ def build(app):
     open(os.path.join(out, "sitemap.xml"), "w").write(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
     open(os.path.join(out, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: https://{cfg['host']}/sitemap.xml\n")
+    # Google Search Console HTML-file verification (account info.kodfu@gmail.com): the repo-root
+    # google*.html files are copied to every host's root so URL-prefix properties verify.
+    for name in os.listdir(ROOT):
+        if name.startswith("google") and name.endswith(".html"):
+            shutil.copy(os.path.join(ROOT, name), os.path.join(out, name))
     print(f"{app}: {len(pages)} pages -> https://{cfg['host']}/" + (f" ({extra} practice questions)" if extra else ""))
 
 
