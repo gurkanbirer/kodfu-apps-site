@@ -136,6 +136,14 @@ def settings():
         else:
             cf("PATCH", f"/zones/{zone()}/settings/{key}", {"value": value})
             print(f"{key}: {cur} → {value}")
+    # Network Error Logging off: browsers would otherwise send error reports to Cloudflare
+    # (the site promises no trackers).
+    cur = cf("GET", f"/zones/{zone()}/settings/nel")["value"]
+    if cur.get("enabled"):
+        cf("PATCH", f"/zones/{zone()}/settings/nel", {"value": {"enabled": False}})
+        print("nel: on → off")
+    else:
+        print("nel = off ok")
 
 
 def redirect():
