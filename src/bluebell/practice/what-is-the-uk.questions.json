@@ -1,0 +1,73 @@
+[
+ {
+  "type": "single",
+  "stem": "Which list names all the countries of the United Kingdom?",
+  "options": [
+   "England, Scotland, Wales and the Republic of Ireland",
+   "England, Scotland, Wales and Northern Ireland",
+   "England, Scotland and Wales",
+   "England, Wales and Northern Ireland"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "The UK has four countries: England, Scotland, Wales and Northern Ireland. The Republic of Ireland is a separate, independent country.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ },
+ {
+  "type": "single",
+  "stem": "Which countries together make up Great Britain?",
+  "options": [
+   "England, Scotland and Northern Ireland",
+   "England, Scotland, Wales and Northern Ireland",
+   "England, Scotland and Wales",
+   "England and Wales only"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Great Britain means England, Scotland and Wales. Adding Northern Ireland gives the United Kingdom.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ },
+ {
+  "type": "single",
+  "stem": "What is the full official name of the UK?",
+  "options": [
+   "The Commonwealth of Great Britain and Ireland",
+   "The United Kingdom of England, Scotland and Wales",
+   "The United Kingdom of Great Britain and Northern Ireland",
+   "The United Kingdom of the British Isles and Ireland"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "The official name includes both Great Britain and Northern Ireland.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ },
+ {
+  "type": "truefalse",
+  "stem": "Northern Ireland is part of Great Britain.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Northern Ireland is part of the United Kingdom, but Great Britain means only England, Scotland and Wales.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ },
+ {
+  "type": "truefalse",
+  "stem": "The Republic of Ireland is part of the United Kingdom.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "The Republic of Ireland is an independent country. Only Northern Ireland, on the same island, is part of the UK.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ }
+]

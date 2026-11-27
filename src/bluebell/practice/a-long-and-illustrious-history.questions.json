@@ -1,0 +1,152 @@
+[
+ {
+  "type": "truefalse",
+  "stem": "For much of the Stone Age, Britain was joined to mainland Europe by a land bridge.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "A land bridge linked Britain to the continent, so people could follow herds of animals across it.",
+  "source": "Handbook ch. 3 · Early Britain"
+ },
+ {
+  "type": "single",
+  "stem": "Where is Skara Brae, the best-preserved prehistoric village in northern Europe?",
+  "options": [
+   "Anglesey, off the coast of Wales",
+   "Orkney, off the north coast of Scotland",
+   "County Antrim in Northern Ireland",
+   "The Isle of Wight, off southern England"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Skara Brae is on Orkney. Its stone houses survived because sand covered them for centuries.",
+  "source": "Handbook ch. 3 · Early Britain"
+ },
+ {
+  "type": "single",
+  "stem": "Which king passed the Statute of Rhuddlan, bringing Wales under the English Crown?",
+  "options": [
+   "Henry VIII",
+   "Richard III",
+   "King John",
+   "Edward I"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Edward I passed the Statute of Rhuddlan in 1284 and built castles to control Wales.",
+  "source": "Handbook ch. 3 · The Middle Ages"
+ },
+ {
+  "type": "multi",
+  "stem": "Which of these castles were built in Wales in the Middle Ages to keep control of the country? Select TWO.",
+  "options": [
+   "Windsor",
+   "Edinburgh",
+   "Conwy",
+   "Caernarfon"
+  ],
+  "correct": [
+   2,
+   3
+  ],
+  "explanation": "Conwy and Caernarfon were built in Wales for Edward I. Edinburgh Castle is in Scotland and Windsor is in England.",
+  "source": "Handbook ch. 3 · The Middle Ages"
+ },
+ {
+  "type": "single",
+  "stem": "Which of Henry VIII's wives was the mother of his son, Edward?",
+  "options": [
+   "Anne Boleyn",
+   "Jane Seymour",
+   "Anne of Cleves",
+   "Catherine of Aragon"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Jane Seymour gave Henry the son he wanted, Edward, but died soon after the birth.",
+  "source": "Handbook ch. 3 · The Tudors and Stuarts"
+ },
+ {
+  "type": "single",
+  "stem": "Who is usually regarded as the first Prime Minister?",
+  "options": [
+   "Oliver Cromwell",
+   "William Pitt",
+   "Sir Robert Walpole",
+   "The Duke of Wellington"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Sir Robert Walpole was the first person called Prime Minister, serving from 1721 to 1742.",
+  "source": "Handbook ch. 3 · A global power"
+ },
+ {
+  "type": "single",
+  "stem": "At which battle in 1746 was Bonnie Prince Charlie defeated?",
+  "options": [
+   "The Boyne",
+   "Waterloo",
+   "Culloden",
+   "Bannockburn"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "George II's army defeated Charles Edward Stuart at Culloden in 1746.",
+  "source": "Handbook ch. 3 · A global power"
+ },
+ {
+  "type": "single",
+  "stem": "In 1918, which women gained the right to vote?",
+  "options": [
+   "All women over 18",
+   "Only women who had served in the war",
+   "Only married women",
+   "Women over the age of 30"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "In 1918 women over 30 gained the vote and the right to stand for Parliament.",
+  "source": "Handbook ch. 3 · The 20th century"
+ },
+ {
+  "type": "multi",
+  "stem": "Which of these did the Labour government take into public ownership after 1945? Select TWO.",
+  "options": [
+   "Supermarkets",
+   "The coal mines",
+   "Newspapers",
+   "The railways"
+  ],
+  "correct": [
+   1,
+   3
+  ],
+  "explanation": "The railways, coal mines and gas, water and electricity supplies were nationalised.",
+  "source": "Handbook ch. 3 · Britain since 1945"
+ },
+ {
+  "type": "single",
+  "stem": "What did the Beveridge Report of 1942 recommend?",
+  "options": [
+   "Tackling five Giant Evils such as want and disease",
+   "Joining the European Economic Community",
+   "Building a railway tunnel under the Channel to France",
+   "Giving women the vote"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "William Beveridge's report called on the government to fight five Giant Evils, laying the basis of the welfare state.",
+  "source": "Handbook ch. 3 · Britain since 1945"
+ }
+]

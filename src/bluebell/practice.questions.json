@@ -1,0 +1,152 @@
+[
+ {
+  "type": "single",
+  "stem": "Which principle means that the government, the police and ordinary people must all obey the same laws?",
+  "options": [
+   "Tolerance of other faiths",
+   "Individual liberty",
+   "Community participation",
+   "The rule of law"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Under the rule of law nobody is above the law, including people in power.",
+  "source": "Handbook ch. 1 · The values and principles of the UK"
+ },
+ {
+  "type": "multi",
+  "stem": "Which of these are part of the United Kingdom? Select TWO.",
+  "options": [
+   "Wales",
+   "Northern Ireland",
+   "The Republic of Ireland",
+   "The Isle of Man"
+  ],
+  "correct": [
+   0,
+   1
+  ],
+  "explanation": "Wales and Northern Ireland are two of the UK's four countries. The Isle of Man is a Crown dependency and Ireland is independent.",
+  "source": "Handbook ch. 2 · What is the UK?"
+ },
+ {
+  "type": "single",
+  "stem": "In which English county is Stonehenge?",
+  "options": [
+   "Wiltshire",
+   "Kent",
+   "Cornwall",
+   "Yorkshire"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Stonehenge stands in Wiltshire, in south-west England.",
+  "source": "Handbook ch. 3 · Early Britain"
+ },
+ {
+  "type": "single",
+  "stem": "At which battle in 1314 did the Scots defeat the English?",
+  "options": [
+   "Bosworth Field",
+   "Bannockburn",
+   "Hastings",
+   "Agincourt"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Robert the Bruce led the Scots to victory over the English at Bannockburn in 1314.",
+  "source": "Handbook ch. 3 · The Middle Ages"
+ },
+ {
+  "type": "multi",
+  "stem": "Which of Henry VIII's wives were executed? Select TWO.",
+  "options": [
+   "Anne Boleyn",
+   "Catherine Parr",
+   "Catherine Howard",
+   "Jane Seymour"
+  ],
+  "correct": [
+   0,
+   2
+  ],
+  "explanation": "Anne Boleyn and her cousin Catherine Howard were both executed. Jane Seymour died after childbirth and Catherine Parr outlived Henry.",
+  "source": "Handbook ch. 3 · The Tudors and Stuarts"
+ },
+ {
+  "type": "single",
+  "stem": "Why did George I rely heavily on his ministers?",
+  "options": [
+   "He lived in France",
+   "He spoke little English",
+   "He was too young to rule",
+   "He was often ill"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "George I spoke little English, so his ministers took on more of the work of government.",
+  "source": "Handbook ch. 3 · A global power"
+ },
+ {
+  "type": "single",
+  "stem": "Which Minister for Health led the setting up of the NHS?",
+  "options": [
+   "William Beveridge",
+   "R A Butler",
+   "Clement Attlee",
+   "Aneurin (Nye) Bevan"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Aneurin Bevan, Minister for Health, led the creation of the NHS in 1948.",
+  "source": "Handbook ch. 3 · Britain since 1945"
+ },
+ {
+  "type": "single",
+  "stem": "Which flower is associated with Wales?",
+  "options": [
+   "The rose",
+   "The shamrock",
+   "The daffodil",
+   "The thistle"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "The daffodil is the flower of Wales. The thistle is Scotland's, the rose England's and the shamrock Northern Ireland's.",
+  "source": "Handbook ch. 4 · Leisure; Places of interest"
+ },
+ {
+  "type": "single",
+  "stem": "Which statement about British democracy is correct?",
+  "options": [
+   "It developed gradually over many years",
+   "It was introduced all at once after a revolution",
+   "It was copied from the French constitution",
+   "It began only after the Second World War"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Britain's democracy grew step by step, as the right to vote was gradually widened.",
+  "source": "Handbook ch. 5 · British democracy and the government"
+ },
+ {
+  "type": "truefalse",
+  "stem": "Civil servants are politically neutral and are chosen on merit.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Civil servants are not political appointees. They are selected on merit and must stay neutral.",
+  "source": "Handbook ch. 5 · Devolution; The UK and the world"
+ }
+]

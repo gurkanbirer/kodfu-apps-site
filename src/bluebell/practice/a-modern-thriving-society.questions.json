@@ -1,0 +1,154 @@
+[
+ {
+  "type": "single",
+  "stem": "Roughly how far is it from John O'Groats to Land's End?",
+  "options": [
+   "300 miles (480 km)",
+   "870 miles (1,400 km)",
+   "550 miles (885 km)",
+   "1,500 miles (2,400 km)"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "The distance is about 870 miles, which is around 1,400 kilometres.",
+  "source": "Handbook ch. 4 · The UK today; Religion"
+ },
+ {
+  "type": "single",
+  "stem": "Which of these cities is in Wales?",
+  "options": [
+   "Leeds",
+   "Bristol",
+   "Swansea",
+   "Dundee"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Swansea is in south Wales. Dundee is in Scotland, and Bristol and Leeds are in England.",
+  "source": "Handbook ch. 4 · The UK today; Religion"
+ },
+ {
+  "type": "single",
+  "stem": "When is St David's Day, the patron saint's day of Wales?",
+  "options": [
+   "23 April",
+   "1 March",
+   "17 March",
+   "30 November"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "St David's Day is 1 March. St Patrick's is 17 March, St George's is 23 April and St Andrew's is 30 November.",
+  "source": "Handbook ch. 4 · Customs and traditions"
+ },
+ {
+  "type": "multi",
+  "stem": "In which parts of the UK is the patron saint's day an official holiday? Select TWO.",
+  "options": [
+   "Scotland",
+   "Wales",
+   "England",
+   "Northern Ireland"
+  ],
+  "correct": [
+   0,
+   3
+  ],
+  "explanation": "Only Scotland and Northern Ireland treat their patron saint's day as an official holiday.",
+  "source": "Handbook ch. 4 · Customs and traditions"
+ },
+ {
+  "type": "multi",
+  "stem": "In which of these years, apart from 2012, did London host the Olympic Games? Select TWO.",
+  "options": [
+   "1968",
+   "1908",
+   "1936",
+   "1948"
+  ],
+  "correct": [
+   1,
+   3
+  ],
+  "explanation": "London hosted the Olympics in 1908 and 1948 as well as in 2012.",
+  "source": "Handbook ch. 4 · Sport"
+ },
+ {
+  "type": "single",
+  "stem": "Where did the Paralympic Games have their origins?",
+  "options": [
+   "Wembley Stadium in the north-west of London",
+   "The Old Course at St Andrews",
+   "Aintree Racecourse near Liverpool",
+   "Stoke Mandeville Hospital, Buckinghamshire"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "The Paralympics grew from sport for patients with spinal injuries at Stoke Mandeville Hospital.",
+  "source": "Handbook ch. 4 · Sport"
+ },
+ {
+  "type": "single",
+  "stem": "In which London concert hall is the Last Night of the Proms held?",
+  "options": [
+   "The Royal Festival Hall",
+   "The Barbican Centre",
+   "The Royal Albert Hall",
+   "The London Palladium"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "The Last Night of the Proms takes place at the Royal Albert Hall.",
+  "source": "Handbook ch. 4 · Arts and culture"
+ },
+ {
+  "type": "single",
+  "stem": "Which composer wrote The Planets, a suite based on the solar system?",
+  "options": [
+   "Gustav Holst",
+   "Ralph Vaughan Williams",
+   "William Walton",
+   "Benjamin Britten"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Gustav Holst wrote The Planets.",
+  "source": "Handbook ch. 4 · Arts and culture"
+ },
+ {
+  "type": "single",
+  "stem": "What is an allotment?",
+  "options": [
+   "A type of flower show held each summer",
+   "Land rented to grow fruit and vegetables",
+   "A small park owned by the local council",
+   "A shop that sells garden tools and seeds"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Some people rent an allotment, a piece of land where they grow their own fruit and vegetables.",
+  "source": "Handbook ch. 4 · Leisure; Places of interest"
+ },
+ {
+  "type": "single",
+  "stem": "Which of these famous gardens is in Wales?",
+  "options": [
+   "Bodnant Garden",
+   "Sissinghurst",
+   "Inveraray Castle",
+   "Mount Stewart"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Bodnant Garden is in Wales. Sissinghurst is in England, Mount Stewart in Northern Ireland and Inveraray Castle in Scotland.",
+  "source": "Handbook ch. 4 · Leisure; Places of interest"
+ }
+]

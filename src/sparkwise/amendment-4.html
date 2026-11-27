@@ -1,0 +1,101 @@
+<!--meta
+title: BS 7671 Amendment 4 (A4:2026): What Changed | Sparkwise
+description: What changed in BS 7671:2018+A4:2026, the orange book: key dates, new Chapter 57, Sections 545 and 716, PNB, AFDD wording, EICR and model form changes.
+updated: 2026-11-26
+nav: a4
+-->
+<h1>BS 7671 Amendment 4 (A4:2026): what changed</h1>
+<p class="lead">Amendment 4 to BS 7671:2018 is the current edition of the IET Wiring Regulations, recognisable by its orange cover. It adds new rules for batteries, Power over Ethernet and functional earthing, rewrites the medical locations section, recognises protective neutral bonding and changes the condition report. Here is a plain-English summary, with the numbers to look up in your own copy.</p>
+<p class="muted">This page is our own summary, not the text of the standard. Always check the detail in BS 7671:2018+A4:2026 itself.</p>
+
+<div class="toc">
+<p><strong>On this page</strong></p>
+<ul>
+<li><a href="#dates">Key dates</a></li>
+<li><a href="#new">New chapters and sections</a></li>
+<li><a href="#pnb">Protective neutral bonding (PNB)</a></li>
+<li><a href="#fire">AFDDs, escape routes and fire</a></li>
+<li><a href="#forms">EICR and model forms</a></li>
+<li><a href="#other">Other changes</a></li>
+<li><a href="#exam">What it means for the 2382-26 exam</a></li>
+</ul>
+</div>
+
+<h2 id="dates">Key dates</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Date</th><th>What happened</th></tr></thead>
+<tbody>
+<tr><td>January 2026</td><td>The joint IET and BSI committee finished work on Amendment 4.</td></tr>
+<tr><td>15/04/2026</td><td>BS 7671:2018+A4:2026 published, available for use straight away. City &amp; Guilds centres had to use the 2382-26 exam from 16/04/2026.</td></tr>
+<tr><td>15/10/2026</td><td>The previous version, BS 7671:2018+A2:2022 (with A3:2024), withdrawn. New installations from then on must meet A4.</td></tr>
+<tr><td>From 16/10/2026</td><td>A4:2026 is the only current version.</td></tr>
+</tbody>
+</table>
+</div>
+<p>An installation already being built to the previous version when A4 took over can, subject to what was agreed in the contract, be finished and certified to the version it was designed to. An existing installation that met an earlier edition is not automatically unsafe and does not have to be upgraded just because A4 was published.</p>
+<p>Amendment 3:2024, a short amendment about devices where current can flow both ways, is now part of the consolidated A4 text, so there is one book to work from.</p>
+
+<h2 id="new">New chapters and sections</h2>
+<h3>Chapter 57: stationary secondary batteries (new)</h3>
+<p>A whole new chapter in Part 5 for batteries that store energy and supply it back to the installation, such as home battery systems alongside solar PV. A battery that can discharge is treated as a source of supply, much like a generating set, not as just another load. The chapter deals with choosing the battery, its power conversion equipment and energy management system, earthing, shock protection, fault current on the DC side, isolation, ventilation and notices. Batteries built into products, and those in fire alarm or emergency lighting systems covered by their own standards, are outside its scope. In dwellings, siting follows PAS 63100.</p>
+<h3>Section 545: functional earthing and bonding for ICT (new)</h3>
+<p>Found in Chapter 54, this covers earthing and bonding that exists so IT and communications equipment works properly and electromagnetic interference is reduced. It is not shock protection: that is still the job of protective earthing and bonding. It sets requirements for conductor sizes, identification and continuity, the main functional earthing terminal and bonding ring conductors. Functional earthing conductors are identified in pink, and green-and-yellow must not be used for functional bonding. Table 51 now includes symbols for these conductors.</p>
+<h3>Section 716: Power over Ethernet (new)</h3>
+<p>PoE sends extra-low voltage DC power over data cables to devices such as CCTV cameras, wireless access points and lighting. BS 7671 had no rules for it before. The main concern is heat: large bundles of cables carrying higher PoE power can warm up, so current-carrying capacity and installation conditions matter. The section covers the source of supply, shock protection, overcurrent and the choice of cables and accessories, and expects the electrical and ICT designers to work together. Scope regulation 110.1 now lists both batteries and PoE.</p>
+<h3>Section 710: medical locations (major revision)</h3>
+<p>Not new, but largely rewritten to line up with NHS requirements. The aim is unchanged: keep touch voltages very low around patients and keep life-critical equipment running. For group 2 locations it requires measures against a total loss of power, including independent supplies and a UPS, and medical IT systems with insulation monitoring are still used for life-critical equipment. An informative annex adds a model schedule for recording the measured resistance of each supplementary bonding conductor, at initial verification and at periodic inspection.</p>
+<h3>Chapter 81: energy efficiency (moved into Part 8)</h3>
+<p>Energy efficiency guidance used to be Appendix 17, which has gone. Chapter 81 now sits in Part 8 next to Chapter 82 on prosumer's installations. It is for information: it points to the Building Regulations (Section 6 of the Technical Handbooks in Scotland) for the legal requirements and to BS HD 60364-8-1 for recommendations, and efficiency never comes before safety.</p>
+
+<h2 id="pnb">Protective neutral bonding (PNB)</h2>
+<p>A4 recognises PNB for the first time, as a form of TN-C-S system, with a new figure (Figure 3.9B) and notes under Regulation 312.2.1.1. In PNB the network has a single point where the consumers' installations connect to the source, and the PEN conductor is earthed through an electrode close to the consumers' supply terminals, which limits the voltage rise if the PEN conductor breaks. It is used where only a small number of consumers share a supply. Where PNB is connected to a public network, PME-type conditions can apply, and the notes point to the Electricity Safety, Quality and Continuity Regulations and to ENA Engineering Recommendation G12.</p>
+<p>The model forms now split TN-C-S into two choices, TN-C-S (PME) and TN-C-S (PNB), so whoever fills in a certificate or report has to find out which arrangement is present. <a href="~/practice/18th-edition/general-characteristics/">Practise earthing systems</a>.</p>
+
+<h2 id="fire">AFDDs, escape routes and fire</h2>
+<h3>AFDD wording: high-rise residential buildings</h3>
+<p>Regulation 421.1.7 now says arc fault detection devices are required in <strong>high-rise</strong> residential buildings, instead of the earlier "higher-risk" wording. The term broadly matches the Building Regulations idea of a residential building with a storey more than 18 m above ground; check the exact wording in your copy. The rest is unchanged: AFDDs are still required on single-phase AC final circuits supplying socket-outlets up to 32 A in those buildings, in houses in multiple occupation, purpose-built student accommodation and care homes, and still recommended for such circuits elsewhere. Section 722 clarifies that AFDDs are not needed for circuits supplying certain EV charging equipment.</p>
+<h3>Protected escape routes</h3>
+<p>New UK regulations under 422.2 limit what may be installed in fire-fighting shafts and protected stairways to essential fire safety systems, general lighting and sockets for cleaning or maintenance. Fire-rated cables inside a suitable fire-resisting enclosure can be treated as outside the escape route. Appendix 13 on escape routes and fire protection was rewritten to match.</p>
+<h3>Wiring systems and fire</h3>
+<p>A note to Regulation 521.10.202 clarifies its purpose: to stop wiring collapsing early in a fire and trapping people or firefighters, not to keep circuits working during a fire (that is for Chapter 56 and the relevant codes of practice). Firefighter's switches under Regulation 537.4.2 are now tied to the locations set by the building's fire strategy. <a href="~/practice/18th-edition/thermal-overcurrent/">Practise thermal effects and AFDDs</a>.</p>
+
+<h2 id="forms">EICR and model forms</h2>
+<p>The model forms in Appendix 6 were redrafted, with small changes to the Electrical Installation Certificate and the minor works certificate and bigger changes to the Electrical Installation Condition Report (EICR).</p>
+<ul>
+<li><strong>Overall assessment:</strong> only C1 (danger present) and C2 (potentially dangerous) observations now make an EICR unsatisfactory. C3 (improvement recommended) and FI (further investigation) are advisory. Under the previous forms an FI made the report unsatisfactory, and "without delay" has been dropped from the FI wording.</li>
+<li><strong>Signatures:</strong> separate signatures for the person who inspected and tested and the person who authorised the report for issue.</li>
+<li><strong>Layout and evidence:</strong> observations sit in two tables, and photographs or thermal images may be attached.</li>
+<li><strong>Regulations 653.1 and 653.2:</strong> a periodic inspection must produce an EICR based on the Appendix 6 model, with the rewritten notes for the person producing it and guidance for the recipient.</li>
+<li><strong>Recipient guidance:</strong> test RCDs with their test button every six months, test AFDDs that have a test facility as the manufacturer says, and check SPD status indicators.</li>
+<li><strong>Consumer unit changes</strong> need an Electrical Installation Certificate, not an EICR.</li>
+<li><strong>New fields</strong> for PME or PNB, and for AFDDs and their test results.</li>
+</ul>
+<p>The IET offers the A4 model forms as free downloads from its <a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/" rel="noopener">BS 7671 page</a>. <a href="~/practice/18th-edition/inspection-testing/">Practise inspection and testing</a>.</p>
+
+<h2 id="other">Other changes worth knowing</h2>
+<ul>
+<li><strong>Bidirectional devices (from A3:2024):</strong> where current can flow through a protective device either way, for example with PV or batteries feeding a board, the device must be suitable for bidirectional operation (Regulation 530.3.201). Devices marked "line" and "load" or with arrows are one-way only.</li>
+<li><strong>Generating sets (Section 551):</strong> new wording on devices where energy flow is bidirectional, and stationary batteries count as a generating set, not a load.</li>
+<li><strong>RCDs in series (531.3.3):</strong> a new note says every RCD in a chain must suit the type of residual current expected, to avoid "blinding" an upstream RCD, for example a Type AC upstream of a Type A, F or B.</li>
+<li><strong>Assemblies and overload (536.4.202):</strong> redrafted rules on coordinating a consumer unit or distribution board with its overload protection, now including load curtailment. Diversity is not a form of load curtailment.</li>
+<li><strong>Isolation (Section 537):</strong> Table 537.4 now names disconnectors and switch-disconnectors, with new definitions in Part 2.</li>
+<li><strong>Concealed cables (Table 52.1):</strong> a new table brings together the options for cables concealed in walls and partitions.</li>
+<li><strong>Buried cables:</strong> a note to 522.8.10 on conduits giving equivalent mechanical protection, and Appendix 4 now rates cables laid directly in the ground separately from cables in ducts, with new installation methods 72 and 73 and reference method D2.</li>
+<li><strong>Connections (526.2, 526.9.1, Table 52.4):</strong> the conductor class (solid, stranded, flexible) must be considered when choosing terminals, and fine-wire conductor ends may need treating, for example with crimps.</li>
+<li><strong>Safety services (Chapter 56):</strong> updated wording on battery sources, and central safety power supply systems to BS EN 50171.</li>
+<li><strong>Part 7 updates:</strong> Section 702 can be applied to outdoor hot tubs; Section 709 marina supplies use isolating transformers to prevent galvanic currents; Section 714 clarifies street furniture and RCD protection for outdoor lighting the public can reach.</li>
+<li><strong>Definitions:</strong> many new terms in Part 2, including battery, secondary cell, transfer switching equipment, balanced cable and protective neutral bonding.</li>
+</ul>
+
+<h2 id="exam">What A4 means for the 2382-26 exam</h2>
+<p>The 2382-26 exam is written against BS 7671:2018+A4:2026, so you need the orange book and should know where each change sits. The test specification names stationary secondary batteries in the selection and erection outcome and Section 716 in the special locations outcome. Expect questions on where things are (Chapter 57, Section 545, Section 716, Chapter 81) as well as what they require.</p>
+<p>A good way to revise A4 is to find each change above in your own copy, tab it, and then answer questions on it with the book open.</p>
+
+<div class="callout">
+<p><strong>Practise Amendment 4.</strong> Try the <a href="~/practice/18th-edition/amendment-4/">Amendment 4 practice questions</a>, then look at <a href="~/practice/18th-edition/other-equipment/">other equipment, safety services and batteries</a> and <a href="~/practice/18th-edition/special-energy/">medical, solar PV, PoE and EV charging</a>. For the exam itself, read our <a href="~/18th-edition-exam/">18th Edition exam guide</a>.</p>
+</div>
+
+<!--cta-->
+
+<!--sources-->

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fareback.kodfu.com/sitemap.xml

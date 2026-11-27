@@ -1,0 +1,147 @@
+[
+ {
+  "type": "single",
+  "stem": "In which year was the voting age lowered from 21 to 18?",
+  "options": [
+   "1918",
+   "1928",
+   "1945",
+   "1969"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "The voting age of 18 was set in 1969. Women won the vote on equal terms with men in 1928.",
+  "source": "Handbook ch. 5 · British democracy and the government"
+ },
+ {
+  "type": "truefalse",
+  "stem": "At the start of the 19th century, every adult man in Britain had the right to vote.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "Only men over 21 who owned a certain amount of property could vote. The right to vote was widened gradually.",
+  "source": "Handbook ch. 5 · British democracy and the government"
+ },
+ {
+  "type": "single",
+  "stem": "Why is the British constitution often described as unwritten?",
+  "options": [
+   "It has never been approved by Parliament",
+   "It is not set out in one single document",
+   "It is kept secret from the public",
+   "It can only be changed by the monarch"
+  ],
+  "correct": [
+   1
+  ],
+  "explanation": "The constitution is made up of laws, conventions and institutions rather than one written document.",
+  "source": "Handbook ch. 5 · British democracy and the government"
+ },
+ {
+  "type": "single",
+  "stem": "What is the main role of civil servants?",
+  "options": [
+   "To stand for election to Parliament",
+   "To judge cases in the criminal courts",
+   "To carry out government policy",
+   "To run election campaigns for parties"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Civil servants help develop and carry out government policy and deliver public services.",
+  "source": "Handbook ch. 5 · Devolution; The UK and the world"
+ },
+ {
+  "type": "single",
+  "stem": "How are local councils funded?",
+  "options": [
+   "Only by selling council land",
+   "Only by donations from businesses",
+   "By the monarch's private income",
+   "By central government and local taxes"
+  ],
+  "correct": [
+   3
+  ],
+  "explanation": "Councils receive money from central government and raise local taxes, such as council tax.",
+  "source": "Handbook ch. 5 · Devolution; The UK and the world"
+ },
+ {
+  "type": "single",
+  "stem": "Which kind of law is used to settle disputes between people or organisations?",
+  "options": [
+   "Military law",
+   "Criminal law",
+   "Civil law",
+   "Church law"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Civil law settles disputes between individuals or groups. Criminal law deals with crimes punished by the courts.",
+  "source": "Handbook ch. 5 · Respecting the law"
+ },
+ {
+  "type": "multi",
+  "stem": "Which of these are criminal offences? Select TWO.",
+  "options": [
+   "Selling tobacco to someone under 18",
+   "Carrying a knife for self-defence",
+   "Owing money to a friend",
+   "Disagreeing with a landlord about repairs"
+  ],
+  "correct": [
+   0,
+   1
+  ],
+  "explanation": "Selling tobacco to under-18s and carrying any weapon, even for self-defence, are crimes. Debts and landlord disputes are civil matters.",
+  "source": "Handbook ch. 5 · Respecting the law"
+ },
+ {
+  "type": "truefalse",
+  "stem": "It is against the law to smoke in nearly every enclosed public place in the UK.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Smoking tobacco is banned in nearly all enclosed public places, and signs show where you cannot smoke.",
+  "source": "Handbook ch. 5 · Respecting the law"
+ },
+ {
+  "type": "truefalse",
+  "stem": "Voting in local and national elections is one of the shared responsibilities of people in the UK.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "correct": [
+   0
+  ],
+  "explanation": "Voting is listed among the shared responsibilities, although nobody can be forced to vote for a particular candidate.",
+  "source": "Handbook ch. 5 · Your role in the community"
+ },
+ {
+  "type": "single",
+  "stem": "How are people chosen for jury service?",
+  "options": [
+   "By their local MP",
+   "From people who pass a legal exam",
+   "At random from the electoral register",
+   "By applying to the local court"
+  ],
+  "correct": [
+   2
+  ],
+  "explanation": "Jurors are picked at random from people on the electoral register.",
+  "source": "Handbook ch. 5 · Your role in the community"
+ }
+]

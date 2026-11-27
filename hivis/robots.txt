@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hivis.kodfu.com/sitemap.xml
