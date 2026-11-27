@@ -55,7 +55,7 @@ IOS_LINE = "Android now; iPhone version not yet available."
 # Play Console's acquisition report breaks installs down by utm_source and utm_campaign. If the
 # position (utm_content) turns out not to be visible there, set this to True: the position is then
 # also appended to the campaign (`<page>--<position>`), so it shows up as its own row.
-UTM_POSITION_IN_CAMPAIGN = False
+UTM_POSITION_IN_CAMPAIGN = True
 
 E = html.escape
 

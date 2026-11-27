@@ -72,9 +72,10 @@ https://play.google.com/store/apps/details?id=<pkg>&referrer=utm_source%3D<host>
 Where to read it: Play Console → the app → **Grow users → Store performance → Store listing
 acquisition** (older menus: Statistics / User acquisition → Acquisition reports), traffic source
 **Third-party referrals**, broken down by **UTM source** and **UTM campaign**: store listing visitors,
-installers and conversion rate per site and page. Play Console shows source and campaign; if
-`utm_content` (the button) is not visible there, set `UTM_POSITION_IN_CAMPAIGN = True` in
-`tools/build.py` and rebuild, so the campaign becomes `<page>--<position>`. Play does not report Pro
+installers and conversion rate per site and page. Play Console shows source and campaign but not
+`utm_content`, so `UTM_POSITION_IN_CAMPAIGN = True` in `tools/build.py` (since 27/11/2026) makes the
+campaign `<page>--<position>` (e.g. `home--hero`); add up the rows with the same `<page>` prefix for
+a page total. Play does not report Pro
 purchases per source; compare installers per page with total Pro sales. The sites still have no
 analytics, cookies or trackers.
 
