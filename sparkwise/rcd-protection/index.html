@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>RCD Protection Explained: 30 mA, Types AC, A, F and B, Testing | Sparkwise</title>
+<meta name="description" content="When BS 7671 needs 30 mA RCD additional protection, how to choose Type AC, A, F or B, RCD test times after A2, and 18th Edition exam tips, in plain English.">
+<link rel="canonical" href="https://sparkwiseapp.co.uk/rcd-protection/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sparkwise">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sparkwiseapp.co.uk/rcd-protection/">
+<meta property="og:title" content="RCD Protection Explained: 30 mA, Types AC, A, F and B, Testing | Sparkwise">
+<meta property="og:description" content="When BS 7671 needs 30 mA RCD additional protection, how to choose Type AC, A, F or B, RCD test times after A2, and 18th Edition exam tips, in plain English.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=46f520a6">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do all socket-outlets need a 30 mA RCD?", "acceptedAnswer": {"@type": "Answer", "text": "Socket-outlets rated up to 32 A need 30 mA additional protection under Regulation 411.3.3. The only exception is for socket-outlets in \"other locations\" (not those used by ordinary persons or children), and only with a documented risk assessment made with a skilled person and attached to the certificate. Sockets above 32 A are outside this regulation, though other rules may apply."}}, {"@type": "Question", "name": "Can I still fit Type AC RCDs?", "acceptedAnswer": {"@type": "Answer", "text": "Only to serve fixed equipment where the load current is known to contain no DC components, which has been the rule since A2:2022. For general socket-outlet and lighting circuits with electronic loads, Type A is the usual minimum, with Type F or B where the equipment needs it."}}, {"@type": "Question", "name": "Is the 5 × IΔn RCD test still required?", "acceptedAnswer": {"@type": "Answer", "text": "No. Since A2:2022 the required test is an AC test at the rated residual operating current, with a maximum of 300 ms for a general non-delay RCD. Tests at ½ × IΔn and 5 × IΔn are optional and can help with fault finding."}}, {"@type": "Question", "name": "What is the difference between an RCD, an RCCB and an RCBO?", "acceptedAnswer": {"@type": "Answer", "text": "RCD is the general name. An RCCB is a residual current circuit-breaker without overcurrent protection, so it needs a fuse or circuit-breaker as well. An RCBO combines residual current and overcurrent protection in one device, which lets each circuit have its own RCD and reduces unwanted tripping."}}, {"@type": "Question", "name": "Will an RCD protect someone who touches line and neutral?", "acceptedAnswer": {"@type": "Answer", "text": "No. Current through the body from line to neutral is balanced, so the RCD sees no residual current. That is why a 30 mA RCD is additional protection, alongside basic protection (insulation and enclosures) and fault protection."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sparkwise", "item": "https://sparkwiseapp.co.uk/"}, {"@type": "ListItem", "position": 2, "name": "RCD protection explained: where, which type and how to test", "item": "https://sparkwiseapp.co.uk/rcd-protection/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 1024 1024"><defs><linearGradient id="swbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2233"/><stop offset="1" stop-color="#0F1522"/></linearGradient><radialGradient id="swglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#1D4ED8" stop-opacity="0.55"/><stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/></radialGradient></defs><rect width="1024" height="1024" fill="url(#swbg)"/><circle cx="512" cy="512" r="430" fill="url(#swglow)"/><g transform="translate(512 512) scale(34) translate(-13 -12)"><path d="M13 2.2 L5 13 h6 l-1 8.8 7 -10.8 h-6 z" fill="#FFC21A" stroke="#FFC21A" stroke-width="1.6" stroke-linejoin="round"/><path d="M16.4 18.2 l2 2 4 -5" fill="none" stroke="#FFC21A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span><strong>Sparkwise</strong><small>18th Edition and ECS HS&amp;E exam practice</small></span></a>
+<nav class="main" aria-label="Sparkwise pages"><ul><li><a href="../">Home</a></li><li><a href="../18th-edition-exam/">18th Edition</a></li><li><a href="../amendment-4/">Amendment 4</a></li><li><a href="../ecs-hse-assessment/">ECS HS&amp;E</a></li><li><a href="../practice/">Practice</a></li><li><a href="../faq/">FAQ</a></li></ul></nav>
+</div></header>
+<main id="main" class="wrap">
+<p class="notice"><strong>Not a government app.</strong> Sparkwise is an independent study app made by Kodfu Bilisim. It is not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. It does not contain the real exam questions and never reproduces BS 7671 text.</p>
+<h1>RCD protection explained: where, which type and how to test</h1>
+<p class="lead">Residual current devices come up in almost every part of the 18th Edition: fault protection on TT systems, additional protection for socket-outlets, the choice of RCD type, and the verification tests in Part 6. This guide pulls the pieces together: what an RCD does, where 30 mA additional protection is required, how Types AC, A, F and B differ, and what the test results should look like.</p>
+<p class="muted">This page is our own explanation, not the text of BS 7671. Check the exact wording, exceptions and notes in your own copy of BS 7671:2018+A4:2026.</p>
+
+<div class="toc">
+<p><strong>On this page</strong></p>
+<ul>
+<li><a href="#what">What an RCD does (and does not do)</a></li>
+<li><a href="#roles">Three jobs an RCD can do</a></li>
+<li><a href="#where">Where 30 mA additional protection is required</a></li>
+<li><a href="#types">RCD types: AC, A, F and B</a></li>
+<li><a href="#tripping">Avoiding unwanted tripping</a></li>
+<li><a href="#testing">Testing RCDs: currents and times</a></li>
+<li><a href="#example">Worked example: reading a test result</a></li>
+<li><a href="#exam">Exam tips</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+
+<h2 id="what">What an RCD does (and does not do)</h2>
+<p>An RCD compares the current flowing out on the line conductor(s) with the current coming back on the neutral. In a healthy circuit they balance. If some current leaks to earth, for example through a damaged cable, a faulty appliance or a person, the difference (the residual current) is detected, and once it reaches the device's operating level the RCD disconnects the circuit.</p>
+<p>Two limits are worth fixing in your head. First, an RCD on its own does not protect against overload or short circuit between line and neutral: that is the job of a fuse or circuit-breaker, or of the overcurrent part of an RCBO. Second, an RCD cannot detect a shock between line and neutral, because the current still balances. That is why BS 7671 treats a 30 mA RCD as <em>additional</em> protection, never as the only measure against electric shock.</p>
+
+<h2 id="roles">Three jobs an RCD can do</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Role</th><th>Typical rating</th><th>Where to look in BS 7671</th></tr></thead>
+<tbody>
+<tr><td><strong>Fault protection</strong> (automatic disconnection), especially on TT systems where the earth fault current is too small for an overcurrent device</td><td>Chosen so that R<sub>A</sub> × I<sub>Δn</sub> ≤ 50 V; often 30 mA or 100 mA</td><td>Chapter 41: 411.4.204, 411.5 (TT), 531.2</td></tr>
+<tr><td><strong>Additional protection</strong> against shock if other measures fail or a user is careless</td><td>Not exceeding 30 mA</td><td>415.1 and 411.3.3, plus Part 7 locations</td></tr>
+<tr><td><strong>Protection against fire</strong> in certain locations</td><td>Not exceeding 300 mA</td><td>422.3.9</td></tr>
+</tbody>
+</table>
+</div>
+<p>For the TT calculation, see the worked example in our <a href="../earthing-systems/#example">earthing systems guide</a>.</p>
+
+<h2 id="where">Where 30 mA additional protection is required</h2>
+<p>The headline requirement is Regulation 411.3.3. In AC systems, additional protection by an RCD with a rated residual operating current not exceeding 30 mA is required for:</p>
+<ul>
+<li>socket-outlets rated up to 32 A used by ordinary persons or children (Part 2 explains the capability codes used in the regulation);</li>
+<li>socket-outlets rated up to 32 A in other locations;</li>
+<li>mobile equipment rated up to 32 A for use outdoors.</li>
+</ul>
+<p>Only the second item, socket-outlets in other locations, can be left without RCD protection, and only on the strength of a documented risk assessment made with a skilled person (electrically) and attached to the electrical installation certificate. A note to the regulation recommends RCD protection of all socket-outlets anyway. The requirement does not apply to FELV or reduced low voltage systems (411.7 and 411.8), and it applies to socket-outlets up to 32 A whether they are single-phase or three-phase, so a 32 A industrial socket-outlet is in scope.</p>
+<p>Several other regulations also call for 30 mA additional protection. In your copy, look up:</p>
+<ul>
+<li><strong>411.3.4</strong> for AC final circuits supplying luminaires in domestic (household) premises;</li>
+<li><strong>522.6.202 and 522.6.203</strong> for cables concealed in walls or partitions at a depth of less than 50 mm that are not otherwise mechanically protected or earthed;</li>
+<li><strong>Section 701</strong> (bathrooms) and the other Part 7 special locations, many of which set their own RCD conditions.</li>
+</ul>
+
+<h2 id="types">RCD types: AC, A, F and B</h2>
+<p>Modern equipment rarely leaks a clean sine wave. Switch-mode power supplies, LED drivers, induction hobs, variable-speed drives, EV chargers and inverters can produce pulsating or smooth DC residual currents, and a basic RCD may not respond to them correctly. Regulation 531.3.3 therefore requires the RCD type to be chosen to suit the residual current the equipment can produce.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Type</th><th>Responds to</th><th>Typical use</th></tr></thead>
+<tbody>
+<tr><td><strong>AC</strong></td><td>Sinusoidal AC residual current only</td><td>Since A2:2022, only fixed equipment where the load current is known to contain no DC components</td></tr>
+<tr><td><strong>A</strong></td><td>As AC, plus pulsating DC residual current</td><td>General circuits with single-phase electronic loads, such as most domestic socket-outlet and lighting circuits</td></tr>
+<tr><td><strong>F</strong></td><td>As A, plus composite (mixed-frequency) residual currents</td><td>Single-phase equipment with frequency inverters, such as some washing machines, heat pumps and pumps</td></tr>
+<tr><td><strong>B</strong></td><td>As F, plus AC up to 1 kHz and smooth DC</td><td>Three-phase electronic equipment, some EV chargers and PV inverters (check the manufacturer's instructions)</td></tr>
+</tbody>
+</table>
+</div>
+<p>The change at A2:2022 matters for both the exam and the job: the 2018 text allowed Type AC for general purposes, but now Type AC is limited to fixed equipment with no DC components in the load current. Amendment 4 adds a note about RCDs in series: each RCD in the chain must suit the residual current expected downstream, so a Type AC device upstream of a Type A, F or B device is a problem. More in our <a href="../amendment-4/">Amendment 4 summary</a>.</p>
+
+<h2 id="tripping">Avoiding unwanted tripping</h2>
+<p>Every piece of electronic equipment leaks a little protective conductor current in normal use. Put too many loads behind one 30 mA RCD and the total can approach the trip level, so the device trips with no fault present. BS 7671 deals with this in two places: Regulation 314.1(iv) asks you to divide an installation into circuits so as to reduce unwanted RCD tripping caused by excessive protective conductor currents, and Regulation 531.3.2 asks for RCDs to be selected and erected to limit that risk, for example by giving circuits their own RCDs or using RCBOs.</p>
+
+<h2 id="testing">Testing RCDs: currents and times</h2>
+<p>A2:2022 simplified RCD testing for initial verification, and the changes still apply under A4. The requirements sit in the notes to Regulation 643.7.1 (fault protection) and 643.8 (additional protection):</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Item</th><th>Current position</th></tr></thead>
+<tbody>
+<tr><td>Test current</td><td>An AC test at the rated residual operating current (I<sub>Δn</sub>), whatever the RCD type</td></tr>
+<tr><td>General (non-delay) RCD</td><td>Maximum operating time 300 ms</td></tr>
+<tr><td>S-type (time-delayed) RCD</td><td>Between 130 ms and 500 ms; not used for additional protection</td></tr>
+<tr><td>5 × I<sub>Δn</sub> test</td><td>No longer required; optional, and a 40 ms result is a reasonable expectation for a 30 mA device</td></tr>
+<tr><td>½ × I<sub>Δn</sub> test</td><td>Optional, useful for fault finding (the RCD should not trip)</td></tr>
+<tr><td>Testing at 0° and 180°</td><td>Not required</td></tr>
+</tbody>
+</table>
+</div>
+<p>The test button checks only the mechanism, not the trip time, and is the check householders are told to carry out every six months.</p>
+
+<h2 id="example">Worked example: reading a test result</h2>
+<p>You are testing a new domestic installation. The socket-outlet circuits are on 30 mA Type A RCBOs and the shower circuit has its own 30 mA RCBO. Your results at I<sub>Δn</sub>:</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Circuit</th><th>Device</th><th>Result at I<sub>Δn</sub></th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td>Ring final, kitchen</td><td>30 mA Type A RCBO</td><td>24 ms</td><td>Satisfactory (≤ 300 ms)</td></tr>
+<tr><td>Shower</td><td>30 mA Type A RCBO</td><td>31 ms</td><td>Satisfactory (≤ 300 ms)</td></tr>
+<tr><td>Garage sub-main</td><td>100 mA S-type RCD</td><td>210 ms</td><td>Satisfactory (130–500 ms), but it cannot count as additional protection</td></tr>
+<tr><td>Garage socket-outlets</td><td>30 mA Type AC RCBO</td><td>28 ms</td><td>Trips in time, but Type AC is not suitable for general socket-outlets: replace with Type A or better</td></tr>
+</tbody>
+</table>
+</div>
+<p>The last row is the trap: a fast trip time does not make the wrong RCD type compliant. Selection (531.3.3) and verification (643) are separate checks.</p>
+
+<h2 id="exam">Exam tips for 2382-26</h2>
+<ul>
+<li>Tab 411.3.3, 411.3.4, 415.1, 522.6.202/203, 531.3.3 and 643.8. Many questions are answered by finding one of these.</li>
+<li>Read the number in the question: 30 mA points to additional protection, 300 mA to fire protection, and an S-type device can never provide additional protection.</li>
+<li>Watch for "32 A": sockets above 32 A are outside 411.3.3; sockets up to 32 A, single- or three-phase, are inside it.</li>
+<li>Questions about the risk-assessment exception expect you to know it covers only socket-outlets in "other locations".</li>
+</ul>
+
+<div class="callout">
+<p><strong>Practise RCD questions.</strong> Try the free <a href="../practice/18th-edition/shock-protection/">protection against electric shock practice questions</a>, then <a href="../practice/18th-edition/devices-earthing/">protective devices, earthing and bonding</a> and <a href="../practice/18th-edition/inspection-testing/">inspection and testing</a>. For the exam itself, read our <a href="../18th-edition-exam/">18th Edition exam guide</a>.</p>
+</div>
+
+<h2 id="faq">FAQ</h2>
+<h3 class="faq-q" id="faq-all-sockets">Do all socket-outlets need a 30 mA RCD?</h3>
+<div class="faq-a"><p>Socket-outlets rated up to 32 A need 30 mA additional protection under Regulation 411.3.3. The only exception is for socket-outlets in "other locations" (not those used by ordinary persons or children), and only with a documented risk assessment made with a skilled person and attached to the certificate. Sockets above 32 A are outside this regulation, though other rules may apply.</p></div>
+
+<h3 class="faq-q" id="faq-type-ac">Can I still fit Type AC RCDs?</h3>
+<div class="faq-a"><p>Only to serve fixed equipment where the load current is known to contain no DC components, which has been the rule since A2:2022. For general socket-outlet and lighting circuits with electronic loads, Type A is the usual minimum, with Type F or B where the equipment needs it.</p></div>
+
+<h3 class="faq-q" id="faq-5x">Is the 5 × IΔn RCD test still required?</h3>
+<div class="faq-a"><p>No. Since A2:2022 the required test is an AC test at the rated residual operating current, with a maximum of 300 ms for a general non-delay RCD. Tests at ½ × IΔn and 5 × IΔn are optional and can help with fault finding.</p></div>
+
+<h3 class="faq-q" id="faq-rcbo">What is the difference between an RCD, an RCCB and an RCBO?</h3>
+<div class="faq-a"><p>RCD is the general name. An RCCB is a residual current circuit-breaker without overcurrent protection, so it needs a fuse or circuit-breaker as well. An RCBO combines residual current and overcurrent protection in one device, which lets each circuit have its own RCD and reduces unwanted tripping.</p></div>
+
+<h3 class="faq-q" id="faq-ln">Will an RCD protect someone who touches line and neutral?</h3>
+<div class="faq-a"><p>No. Current through the body from line to neutral is balanced, so the RCD sees no residual current. That is why a 30 mA RCD is additional protection, alongside basic protection (insulation and enclosures) and fault protection.</p></div>
+
+<section class="card cta" aria-labelledby="cta-h">
+<h2 id="cta-h">Practise both exams in the Sparkwise app</h2>
+<p>Original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
+<ul class="plain">
+<li>18th Edition: 60-question mock exams in 2 hours, a maximum Z<sub>s</sub> calculator and a guide to Amendment 4</li>
+<li>ECS HS&amp;E: 50-question mock tests in 30 minutes</li>
+<li>Works offline. No ads, no account, no data collected.</li>
+</ul>
+<p><strong>Free:</strong> two full topics in each exam, three questions in every other topic, one full mock exam for each exam, the maximum Z<sub>s</sub> calculator and checklists.<br><strong>Sparkwise Pro, £12.99 one-off:</strong> every question, every mock exam and every worked solution, for both exams. No subscription.</p>
+<p><a class="btn" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise" rel="noopener">Get Sparkwise on Google Play</a></p>
+<p class="muted small">For Android phones. Sparkwise helps you prepare; it cannot promise a pass.</p>
+</section>
+
+<section class="card" aria-labelledby="sources-h">
+<h2 id="sources-h">Official sources</h2>
+<p class="muted">Check these public pages before you book, apply or claim.</p>
+<ul class="plain">
+<li><a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/" rel="noopener">BS 7671 18th Edition wiring regulations</a> <span class="muted">(IET)</span></li>
+<li><a href="https://www.cityandguilds.com/qualifications-and-apprenticeships/building-services-industry/electrical-installation/2382-requirements-for-electrical-installations" rel="noopener">Requirements for Electrical Installations (2382)</a> <span class="muted">(City &amp; Guilds)</span></li>
+<li><a href="https://www.ecscard.org.uk/hse-assessment" rel="noopener">Health, Safety &amp; Environmental Assessment</a> <span class="muted">(ECS, run by the JIB)</span></li>
+<li><a href="https://www.hse.gov.uk/electricity/" rel="noopener">Electrical safety at work</a> <span class="muted">(Health and Safety Executive (HSE))</span></li>
+<li><a href="https://www.legislation.gov.uk/uksi/1989/635/contents" rel="noopener">The Electricity at Work Regulations 1989</a> <span class="muted">(legislation.gov.uk)</span></li>
+</ul>
+<p class="muted small">Exam details can change. Check with the awarding body or your exam centre before you book, and always check real installations against your own copy of BS 7671.</p>
+</section>
+</main>
+<footer class="site"><div class="wrap">
+<p>Sparkwise is an independent study app made by Kodfu Bilisim. Not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. Practice questions are original; always check real installations against your own copy of BS 7671.</p>
+<p><a href="../">Home</a> · <a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="mailto:gurkancaner@kodfu.com">gurkancaner@kodfu.com</a></p>
+<p>This site has no cookies, analytics or trackers. © 2026 Kodfu Bilisim · Last updated 27/11/2026</p>
+</div></footer>
+</body>
+</html>
