@@ -1,0 +1,129 @@
+<!--meta
+title: Earthing Systems Explained: TN-S, TN-C-S (PME, PNB) and TT | Sparkwise
+description: TN-S, TN-C-S (PME and the new PNB) and TT earthing systems in plain English: how each works, typical Ze values, TT RCD worked example and 18th Edition exam tips.
+updated: 2026-11-27
+nav: -
+-->
+<h1>Earthing systems explained: TN-S, TN-C-S and TT</h1>
+<p class="lead">Every installation you work on, and many 18th Edition exam questions, start with one fact: what type of earthing system it has. This guide explains the letter codes, how TN-S, TN-C-S (PME and the PNB form recognised by Amendment 4) and TT systems work, the typical external earth fault loop impedance (Ze) for each, and a worked TT example.</p>
+<p class="muted">This page is our own explanation, not the text of BS 7671. Check the detail, figures and diagrams in your own copy of BS 7671:2018+A4:2026.</p>
+
+<div class="toc">
+<p><strong>On this page</strong></p>
+<ul>
+<li><a href="#letters">What the letters mean</a></li>
+<li><a href="#tn-s">TN-S</a></li>
+<li><a href="#tn-c-s">TN-C-S: PME and PNB</a></li>
+<li><a href="#tt">TT</a></li>
+<li><a href="#compare">Side-by-side comparison</a></li>
+<li><a href="#example">Worked example: a TT installation</a></li>
+<li><a href="#identify">Identifying the system on site</a></li>
+<li><a href="#exam">Exam tips</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+
+<h2 id="letters">What the letters mean</h2>
+<p>BS 7671 describes earthing systems with a short code. Each letter answers a question about the system, and the diagrams that go with them are in Part 3 of the book (Chapter 31, Regulation 312.2 and its figures). Learn the logic and you do not need to memorise five separate diagrams.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Letter</th><th>Position</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>T</strong> (first letter)</td><td>How the source is earthed</td><td>Terra: one point of the source (usually the transformer star point) is connected directly to Earth.</td></tr>
+<tr><td><strong>I</strong> (first letter)</td><td>How the source is earthed</td><td>Isolated: no direct connection to Earth, or one through a high impedance. IT systems are rare in public supplies.</td></tr>
+<tr><td><strong>T</strong> (second letter)</td><td>How exposed-conductive-parts are earthed</td><td>The installation's metalwork goes to Earth through its own earth electrode, independent of the source earth.</td></tr>
+<tr><td><strong>N</strong> (second letter)</td><td>How exposed-conductive-parts are earthed</td><td>The metalwork is connected to the earthed point of the source through a conductor supplied by the network.</td></tr>
+<tr><td><strong>-S</strong></td><td>Neutral and protective conductors</td><td>Separate: neutral and protective conductor are separate all the way.</td></tr>
+<tr><td><strong>-C</strong></td><td>Neutral and protective conductors</td><td>Combined: one conductor, the PEN conductor, does both jobs.</td></tr>
+</tbody>
+</table>
+</div>
+<p>So TN-C-S reads as: source earthed (T), installation earthed back to the source through the network (N), with neutral and protective functions combined in part of the system (C) and separate in the rest (S).</p>
+
+<h2 id="tn-s">TN-S: separate earth from the supply</h2>
+<p>In a TN-S system the network provides a separate protective conductor from the transformer to the installation. In older UK underground supplies this is usually the metal sheath or armour of the supply cable, with the consumer's main earthing terminal clamped to it at the cut-out. Inside the installation the neutral and protective conductors stay separate, as they must in every system.</p>
+<p>The fault path for an earth fault runs back along that metallic return to the source, so fault currents are usually high enough for overcurrent devices to disconnect in time, provided Zs is within the limits for the device. The weakness is age: a corroded or damaged sheath can raise Ze, which is why measuring Ze at the origin matters on every inspection.</p>
+
+<h2 id="tn-c-s">TN-C-S: PME and the new PNB form</h2>
+<p>TN-C-S is the most common arrangement for new UK supplies. The supply cable has a combined neutral and protective conductor (PEN, often called CNE in the supply industry). At the cut-out the consumer's earthing terminal is connected to that PEN conductor, and from there on the installation is TN-S: separate neutral and protective conductors.</p>
+<h3>Protective multiple earthing (PME)</h3>
+<p>The usual form of TN-C-S in the UK is PME. The distributor earths the PEN conductor at several points along the network, not just at the transformer, so that a break in the PEN conductor is less likely to leave installations without an effective earth. The Electricity Safety, Quality and Continuity Regulations 2002 control this: regulation 8(4) says a consumer must not combine neutral and protective functions in one conductor inside their own installation, and regulation 9 sets the distributor's duties for PME, including not connecting the combined conductor to the metalwork of a caravan or boat.</p>
+<p>The risk to understand is a broken PEN conductor. If it opens upstream of the installation, the earthed metalwork can rise towards line voltage. That is why main protective bonding conductors on PME supplies are sized from the supply neutral (see Table 54.8 in your book), and why special locations such as caravan parks, marinas and EV charging points outdoors carry extra conditions or restrictions on using a PME earth.</p>
+<h3>Protective neutral bonding (PNB)</h3>
+<p>Amendment 4 (2026) recognises PNB for the first time as a form of TN-C-S, with its own figure (Figure 3.9B) and notes under Regulation 312.2.1.1. In PNB there is a single point where consumers' installations connect to the source, and the PEN conductor is earthed through an electrode close to the consumers' supply terminals. It is used where only a few consumers share a supply. The A4 model forms list TN-C-S (PME) and TN-C-S (PNB) as separate choices, so you now have to find out which one you have. More in our <a href="~/amendment-4/#pnb">Amendment 4 summary</a>.</p>
+
+<h2 id="tt">TT: the installation's own earth electrode</h2>
+<p>In a TT system the network provides no earth for the consumer. The installation's exposed-conductive-parts are connected to its own earth electrode, typically one or more earth rods, and the fault path returns to the source through the general mass of Earth. TT is common with overhead rural supplies and is also used where a PME earth must not be used, for example for some outbuildings or outdoor equipment.</p>
+<p>Because the earth path goes through the ground, its impedance is far higher than in a TN system, so the fault current is usually too small for a fuse or circuit-breaker to disconnect within the required time. In practice TT installations rely on RCDs for fault protection, and BS 7671 gives a shorter maximum disconnection time for TT final circuits than for TN ones (see Table 41.1).</p>
+
+<h2 id="compare">Side-by-side comparison</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th></th><th>TN-S</th><th>TN-C-S (PME / PNB)</th><th>TT</th></tr></thead>
+<tbody>
+<tr><td>Earth provided by</td><td>Separate conductor in the supply (often the cable sheath)</td><td>The supply's combined neutral and protective (PEN) conductor</td><td>The consumer's own earth electrode</td></tr>
+<tr><td>Typical Ze declared by the distributor*</td><td>0.8 Ω</td><td>0.35 Ω</td><td>21 Ω (not including the consumer's electrode)</td></tr>
+<tr><td>Usual fault protection</td><td>Overcurrent device (with RCDs where required for additional protection)</td><td>Overcurrent device (with RCDs where required for additional protection)</td><td>RCD</td></tr>
+<tr><td>Main risk</td><td>Sheath deterioration raising Ze</td><td>Broken PEN conductor raising the voltage on earthed metalwork</td><td>High or unstable electrode resistance</td></tr>
+</tbody>
+</table>
+</div>
+<p class="muted">* Typical figures the IET quotes for supplies declared by the distribution network operator. Real values differ and must be measured on site; never design on an assumption without confirming it.</p>
+
+<h2 id="example">Worked example: a TT installation</h2>
+<p>For TT systems protected by an RCD, BS 7671 requires the earth electrode resistance and the residual operating current to keep touch voltage to 50 V or less. In its simplest form the check is:</p>
+<p><strong>R<sub>A</sub> × I<sub>Δn</sub> ≤ 50 V</strong></p>
+<p>where R<sub>A</sub> is the sum of the resistances of the earth electrode and the protective conductors connecting it to the exposed-conductive-parts, and I<sub>Δn</sub> is the rated residual operating current of the RCD. Look up the exact regulation in Chapter 41 of your copy (Regulation 411.5.3).</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Step</th><th>Working</th></tr></thead>
+<tbody>
+<tr><td>Measured R<sub>A</sub></td><td>140 Ω (electrode plus protective conductor)</td></tr>
+<tr><td>RCD</td><td>30 mA, so I<sub>Δn</sub> = 0.03 A</td></tr>
+<tr><td>Touch voltage</td><td>140 × 0.03 = 4.2 V</td></tr>
+<tr><td>Check</td><td>4.2 V ≤ 50 V, so the condition is met</td></tr>
+<tr><td>Largest R<sub>A</sub> in theory</td><td>50 ÷ 0.03 ≈ 1,667 Ω</td></tr>
+</tbody>
+</table>
+</div>
+<p>The theoretical maximum looks generous, but ground conditions change with frost and drought. BS 7671 and IET guidance caution that an electrode resistance above about 200 Ω may not be stable over time, so aim well below that. Check the note under Table 41.5 in your copy. If the upstream device were a 100 mA RCD at the origin, the same 140 Ω would give 14 V, which still passes, but final circuits will usually also need 30 mA RCDs for additional protection.</p>
+
+<h2 id="identify">Identifying the system on site</h2>
+<ul>
+<li><strong>Look at the cut-out.</strong> An earth clamp on the cable sheath or a separate earth terminal from the armour suggests TN-S. An earthing terminal connected to the neutral side of the cut-out, often with a PME label, suggests TN-C-S. No earth from the supply and a conductor running to an earth rod means TT.</li>
+<li><strong>Ask the distributor.</strong> The distribution network operator can confirm the arrangement and the declared Ze; with A4 you also need to know whether a TN-C-S supply is PME or PNB.</li>
+<li><strong>Measure.</strong> Measure Ze at the origin with the main earthing conductor disconnected (and the installation safely isolated), then reconnect. A value in the tens or hundreds of ohms points to a TT system; a fraction of an ohm points to TN.</li>
+</ul>
+<p>Never assume from appearance alone. Labels go missing, and installations are altered.</p>
+
+<h2 id="exam">Exam tips for 2382-26</h2>
+<ul>
+<li>Earthing systems sit in Part 3 (general characteristics). Tab Regulation 312.2 and its figures, including the new Figure 3.9B for PNB.</li>
+<li>Questions often hide the system type in the wording: "the installation has its own earth electrode" means TT; "the supply has a combined neutral and protective conductor" means TN-C-S.</li>
+<li>Know where the definitions live: Part 2 defines PEN conductor, exposed-conductive-part and protective neutral bonding.</li>
+<li>Link the system to the protection: TT points to RCDs and the R<sub>A</sub> check; TN points to Zs and the maximum values in the tables of Chapter 41.</li>
+</ul>
+
+<div class="callout">
+<p><strong>Practise earthing systems.</strong> Try the free <a href="~/practice/18th-edition/general-characteristics/">general characteristics practice questions</a>, then <a href="~/practice/18th-edition/devices-earthing/">protective devices, earthing and bonding</a> and <a href="~/practice/18th-edition/shock-protection/">protection against electric shock</a>. For the exam itself, read our <a href="~/18th-edition-exam/">18th Edition exam guide</a>.</p>
+</div>
+
+<h2 id="faq">FAQ</h2>
+<h3 class="faq-q" id="faq-common">Which earthing system is most common in the UK?</h3>
+<div class="faq-a"><p>For new and many existing domestic supplies it is TN-C-S, usually in its PME form. TN-S is common on older underground supplies, and TT is typical for overhead rural supplies or where a PME earth is not allowed. Always confirm on site and with the distributor.</p></div>
+
+<h3 class="faq-q" id="faq-pme-pnb">What is the difference between PME and PNB?</h3>
+<div class="faq-a"><p>Both are forms of TN-C-S. In PME the distributor earths the combined neutral and protective conductor at several points along the network. In PNB, recognised by Amendment 4, there is a single connection point for a small number of consumers, with the PEN conductor earthed by an electrode close to their supply terminals. The A4 certificates and reports record them as separate options.</p></div>
+
+<h3 class="faq-q" id="faq-tt-rcd">Why do TT systems need RCDs?</h3>
+<div class="faq-a"><p>The earth fault path in a TT system goes through the ground, so its impedance is high and the fault current is usually too low for a fuse or circuit-breaker to disconnect quickly enough. An RCD detects a small residual current, typically 30 mA or 100 mA, and disconnects even when the fault current is low.</p></div>
+
+<h3 class="faq-q" id="faq-ze">What is Ze, and are 0.8, 0.35 and 21 ohms the limits?</h3>
+<div class="faq-a"><p>Ze is the external earth fault loop impedance: the part of the loop outside the installation. 0.8 Ω (TN-S), 0.35 Ω (TN-C-S) and 21 Ω (TT) are typical figures the IET quotes for what distributors declare. They are not test limits. Measure Ze on site, and use the declared or measured value in your design.</p></div>
+
+<h3 class="faq-q" id="faq-exam">Do I need to draw earthing systems in the 18th Edition exam?</h3>
+<div class="faq-a"><p>No. The 2382-26 exam is on-screen multiple choice, so you will not draw anything. You do need to recognise each system from a description or diagram and know where it is covered in BS 7671, which is why tabbing Part 3 helps.</p></div>
+
+<!--cta-->
+
+<!--sources-->
