@@ -42,6 +42,41 @@ Placeholders: `<!--cta-->` (store card), `<!--sources-->` (official sources), `<
 (renders `<page>.questions.json`). FAQ items `<h3 class="faq-q">…</h3><div class="faq-a">…</div>`
 become FAQPage JSON-LD. Home pages carry SoftwareApplication + WebSite JSON-LD, other pages a
 BreadcrumbList.
+The conversion placeholders (`~play:<position>`, `<!--appcta-->`, `<!--after-questions:…-->`,
+`<!--shots:…-->`, `<!--hero-->`, `{{count:…}}`) are listed at the top of `tools/build.py`.
+
+## Conversion system and Play install referrer (27/11/2026)
+
+Owner decision 27/11/2026 (`~/Code/exam-apps/AGENTS.md`): the only goal is Google Play installs and Pro
+purchases. Every page has the app's colours and mark in the header, a one-line pitch and a Play button
+above the fold (on phones a sticky bottom bar, CSS only, hidden from 760px up), CTAs inside and after
+the content, and app screenshots (`src/<app>/screens/*.webp`, 480×853, made from
+`~/Code/exam-apps/store/<app>/screenshots/android/`). Question counts in CTAs come from the shipped
+bundles at build time (`{{count:…}}` tokens), never typed by hand. No App Store links while the iOS
+release is on hold; pages say "Android now; iPhone version not yet available."
+
+Every Play link is made by `play_link()` in `tools/build.py`. Never type a store URL in a fragment:
+write `href="~play:<position>"` (a plain store URL is rewritten with position `inline`).
+
+```
+https://play.google.com/store/apps/details?id=<pkg>&referrer=utm_source%3D<host>%26utm_medium%3Dsite%26utm_campaign%3D<page>%26utm_content%3D<position>
+```
+
+| Field | Value |
+| --- | --- |
+| `utm_source` | the site's host: `sparkwiseapp.co.uk`, `bluebell.kodfu.com`, `hivis.kodfu.com`, `fareback.kodfu.com`, `tickover.kodfu.com` (the GitHub Pages copy reports the same source) |
+| `utm_medium` | `site` |
+| `utm_campaign` | the page: `home`, `18th-edition-exam`, `practice-18th-edition-shock-protection`, `guide`, `404` … (URL path, `/` → `-`) |
+| `utm_content` | the button: `hero` (top of page / home hero), `sticky` (mobile bar), `inline-<topic>` (box inside a guide or index), `after-questions` (practice pages), `footer` (closing card), `free-pro` and `home-screens` (home page), `faq-answer` |
+
+Where to read it: Play Console → the app → **Grow users → Store performance → Store listing
+acquisition** (older menus: Statistics / User acquisition → Acquisition reports), traffic source
+**Third-party referrals**, broken down by **UTM source** and **UTM campaign**: store listing visitors,
+installers and conversion rate per site and page. Play Console shows source and campaign; if
+`utm_content` (the button) is not visible there, set `UTM_POSITION_IN_CAMPAIGN = True` in
+`tools/build.py` and rebuild, so the campaign becomes `<page>--<position>`. Play does not report Pro
+purchases per source; compare installers per page with total Pro sales. The sites still have no
+analytics, cookies or trackers.
 
 ## From nothing (order matters)
 

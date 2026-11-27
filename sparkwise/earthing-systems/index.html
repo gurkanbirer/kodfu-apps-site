@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Earthing Systems Explained: TN-S, TN-C-S (PME, PNB) and TT | Sparkwise</title>
 <meta name="description" content="TN-S, TN-C-S (PME and the new PNB) and TT earthing systems in plain English: how each works, typical Ze values, TT RCD worked example and 18th Edition exam tips.">
@@ -15,15 +15,16 @@
 <meta property="og:description" content="TN-S, TN-C-S (PME and the new PNB) and TT earthing systems in plain English: how each works, typical Ze values, TT RCD worked example and 18th Edition exam tips.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/site.css?v=46f520a6">
+<link rel="stylesheet" href="../assets/site.css?v=49a979bf">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which earthing system is most common in the UK?", "acceptedAnswer": {"@type": "Answer", "text": "For new and many existing domestic supplies it is TN-C-S, usually in its PME form. TN-S is common on older underground supplies, and TT is typical for overhead rural supplies or where a PME earth is not allowed. Always confirm on site and with the distributor."}}, {"@type": "Question", "name": "What is the difference between PME and PNB?", "acceptedAnswer": {"@type": "Answer", "text": "Both are forms of TN-C-S. In PME the distributor earths the combined neutral and protective conductor at several points along the network. In PNB, recognised by Amendment 4, there is a single connection point for a small number of consumers, with the PEN conductor earthed by an electrode close to their supply terminals. The A4 certificates and reports record them as separate options."}}, {"@type": "Question", "name": "Why do TT systems need RCDs?", "acceptedAnswer": {"@type": "Answer", "text": "The earth fault path in a TT system goes through the ground, so its impedance is high and the fault current is usually too low for a fuse or circuit-breaker to disconnect quickly enough. An RCD detects a small residual current, typically 30 mA or 100 mA, and disconnects even when the fault current is low."}}, {"@type": "Question", "name": "What is Ze, and are 0.8, 0.35 and 21 ohms the limits?", "acceptedAnswer": {"@type": "Answer", "text": "Ze is the external earth fault loop impedance: the part of the loop outside the installation. 0.8 Ω (TN-S), 0.35 Ω (TN-C-S) and 21 Ω (TT) are typical figures the IET quotes for what distributors declare. They are not test limits. Measure Ze on site, and use the declared or measured value in your design."}}, {"@type": "Question", "name": "Do I need to draw earthing systems in the 18th Edition exam?", "acceptedAnswer": {"@type": "Answer", "text": "No. The 2382-26 exam is on-screen multiple choice, so you will not draw anything. You do need to recognise each system from a description or diagram and know where it is covered in BS 7671, which is why tabbing Part 3 helps."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sparkwise", "item": "https://sparkwiseapp.co.uk/"}, {"@type": "ListItem", "position": 2, "name": "Earthing systems explained: TN-S, TN-C-S and TT", "item": "https://sparkwiseapp.co.uk/earthing-systems/"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site"><div class="wrap">
+<header class="site band"><div class="wrap">
 <a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 1024 1024"><defs><linearGradient id="swbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2233"/><stop offset="1" stop-color="#0F1522"/></linearGradient><radialGradient id="swglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#1D4ED8" stop-opacity="0.55"/><stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/></radialGradient></defs><rect width="1024" height="1024" fill="url(#swbg)"/><circle cx="512" cy="512" r="430" fill="url(#swglow)"/><g transform="translate(512 512) scale(34) translate(-13 -12)"><path d="M13 2.2 L5 13 h6 l-1 8.8 7 -10.8 h-6 z" fill="#FFC21A" stroke="#FFC21A" stroke-width="1.6" stroke-linejoin="round"/><path d="M16.4 18.2 l2 2 4 -5" fill="none" stroke="#FFC21A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span><strong>Sparkwise</strong><small>18th Edition and ECS HS&amp;E exam practice</small></span></a>
 <nav class="main" aria-label="Sparkwise pages"><ul><li><a href="../">Home</a></li><li><a href="../18th-edition-exam/">18th Edition</a></li><li><a href="../amendment-4/">Amendment 4</a></li><li><a href="../ecs-hse-assessment/">ECS HS&amp;E</a></li><li><a href="../practice/">Practice</a></li><li><a href="../faq/">FAQ</a></li></ul></nav>
+<div class="pitch"><p>Practise earthing and fault protection in Sparkwise: 41 earthing and bonding questions and a free maximum Zs calculator.</p><a class="btn play" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&amp;referrer=utm_source%3Dsparkwiseapp.co.uk%26utm_medium%3Dsite%26utm_campaign%3Dearthing-systems%26utm_content%3Dhero">Get it on Google Play</a></div>
 </div></header>
 <main id="main" class="wrap">
 <p class="notice"><strong>Not a government app.</strong> Sparkwise is an independent study app made by Kodfu Bilisim. It is not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. It does not contain the real exam questions and never reproduces BS 7671 text.</p>
@@ -119,6 +120,8 @@
 </ul>
 <p>Never assume from appearance alone. Labels go missing, and installations are altered.</p>
 
+<aside class="appcta" aria-label="Sparkwise app"><img src="../favicon.svg" width="44" height="44" alt=""><div><p><strong>Practise earthing questions in Sparkwise</strong></p><p>41 questions on protective devices, earthing and bonding and 45 on general characteristics, each pointing to where to look in BS 7671. Check Z<sub>s</sub> answers with the free maximum Z<sub>s</sub> calculator, with the working shown.</p><p><a class="btn play" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&amp;referrer=utm_source%3Dsparkwiseapp.co.uk%26utm_medium%3Dsite%26utm_campaign%3Dearthing-systems%26utm_content%3Dinline-earthing">Get it on Google Play</a></p><p class="sub">Free to try · Pro £12.99 one-off, both exams · no subscription · Android now; iPhone version not yet available.</p></div></aside>
+
 <h2 id="exam">Exam tips for 2382-26</h2>
 <ul>
 <li>Earthing systems sit in Part 3 (general characteristics). Tab Regulation 312.2 and its figures, including the new Figure 3.9B for PNB.</li>
@@ -148,16 +151,17 @@
 <div class="faq-a"><p>No. The 2382-26 exam is on-screen multiple choice, so you will not draw anything. You do need to recognise each system from a description or diagram and know where it is covered in BS 7671, which is why tabbing Part 3 helps.</p></div>
 
 <section class="card cta" aria-labelledby="cta-h">
-<h2 id="cta-h">Practise both exams in the Sparkwise app</h2>
-<p>Original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
+<div class="cta-head"><img src="../favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Practise both exams in the Sparkwise app</h2></div>
+<p>927 original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
 <ul class="plain">
-<li>18th Edition: 60-question mock exams in 2 hours, a maximum Z<sub>s</sub> calculator and a guide to Amendment 4</li>
-<li>ECS HS&amp;E: 50-question mock tests in 30 minutes</li>
+<li>18th Edition: 538 questions, 60-question mock exams in 2 hours, a maximum Z<sub>s</sub> calculator and a guide to Amendment 4</li>
+<li>ECS HS&amp;E: 389 questions and 50-question mock tests in 30 minutes</li>
 <li>Works offline. No ads, no account, no data collected.</li>
 </ul>
+<ul class="shots" aria-label="Sparkwise app screens"><li><img class="shot" src="../assets/screens/06-max-zs.webp" width="480" height="853" alt="Max Zs in one tap: The Sparkwise maximum Zs calculator for Type B, C and D circuit-breakers with the 80% rule" loading="lazy" decoding="async"></li><li><img class="shot" src="../assets/screens/05-worked.webp" width="480" height="853" alt="Every calculation, worked: A Sparkwise worked solution: the maximum Zs for a 20 A Type B circuit-breaker, step by step, with the common mistake" loading="lazy" decoding="async"></li><li><img class="shot" src="../assets/screens/04-question.webp" width="480" height="853" alt="Know where to look: An answered question in Sparkwise with the explanation and the regulation and table to look up" loading="lazy" decoding="async"></li></ul>
 <p><strong>Free:</strong> two full topics in each exam, three questions in every other topic, one full mock exam for each exam, the maximum Z<sub>s</sub> calculator and checklists.<br><strong>Sparkwise Pro, £12.99 one-off:</strong> every question, every mock exam and every worked solution, for both exams. No subscription.</p>
-<p><a class="btn" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise" rel="noopener">Get Sparkwise on Google Play</a></p>
-<p class="muted small">For Android phones. Sparkwise helps you prepare; it cannot promise a pass.</p>
+<p><a class="btn play" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&amp;referrer=utm_source%3Dsparkwiseapp.co.uk%26utm_medium%3Dsite%26utm_campaign%3Dearthing-systems%26utm_content%3Dfooter">Get it on Google Play</a></p>
+<p class="muted small">Android now; iPhone version not yet available. Sparkwise helps you prepare; it cannot promise a pass.</p>
 </section>
 
 <section class="card" aria-labelledby="sources-h">
@@ -178,5 +182,6 @@
 <p><a href="../">Home</a> · <a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="mailto:gurkancaner@kodfu.com">gurkancaner@kodfu.com</a></p>
 <p>This site has no cookies, analytics or trackers. © 2026 Kodfu Bilisim · Last updated 27/11/2026</p>
 </div></footer>
+<div class="sticky" role="complementary" aria-label="Get Sparkwise"><div class="wrap"><img src="../favicon.svg" width="36" height="36" alt=""><span class="s-txt"><strong>Sparkwise</strong><small>Free to try · Pro £12.99 once</small></span><a class="btn play" href="https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&amp;referrer=utm_source%3Dsparkwiseapp.co.uk%26utm_medium%3Dsite%26utm_campaign%3Dearthing-systems%26utm_content%3Dsticky">Get it on Google Play</a></div></div>
 </body>
 </html>

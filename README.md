@@ -17,3 +17,5 @@ The same generated files are also served by GitHub Pages at
 Edit `src/<app>/` and run `python3 tools/build.py`; never edit the generated `<app>/` folders by hand.
 Hosting, DNS, certificates and how to deploy: `docs/deployment.md`.
 Plain static HTML/CSS, en-GB, light/dark, no scripts, cookies, analytics or trackers.
+Goal: Google Play installs and Pro purchases (owner decision 27/11/2026). Every Play link carries an
+install referrer naming the page and the button; the scheme and where to read it: `docs/deployment.md`.
