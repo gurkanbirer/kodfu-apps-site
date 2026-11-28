@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
-"""Cloudflare for sparkwiseapp.co.uk (the Sparkwise site). Same pattern as madebyada.co.uk and
-cambridgelicensedtaxis.co.uk on kodfu-box. Runbook: docs/deployment.md.
+"""Cloudflare for the Kodfu app sites on their own domains: sparkwiseapp.co.uk (default) and, from the
+switch-over, fareback.co.uk. Same pattern as madebyada.co.uk and cambridgelicensedtaxis.co.uk on kodfu-box.
+Runbook: docs/deployment.md.
 
 Token: ~/.cf-registrar-token (account dcb9230736f5416b025beb759bd5eebb: Registrar, Zone, DNS,
 settings, Dynamic Redirect, Origin CA). Every step is idempotent; on a fresh name, in order:
 
-  python3 deploy/cloudflare.py dns          # proxied A apex + www -> 65.108.102.251
-  python3 deploy/cloudflare.py origin-cert  # Origin CA cert (apex + *.apex, 15 y) -> kodfu-box
-  deploy/deploy.sh nginx                    # vhosts (need the cert on the box)
-  python3 deploy/cloudflare.py settings     # SSL Full (Strict), Always HTTPS, min TLS 1.2, AOP
-  python3 deploy/cloudflare.py redirect     # www -> apex 301
-  python3 deploy/cloudflare.py status       # read-only summary
-  python3 deploy/cloudflare.py txt 'google-site-verification=...'   # apex TXT (Search Console)
+  python3 deploy/cloudflare.py [--domain D] dns          # proxied A apex + www -> 65.108.102.251
+  python3 deploy/cloudflare.py [--domain D] origin-cert  # Origin CA cert (apex + *.apex, 15 y) -> kodfu-box
+  deploy/deploy.sh nginx                                 # vhosts (need the cert on the box)
+  python3 deploy/cloudflare.py [--domain D] settings     # SSL Full (Strict), Always HTTPS, min TLS 1.2, AOP
+  python3 deploy/cloudflare.py [--domain D] redirect     # www -> apex 301
+  python3 deploy/cloudflare.py [--domain D] status       # read-only summary
+  python3 deploy/cloudflare.py [--domain D] txt 'google-site-verification=...'   # apex TXT (Search Console)
 
-The name was bought on 26/11/2026 through Cloudflare Registrar (zone ccac39aafcbfd2a9317712d2fe649314).
+The domain is `--domain <name>` or the CF_DOMAIN environment variable; without either it is
+sparkwiseapp.co.uk, so the Sparkwise commands behave exactly as before. Per domain, with <short> the first label
+(sparkwiseapp, fareback): box files in /etc/nginx/<short>/ (root, 0700 dir, 0600 files), Mac copy of the
+origin key and cert in ~/.config/<short>/origin/ (0700 dir, 0600 files); the private key is never printed.
 
-The origin private key is made here, copied to the box (root 0600) and kept on the Mac in
-~/.config/sparkwiseapp/origin/ (0700 dir, 0600 files); it is never printed.
+sparkwiseapp.co.uk: bought 26/11/2026 through Cloudflare Registrar (zone ccac39aafcbfd2a9317712d2fe649314).
+fareback.co.uk: bought by the coordinator through Cloudflare Registrar after the owner confirms the price
+(owner decision 28/11/2026); nothing here buys a name.
 """
 import json
 import os
@@ -26,12 +31,25 @@ import tempfile
 import urllib.error
 import urllib.request
 
-DOMAIN = "sparkwiseapp.co.uk"
+def _domain_arg():
+    """--domain <name> (removed from argv) or CF_DOMAIN; default sparkwiseapp.co.uk."""
+    if "--domain" in sys.argv:
+        i = sys.argv.index("--domain")
+        if i + 1 >= len(sys.argv):
+            raise SystemExit("--domain needs a name, e.g. --domain fareback.co.uk")
+        name = sys.argv[i + 1]
+        del sys.argv[i:i + 2]
+        return name
+    return os.environ.get("CF_DOMAIN", "sparkwiseapp.co.uk")
+
+
+DOMAIN = _domain_arg().strip().lower().rstrip(".")
+SHORT = DOMAIN.split(".")[0]          # sparkwiseapp.co.uk -> sparkwiseapp, fareback.co.uk -> fareback
 ACCOUNT = "dcb9230736f5416b025beb759bd5eebb"
 IP = "65.108.102.251"
 TARGET = os.environ.get("TARGET", "kodfu-box")
-BOX_DIR = "/etc/nginx/sparkwiseapp"
-LOCAL_DIR = os.path.expanduser("~/.config/sparkwiseapp/origin")
+BOX_DIR = f"/etc/nginx/{SHORT}"
+LOCAL_DIR = os.path.expanduser(f"~/.config/{SHORT}/origin")
 TOKEN = open(os.path.expanduser("~/.cf-registrar-token")).read().strip()
 
 
@@ -60,7 +78,7 @@ def zone():
     if _zone is None:
         z = cf("GET", f"/zones?name={DOMAIN}")
         if not z:
-            raise SystemExit(f"no Cloudflare zone for {DOMAIN} yet (run register first)")
+            raise SystemExit(f"no Cloudflare zone for {DOMAIN} yet (the coordinator buys the name first)")
         _zone = z[0]["id"]
     return _zone
 
@@ -193,6 +211,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[1] == "txt":
         txt(sys.argv[2])
     elif len(sys.argv) != 2 or sys.argv[1] not in steps:
-        raise SystemExit(f"usage: {sys.argv[0]} {'|'.join(steps)}|txt <value>")
+        raise SystemExit(f"usage: {sys.argv[0]} [--domain <name>] {'|'.join(steps)}|txt <value>")
     else:
+        print(f"[{DOMAIN}]")
         steps[sys.argv[1]]()

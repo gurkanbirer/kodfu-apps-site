@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Publish the Kodfu app sites to kodfu-box. Runbook: docs/deployment.md.
 #   deploy/deploy.sh [app ...]        new release of each app folder from the committed HEAD (default: all five)
-#   deploy/deploy.sh nginx            install/refresh the five vhosts (nginx -t && reload; restores on failure)
+#   deploy/deploy.sh nginx [app ...]  install/refresh the vhosts (default all; `nginx fareback` touches only FareBack's),
+#                                     nginx -t && reload, restores on failure. Once FAREBACK_HOST is fareback.co.uk this
+#                                     installs fareback.co.uk and turns fareback.kodfu.com into a 301 to it
 #   deploy/deploy.sh rollback <app>   point that app's `current` at its previous release
 #   deploy/deploy.sh check            curl every host (status + TLS)
 # Build first (python3 tools/build.py) and commit: a release is what is committed, never the working tree.
@@ -10,7 +12,17 @@ cd "$(dirname "$0")/.."
 TARGET="${TARGET:-kodfu-box}"
 BASE=/srv/kodfu-apps-site
 APPS=(sparkwise bluebell hivis tickover fareback)
-host() { if [ "$1" = sparkwise ]; then echo sparkwiseapp.co.uk; else echo "$1.kodfu.com"; fi; }
+# FareBack's host comes from the one setting in tools/build.py (FAREBACK_HOST; the environment overrides it).
+FAREBACK_HOST="${FAREBACK_HOST:-$(sed -n 's/^FAREBACK_HOST = os.environ.get("FAREBACK_HOST", "\(.*\)")$/\1/p' tools/build.py)}"
+[ -n "$FAREBACK_HOST" ] || { echo "FAREBACK_HOST not found in tools/build.py"; exit 2; }
+host() { case "$1" in sparkwise) echo sparkwiseapp.co.uk ;; fareback) echo "$FAREBACK_HOST" ;; *) echo "$1.kodfu.com" ;; esac; }
+# vhost name -> source file. After the switch to fareback.co.uk, fareback.kodfu.com becomes a 301 to the new domain.
+vhosts() {   # vhosts [app ...] (default: all five)
+  local apps=("$@"); [ ${#apps[@]} -gt 0 ] || apps=("${APPS[@]}")
+  for a in "${apps[@]}"; do h="$(host "$a")"; echo "$h deploy/nginx/$h.conf"
+    if [ "$a" = fareback ] && [ "$FAREBACK_HOST" != fareback.kodfu.com ]; then echo "fareback.kodfu.com deploy/nginx/fareback.kodfu.com.redirect.conf"; fi
+  done
+}
 
 release() {
   local app="$1" rel
@@ -29,13 +41,14 @@ case "${1:-all}" in
   all) for a in "${APPS[@]}"; do release "$a"; done ;;
   sparkwise|bluebell|hivis|tickover|fareback) for a in "$@"; do release "$a"; done ;;
   nginx)
-    for a in "${APPS[@]}"; do
-      h="$(host "$a")"
-      ssh "$TARGET" "set -e; f=/etc/nginx/sites-available/$h; [ -f \$f ] && cp \$f /root/kodfu-apps-$h.vhost.bak || rm -f /root/kodfu-apps-$h.vhost.bak; cat > \$f.new" < "deploy/nginx/$h.conf"
-    done
-    ssh "$TARGET" "set -e; for h in $(for a in "${APPS[@]}"; do host "$a"; done | tr '\n' ' '); do f=/etc/nginx/sites-available/\$h; mv \$f.new \$f; ln -sfn \$f /etc/nginx/sites-enabled/\$h; done; \
+    shift; VH="$(vhosts "$@")"; NAMES="$(echo "$VH" | awk '{print $1}' | tr '\n' ' ')"
+    while read -r h f; do
+      [ -f "$f" ] || { echo "missing $f"; exit 2; }
+      ssh "$TARGET" "set -e; f=/etc/nginx/sites-available/$h; [ -f \$f ] && cp \$f /root/kodfu-apps-$h.vhost.bak || rm -f /root/kodfu-apps-$h.vhost.bak; cat > \$f.new" < "$f"
+    done <<< "$VH"
+    ssh "$TARGET" "set -e; for h in $NAMES; do f=/etc/nginx/sites-available/\$h; mv \$f.new \$f; ln -sfn \$f /etc/nginx/sites-enabled/\$h; done; \
       if nginx -t 2>/tmp/kodfu-apps-nginx-t.log; then nginx -s reload; echo 'nginx ok, reloaded'; \
-      else cat /tmp/kodfu-apps-nginx-t.log; for h in $(for a in "${APPS[@]}"; do host "$a"; done | tr '\n' ' '); do f=/etc/nginx/sites-available/\$h; \
+      else cat /tmp/kodfu-apps-nginx-t.log; for h in $NAMES; do f=/etc/nginx/sites-available/\$h; \
         if [ -f /root/kodfu-apps-\$h.vhost.bak ]; then cp /root/kodfu-apps-\$h.vhost.bak \$f; else rm -f /etc/nginx/sites-enabled/\$h \$f; fi; done; nginx -t && echo restored; exit 1; fi"
     ;;
   rollback)
@@ -49,6 +62,12 @@ case "${1:-all}" in
       done
     done
     curl -sS -o /dev/null -w "%{http_code} -> %{redirect_url}  https://www.sparkwiseapp.co.uk/\n" https://www.sparkwiseapp.co.uk/
+    curl -sS -o /dev/null -w "%{http_code} -> %{redirect_url}  https://$FAREBACK_HOST/guide/\n" "https://$FAREBACK_HOST/guide/"
+    if [ "$FAREBACK_HOST" != fareback.kodfu.com ]; then
+      curl -sS -o /dev/null -w "%{http_code} -> %{redirect_url}  https://www.$FAREBACK_HOST/\n" "https://www.$FAREBACK_HOST/"
+      curl -sS -o /dev/null -w "%{http_code} -> %{redirect_url}  https://fareback.kodfu.com/privacy/\n" https://fareback.kodfu.com/privacy/
+    fi
+    python3 tools/linkcheck.py fareback --live | tail -3
     ;;
   *) echo "usage: $0 [all|<app> ...|nginx|rollback <app>|check]"; exit 2 ;;
 esac

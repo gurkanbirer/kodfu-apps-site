@@ -1,0 +1,1714 @@
+{
+ "checked": "2026-11-28",
+ "note": "Facts read on each train company's own pages on 28/11/2026 (sources per company). Edit here; tools/build.py renders /train-companies/ from this file.",
+ "operators": [
+  {
+   "slug": "avanti-west-coast",
+   "name": "Avanti West Coast",
+   "short": "Avanti",
+   "code": "VT",
+   "commuter": true,
+   "runs": "intercity trains on the West Coast Main Line from London Euston to the West Midlands, Manchester, Liverpool, North Wales and Scotland",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the affected journey",
+   "auto": [
+    "Automated Delay Repay",
+    "For Advance tickets bought on the Avanti West Coast website or app, when you have a Delay Repay account with the same email address and opted in no later than the day of travel. The claim is usually processed within 24 hours and you get an email to confirm it. No email within 48 hours? Claim by hand."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 240 (six-month), 120 (quarterly), 40 (monthly) or 10 (weekly). Avanti does not publish a Flexi Season divisor on its Delay Repay page.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.avantiwestcoast.co.uk/",
+   "info_url": "https://www.avantiwestcoast.co.uk/help-and-support/delay-repay",
+   "complaints_url": "https://www.avantiwestcoast.co.uk/help-and-support/contact-us",
+   "account": "Yes. You need a free Delay Repay account on Avanti's claim site before you claim online.",
+   "postal": "Yes: a downloadable form or one from a station, sent to Freepost AVANTI WEST COAST. Postal claims are paid by cheque or rail vouchers only.",
+   "evidence": [
+    "A photo, scan or screenshot of the ticket showing the journey, ticket type, price and ticket number",
+    "For a season ticket, the season ticket number"
+   ],
+   "payout": "Online: card, bank transfer (BACS), cheque or National Rail Travel Vouchers. Postal: cheque or vouchers.",
+   "reject": [
+    "You gave the train you travelled on instead of the one you planned to catch. Avanti lists this as a common reason claims fail."
+   ],
+   "notes": [
+    "Appeals go through your Delay Repay account or the link in the decision email.",
+    "Planned engineering work published in advance is not usually compensated: the delay is measured against the timetable in force that day."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.avantiwestcoast.co.uk/help-and-support/delay-repay"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.avantiwestcoast.co.uk/"
+    ],
+    [
+     "Passenger's Charter 2026 (PDF)",
+     "https://www.avantiwestcoast.co.uk/-/media/avanti-pdfs/avanti-policies/2026/passenger-charter-2026.pdf"
+    ]
+   ]
+  },
+  {
+   "slug": "c2c",
+   "name": "c2c",
+   "short": "c2c",
+   "code": "CC",
+   "runs": "trains from London Fenchurch Street to south Essex and Southend",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the delay",
+   "auto": [
+    "Automatic Delay Repay",
+    "For a c2c Smartcard with a valid ticket, linked to a c2c online account, when you tap in and out. It pays an eVoucher into your c2c account automatically and starts at 2 minutes late. It does not work for e-tickets, Oyster or contactless."
+   ],
+   "season": "c2c pays season ticket holders in the same bands, pro rata to the ticket, and a delay of 120 minutes or more pays 100% of the cost of a return journey. c2c does not publish per-journey divisors on the pages we read, so check the amount it offers.",
+   "claim_url": "https://c2c.delayrepaycompensation.com/index.cfm",
+   "info_url": "https://www.c2c-online.co.uk/help-feedback/delay-repay/",
+   "complaints_url": "https://www.c2c-online.co.uk/help-feedback/contact-us/",
+   "account": "Not needed for a manual claim. Automatic Delay Repay needs a c2c online account.",
+   "postal": "Yes: a form from any c2c station or the downloadable form, sent to Freepost c2c Customer Relations Southend.",
+   "evidence": [
+    "A photo or scan of the paper ticket, or of your c2c Smartcard",
+    "Oyster, contactless or pay as you go: your TfL journey history"
+   ],
+   "payout": "Credit or debit card, National Rail Travel Voucher (cashable at a c2c ticket office), cheque, or a charity donation for online manual claims. Automatic claims pay an eVoucher.",
+   "notes": [
+    "Appeals go through the claim site, using your claim reference."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.c2c-online.co.uk/help-feedback/delay-repay/"
+    ],
+    [
+     "Automatic Delay Repay",
+     "https://www.c2c-online.co.uk/tickets-and-fares/automatic-delay-repay/"
+    ],
+    [
+     "How much Automatic Delay Repay pays",
+     "https://www.c2c-online.co.uk/help_centre/compensation/how-much-automatic-delay-repay-compensation-will-i-receive/"
+    ]
+   ],
+   "commuter": false,
+   "reject": [],
+   "season_divisor": null
+  },
+  {
+   "slug": "caledonian-sleeper",
+   "name": "Caledonian Sleeper",
+   "short": "Caledonian Sleeper",
+   "code": "CS",
+   "runs": "overnight sleeper trains between London Euston and Scotland",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "bands_note": "The room supplement is compensated too: 50% from 30 minutes late and in full from 60 minutes (Caledonian Sleeper's Guest Charter).",
+   "window": "within 28 days of the affected journey (its website). Its older Guest Charter PDF still says seven days, so claiming within a week is the safe choice",
+   "auto": [
+    "Automatic Delay Repay",
+    "For bookings made on the Caledonian Sleeper website or through its Guest Service Centre, when the delay is 30 minutes or more. The claim is processed within 24 hours and an email asks you to confirm it; click the link within 28 days."
+   ],
+   "season": "Caledonian Sleeper does not publish a season ticket formula.",
+   "claim_url": "https://www.sleeper.scot/help-support/contact-us/",
+   "info_url": "https://www.sleeper.scot/help-support/after-your-trip/",
+   "complaints_url": "https://www.sleeper.scot/help-support/contact-us/",
+   "account": "No. Bookings made elsewhere are claimed through the contact form (choose Delay Repay).",
+   "postal": "Yes: a printable form on the after-your-trip page.",
+   "evidence": [
+    "A copy of the travel ticket; sometimes the original is asked for",
+    "Direct bookings: the booking reference"
+   ],
+   "payout": "Refund to a debit or credit card. American Express bookings cannot be compensated, says its website.",
+   "notes": [
+    "A cancelled sleeper gets a full refund."
+   ],
+   "sources": [
+    [
+     "After your trip: Delay Repay",
+     "https://www.sleeper.scot/help-support/after-your-trip/"
+    ],
+    [
+     "Contact us",
+     "https://www.sleeper.scot/help-support/contact-us/"
+    ]
+   ],
+   "commuter": false,
+   "reject": [],
+   "season_divisor": null
+  },
+  {
+   "slug": "chiltern-railways",
+   "name": "Chiltern Railways",
+   "short": "Chiltern",
+   "code": "CH",
+   "runs": "trains from London Marylebone to Aylesbury, Oxford and Birmingham",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the relevant journey, unless Chiltern tells you otherwise",
+   "auto": [
+    "Automated Delay Repay",
+    "A Delay Repay account lets you opt in to Automated Delay Repay, and a registered Chiltern Smartcard can alert you to delays of 15 minutes or more. Chiltern's pages we read do not say which tickets it covers, so check your email and account before claiming by hand."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 120 (quarterly), 40 (monthly), 16 (Flexi Season) or 10 (weekly). A delay of 120 minutes or more pays 100% of a return journey.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.chilternrailways.co.uk/",
+   "info_url": "https://www.chilternrailways.co.uk/compensation",
+   "complaints_url": "https://chilternrailwayshelp.zendesk.com/",
+   "account": "Yes. Chiltern no longer accepts claims from unregistered users; the Delay Repay account is separate from a ticket account.",
+   "postal": "Yes: a form from staffed stations or the downloadable leaflet, posted with your tickets to the address on the form.",
+   "evidence": [
+    "Keep the paper ticket (do not let the barrier keep it) and send a copy",
+    "Oyster, contactless or pay as you go: your TfL journey statement"
+   ],
+   "payout": "Chiltern's pages we read do not list the payment options; the claim form shows them.",
+   "notes": [
+    "Chiltern moved to a new Delay Repay site: claims sent before 07/09/2026 stay on the old site, and existing account holders had to reset their password.",
+    "Chiltern's compensation page still says you can claim when the cause of the delay was within the railway industry's control. For delays of 60 minutes or more, the National Rail Conditions of Travel pay regardless of cause."
+   ],
+   "sources": [
+    [
+     "Compensation",
+     "https://www.chilternrailways.co.uk/compensation"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.chilternrailways.co.uk/"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.chilternrailways.co.uk/customer-service/passengers-charter"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "crosscountry",
+   "name": "CrossCountry",
+   "short": "CrossCountry",
+   "code": "XC",
+   "runs": "long-distance trains through Birmingham, linking the South West and South Coast with the North East and Scotland",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the date of the delay (CrossCountry's Passenger Charter)",
+   "auto": null,
+   "season": "CrossCountry's Passenger Charter values each journey at the season price divided by 464 (annual), 120 (quarterly), 40 (monthly), 16 (Flexi Season) or 10 (weekly), and notes that calculations may differ with the ticket's validity.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.crosscountrytrains.co.uk/",
+   "info_url": "https://www.crosscountrytrains.co.uk/help-support/delay-repay",
+   "complaints_url": "https://www.crosscountrytrains.co.uk/help-support/contact-us",
+   "account": "Yes. You need a Delay Repay account before you claim online.",
+   "postal": "Yes: the downloadable form or a Freepost form from stations and trains, or write to CrossCountry Customer Relations in Birmingham.",
+   "evidence": [
+    "The ticket or an image of it, the season ticket and photocard, or the full booking confirmation email",
+    "Smartcard: a clear image of the front and the 18-digit number"
+   ],
+   "payout": "Bank transfer (BACS), card payment (some card types) or National Rail Travel Vouchers. CrossCountry warns that some online-only banks may not accept BACS.",
+   "notes": [
+    "CrossCountry pays for delays of 30 minutes or more whatever caused them.",
+    "If an emergency timetable was in place, compensation is based on that timetable."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.crosscountrytrains.co.uk/help-support/delay-repay"
+    ],
+    [
+     "Passenger Charter",
+     "https://www.crosscountrytrains.co.uk/about-us/passenger-charter/full-charter"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.crosscountrytrains.co.uk/"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "east-midlands-railway",
+   "name": "East Midlands Railway",
+   "short": "EMR",
+   "code": "EM",
+   "runs": "trains from London St Pancras to the East Midlands and Sheffield, and local services across the East Midlands",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of travel (EMR says it must receive your claim within 28 days of the delay)",
+   "auto": null,
+   "season": "EMR publishes a divisor for each delay band; they work out the same as valuing each journey at the season price divided by 10 (weekly), 40 (monthly) or 464 (annual), with a delay of 120 minutes or more paying two journeys. EMR publishes no Flexi Season rule on its page.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.eastmidlandsrailway.co.uk/index.cfm?action=myclaims.add",
+   "info_url": "https://www.eastmidlandsrailway.co.uk/delay-repay",
+   "complaints_url": "https://www.eastmidlandsrailway.co.uk/help-manage/manage/contact-us",
+   "account": "No. You can start a claim without logging in; an account saves your details and season ticket.",
+   "postal": "Yes: the EMR Delay Repay claim form, from stations or as a download; one paper form takes up to five journeys.",
+   "evidence": [
+    "A photo of the ticket for travel, not the seat reservation or receipt",
+    "An e-ticket PDF",
+    "For an S-Ticket, the code as the ticket number plus a photo of the booking confirmation (screenshots are not accepted)"
+   ],
+   "payout": "Bank transfer (BACS), debit or credit card, or PayPal.",
+   "reject": [
+    "You sent a seat reservation, a receipt or a screenshot instead of the ticket. EMR accepts a booking confirmation or receipt only once."
+   ],
+   "notes": [
+    "Appeals go through the claim site, using your claim reference."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.eastmidlandsrailway.co.uk/delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.eastmidlandsrailway.co.uk/help-manage/about-us/passengers-charter"
+    ],
+    [
+     "Complaint handling procedure",
+     "https://www.eastmidlandsrailway.co.uk/help-manage/about-us/policies/complaint-handling-procedure"
+    ]
+   ],
+   "commuter": false
+  },
+  {
+   "slug": "gatwick-express",
+   "name": "Gatwick Express",
+   "short": "Gatwick Express",
+   "code": "GX",
+   "runs": "non-stop trains between London Victoria and Gatwick Airport",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your delayed journey, online or by post",
+   "auto": [
+    "Auto Delay Repay",
+    "For Key Smartcard tickets (keyGo included) when you have signed up for Auto Delay Repay and touched in and out, on Thameslink, Southern, Great Northern or Gatwick Express. You get an email within 48 hours and confirm the claim; you have 28 days from the delayed journey to do so. A claim you make by hand cancels the automatic one, so check your email first. It only works when the whole journey is on one Key ticket."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 240 (six-monthly), 120 (quarterly), 40 (monthly) or 10 (weekly). A delay of 120 minutes or more pays 100% of a return journey, and you can make only one 120-minute claim a day.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.gatwickexpress.com/",
+   "info_url": "https://www.gatwickexpress.com/help-and-support/delay-repay-compensation",
+   "complaints_url": "https://www.gatwickexpress.com/help-and-support/contact-us",
+   "account": "No. You can register during the claim; you need an account only to be paid by e-Voucher.",
+   "postal": "Yes: the GTR postal form, sent to Freepost RUHE-TXXU-GHHA, GTR, Derby DE1 9RQ.",
+   "evidence": [
+    "Paper ticket: the ticket, its receipt, or a scan or photo of the season ticket and photocard",
+    "eTicket or barcode ticket: the ticket number (UTN) or an image",
+    "Key Smartcard: the card number",
+    "Oyster or contactless: a TfL journey history print-out",
+    "One image per claim, up to 5MB"
+   ],
+   "payout": "Online: bank transfer (BACS), e-Voucher (needs an online account), PayPal, cashable National Rail vouchers or a donation to Samaritans or Railway Children. Auto Delay Repay can also pay to a Visa card. Postal claims have fewer options.",
+   "reject": [
+    "You claimed by hand for a journey that Auto Delay Repay had already raised: the manual claim cancels the automatic one.",
+    "You made a second 120-minute claim on the same day on a season ticket: one full day's travel is the cap.",
+    "A missed connection where too little time was left for the change, or without a ticket for the whole journey: GTR pays missed connections only when enough time was left and you hold a ticket that covers the entire journey."
+   ],
+   "notes": [
+    "Gatwick Express is run by the same company as Southern, Thameslink and Great Northern (GTR) and uses the same rules and postal address.",
+    "GTR aims to reply within 20 working days, usually within 5."
+   ],
+   "sources": [
+    [
+     "Delay Repay compensation",
+     "https://www.gatwickexpress.com/help-and-support/delay-repay-compensation"
+    ],
+    [
+     "Auto Delay Repay (Great Northern page, covers Gatwick Express)",
+     "https://www.greatnorthernrail.com/help-and-support/delay-repay-compensation/auto-delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.gatwickexpress.com/about-us/passengers-charter"
+    ]
+   ],
+   "commuter": false
+  },
+  {
+   "slug": "grand-central",
+   "name": "Grand Central",
+   "short": "Grand Central",
+   "code": "GC",
+   "runs": "open access trains from London King's Cross to Sunderland and to Bradford",
+   "scheme": "own",
+   "scheme_name": "Charter Compensation",
+   "start": "60 minutes or more",
+   "bands": [
+    [
+     "60 to 119 minutes",
+     "50%",
+     "50% of the delayed portion"
+    ],
+    [
+     "120 to 179 minutes",
+     "75%",
+     "75% of the delayed portion"
+    ],
+    [
+     "180 minutes or more",
+     "100%",
+     "100% of the delayed portion"
+    ]
+   ],
+   "bands_note": "Grand Central does not run Delay Repay. Its own Charter Compensation starts at 60 minutes late. The return column is a share of the delayed portion of the return.",
+   "window": "within 28 days of completing your journey",
+   "auto": null,
+   "season": "Grand Central does not publish a season ticket formula on its compensation page. Ask Grand Central how a season journey is valued.",
+   "claim_url": "https://compensation.grandcentralrail.com/submission/add",
+   "info_url": "https://www.grandcentralrail.com/help/refunds-and-compensation",
+   "complaints_url": "https://help.grandcentralrail.com/hc/en-gb/articles/12828163072913-Get-in-touch",
+   "account": "No. The claim form works without logging in; an account lets you track claims.",
+   "postal": "Yes: the downloadable form, sent to Customer Relations Manager, Grand Central Rail, Wakefield Kirkgate Station, Monk Street, Wakefield WF1 4EL. Grand Central advises recorded delivery.",
+   "evidence": [
+    "A readable scan or photo of the ticket (JPEG or PDF)",
+    "Bookings made with Grand Central can be looked up; tickets bought elsewhere need the ticket or booking confirmation"
+   ],
+   "payout": "PayPal, bank transfer (BACS), or a free Advance single journey code if your journey started or finished at London King's Cross.",
+   "reject": [
+    "Your train was less than 60 minutes late. Grand Central's scheme starts at 60 minutes, unlike most companies."
+   ],
+   "notes": [
+    "Grand Central says most claims are answered within 10 working days."
+   ],
+   "sources": [
+    [
+     "Refunds and compensation",
+     "https://www.grandcentralrail.com/help/refunds-and-compensation"
+    ],
+    [
+     "Passenger Charter",
+     "https://www.grandcentralrail.com/help/passenger-charter"
+    ],
+    [
+     "Compensation claim form",
+     "https://compensation.grandcentralrail.com/submission/add"
+    ]
+   ],
+   "commuter": false,
+   "season_divisor": null
+  },
+  {
+   "slug": "great-northern",
+   "name": "Great Northern",
+   "short": "Great Northern",
+   "code": "GN",
+   "runs": "trains from London King's Cross and Moorgate to Hertfordshire, Cambridge, Peterborough and King's Lynn",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your delayed journey, online or by post",
+   "auto": [
+    "Auto Delay Repay",
+    "For Key Smartcard tickets (keyGo included) when you have signed up for Auto Delay Repay and touched in and out, on Thameslink, Southern, Great Northern or Gatwick Express. You get an email within 48 hours and confirm the claim; you have 28 days from the delayed journey to do so. A claim you make by hand cancels the automatic one, so check your email first. It only works when the whole journey is on one Key ticket."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 240 (six-monthly), 120 (quarterly), 40 (monthly) or 10 (weekly); a Flexi Season is divided by 16. A delay of 120 minutes or more pays 100% of a return journey, a full day's travel, and you can make only one 120-minute claim a day.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.greatnorthernrail.com/",
+   "info_url": "https://www.greatnorthernrail.com/help-and-support/delay-repay-compensation",
+   "complaints_url": "https://www.greatnorthernrail.com/help-and-support/contact-us",
+   "account": "No. You can register during the claim; you need an account for e-Voucher payment and Auto Delay Repay.",
+   "postal": "Yes: the GTR postal form, sent to Freepost RUHE-TXXU-GHHA, GTR, Derby DE1 9RQ.",
+   "evidence": [
+    "Paper ticket: the ticket, its receipt, or a scan or photo of the season ticket and photocard",
+    "eTicket or barcode ticket: the ticket number (UTN) or an image",
+    "Key Smartcard: the card number",
+    "Oyster or contactless: a TfL journey history print-out",
+    "One image per claim, up to 5MB"
+   ],
+   "payout": "Online: bank transfer (BACS), e-Voucher (needs an online account), PayPal, cashable National Rail vouchers or a donation to Samaritans or Railway Children. Auto Delay Repay can also pay to a Visa card. Postal claims have fewer options.",
+   "reject": [
+    "You claimed by hand for a journey that Auto Delay Repay had already raised: the manual claim cancels the automatic one.",
+    "You made a second 120-minute claim on the same day on a season ticket: one full day's travel is the cap.",
+    "A missed connection where too little time was left for the change, or without a ticket for the whole journey: GTR pays missed connections only when enough time was left and you hold a ticket that covers the entire journey."
+   ],
+   "notes": [
+    "Great Northern is run by the same company as Southern, Thameslink and Gatwick Express (GTR).",
+    "Delays caused by planned engineering work in the published timetable are not compensated."
+   ],
+   "sources": [
+    [
+     "Delay Repay compensation",
+     "https://www.greatnorthernrail.com/help-and-support/delay-repay-compensation"
+    ],
+    [
+     "Auto Delay Repay",
+     "https://www.greatnorthernrail.com/help-and-support/delay-repay-compensation/auto-delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.greatnorthernrail.com/about-us/our-commitments/passengers-charter"
+    ]
+   ],
+   "commuter": false
+  },
+  {
+   "slug": "great-western-railway",
+   "name": "Great Western Railway (GWR)",
+   "short": "GWR",
+   "code": "GW",
+   "commuter": true,
+   "runs": "trains from London Paddington to the Thames Valley, the Cotswolds, Bristol, South Wales, Devon and Cornwall, plus local services in the West",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your delay",
+   "auto": [
+    "Automated Delay Repay",
+    "For Advance tickets bought on GWR.com, GWR Touch Smartcard pay as you go in Cornwall and the Bristol area, and seasons bought on GWR.com and loaded onto a GWR smartcard (tap in and out). Opt in through your Delay Repay account, using the same email as your GWR.com account; GWR says new accounts are opted in by default. You get an email within 48 hours with a ready-made claim to accept, change or reject: it is not paid without you."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 40 (monthly), 16 (Flexi Season) or 10 (weekly). A delay of 120 minutes or more pays 200% of a journey value.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.gwr.com/",
+   "info_url": "https://www.gwr.com/help-and-support/refunds-and-compensation/delay-repay",
+   "complaints_url": "https://www.railhelp.co.uk/gwr/make-a-complaint",
+   "account": "Yes. You need a GWR Delay Repay account, separate from your GWR.com account.",
+   "postal": "Yes: the GWR paper form, from staffed stations or as a download. Paper claims are paid by cheque, voucher or charity donation only.",
+   "evidence": [
+    "An image or scan of the paper ticket, or a receipt showing the journey, ticket type, price and ticket number",
+    "GWR Touch Smartcard: an image with the reference number",
+    "eTicket: a screenshot or receipt",
+    "Oyster or contactless: a TfL statement"
+   ],
+   "payout": "Bank transfer, debit or credit card, cheque, vouchers, or a donation to Samaritans or Railway Children. You cannot change the method after claiming.",
+   "notes": [
+    "Contactless journeys between London Paddington and Reading can be claimed through GWR's complaints route even outside 28 days, says GWR."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.gwr.com/help-and-support/refunds-and-compensation/delay-repay"
+    ],
+    [
+     "Automated Delay Repay",
+     "https://www.gwr.com/help-and-support/refunds-and-compensation/automated-delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.gwr.com/about-gwr/our-business/passengers-charter"
+    ]
+   ],
+   "reject": []
+  },
+  {
+   "slug": "greater-anglia",
+   "name": "Greater Anglia",
+   "short": "Greater Anglia",
+   "code": "LE",
+   "runs": "trains from London Liverpool Street to Essex, Suffolk, Norfolk and Cambridge, and the Stansted Express",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the delay",
+   "auto": null,
+   "season": "Each journey on a season is valued at the season price divided by 10 (weekly), 40 (monthly) or 464 (annual). Greater Anglia publishes no Flexi Season divisor on its page.",
+   "season_divisor": 464,
+   "claim_url": "https://greateranglia.delayrepaycompensation.com/",
+   "info_url": "https://www.greateranglia.co.uk/about-us/our-performance/delay-repay",
+   "complaints_url": "https://www.greateranglia.co.uk/contact-us",
+   "account": "No. A My Delay Repay account is optional and saves your ticket and payment details, which helps season ticket holders.",
+   "postal": "Yes: a paper form from staffed stations or as a download, sent to Freepost GREATER ANGLIA CUSTOMER RELATIONS.",
+   "evidence": [
+    "Your ticket",
+    "Contactless pay as you go: your TfL statement",
+    "Smartcard users should tap in and out"
+   ],
+   "payout": "PayPal, bank transfer (BACS), back to the debit or credit card, Rail Travel Vouchers or a donation to Samaritans. Paid within 14 days of the claim being agreed.",
+   "notes": [
+    "Stansted Express journeys are claimed through Greater Anglia's claim site, with the same bands.",
+    "Greater Anglia's claim site asks for one claim per strike date to claim a full day's refund.",
+    "Compensation is not usually paid for planned engineering work with replacement buses in the published timetable."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.greateranglia.co.uk/about-us/our-performance/delay-repay"
+    ],
+    [
+     "Stansted Express Delay Repay",
+     "https://www.stanstedexpress.com/help/delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.greateranglia.co.uk/about-us/our-performance/passengers-charter"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "heathrow-express",
+   "name": "Heathrow Express",
+   "short": "Heathrow Express",
+   "code": "HX",
+   "runs": "non-stop trains between London Paddington and Heathrow Airport",
+   "scheme": "own",
+   "scheme_name": "Delay Compensation Scheme",
+   "start": "30 minutes or more",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "25% of the price paid",
+     "25% of the price paid"
+    ],
+    [
+     "60 minutes or more",
+     "50% of the price paid",
+     "50% of the price paid"
+    ]
+   ],
+   "bands_note": "Heathrow Express does not run Delay Repay. Its own scheme in its Conditions of Carriage pays a share of the price paid for the Heathrow Express part of the journey, from 30 minutes late.",
+   "window": "within 28 days of the relevant journey",
+   "auto": null,
+   "season": "Heathrow Express does not publish a season or carnet formula on the pages we read. Ask it how a carnet journey is valued.",
+   "claim_url": "https://www.heathrowexpress.com/contact-us",
+   "info_url": "https://www.heathrowexpress.com/help-centre/ticket-changes-and-refunds",
+   "complaints_url": "https://www.heathrowexpress.com/contact-us",
+   "account": "No. You claim through the online contact form.",
+   "postal": "Yes: the original ticket and a covering letter to Freepost HEATHROW EXPRESS Customer Relations Department.",
+   "evidence": [
+    "A scan or photo of the ticket, or a copy with the journey details",
+    "Your contact details"
+   ],
+   "payout": "Credit or debit card only, normally the card you paid with.",
+   "notes": [
+    "Heathrow Express says you may claim under the Consumer Rights Act 2015 instead, but not both.",
+    "Complaints get a reply within 20 working days; after a final response or 40 working days you can go to the Rail Ombudsman."
+   ],
+   "sources": [
+    [
+     "Ticket changes and refunds",
+     "https://www.heathrowexpress.com/help-centre/ticket-changes-and-refunds"
+    ],
+    [
+     "Conditions of Carriage, July 2026 (PDF)",
+     "https://www.heathrowexpress.com/docs/heathrow-express-conditions-of-carriage-july-2026.pdf"
+    ],
+    [
+     "Contact us",
+     "https://www.heathrowexpress.com/contact-us"
+    ]
+   ],
+   "commuter": false,
+   "reject": [],
+   "season_divisor": null
+  },
+  {
+   "slug": "hull-trains",
+   "name": "Hull Trains",
+   "short": "Hull Trains",
+   "code": "HT",
+   "runs": "open access trains between London King's Cross and Hull",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 minutes or more",
+     "100%",
+     "50%"
+    ]
+   ],
+   "bands_note": "Hull Trains has no separate 120-minute band: from 60 minutes late it pays the full single or half of a return.",
+   "window": "within 28 days of the date of travel",
+   "auto": null,
+   "season": "Hull Trains divides the season price by a number for each band: weekly 20 (30 to 59 minutes) or 10 (60 minutes or more), monthly 80 or 40, quarterly 240 or 120, annual 928 or 464. Its worked example: an annual season of £3,840 delayed 30 to 59 minutes pays £3,840 ÷ 928 = £4.14. Send a copy of the ticket and the details of each train.",
+   "claim_url": "https://delayrepay.hulltrains.co.uk/",
+   "info_url": "https://www.hulltrains.co.uk/support-and-contact/refunds-and-compensation",
+   "complaints_url": "https://www.hulltrains.co.uk/support-and-contact/contact-us",
+   "account": "No. An account is optional and lets you track claims.",
+   "postal": "Yes: the downloadable form, sent to FREEPOST Hull Trains Delay Repay (no stamp needed).",
+   "evidence": [
+    "Booking reference, travel date and train",
+    "Season tickets: a copy of the ticket and the details of each train",
+    "Missed connections: the details of the connections"
+   ],
+   "payout": "Bank transfer (BACS), credit or debit card, cheque, National Rail Voucher, Hull Trains eVoucher, or a charity donation. Paid within 10 to 15 working days of approval.",
+   "notes": [
+    "Claim with Hull Trains even if you bought the ticket from another retailer, such as Trainline.",
+    "If a claim is rejected, Hull Trains asks for appeals by email to customerservices.hull@hulltrains.co.uk."
+   ],
+   "sources": [
+    [
+     "Refunds and compensation",
+     "https://www.hulltrains.co.uk/support-and-contact/refunds-and-compensation"
+    ],
+    [
+     "Passengers' Charter",
+     "https://www.hulltrains.co.uk/support-and-contact/passengers-charter"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.hulltrains.co.uk/"
+    ]
+   ],
+   "commuter": false,
+   "reject": [],
+   "season_divisor": null
+  },
+  {
+   "slug": "island-line",
+   "name": "Island Line",
+   "short": "Island Line",
+   "code": "IL",
+   "runs": "trains on the Isle of Wight between Ryde Pier Head and Shanklin, run by South Western Railway",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "up to 28 days after your journey, through South Western Railway",
+   "auto": null,
+   "season": "South Western Railway values each journey on a season at the season price divided by 10 (weekly), 16 (Flexi Season), 40 (monthly) or 464 (annual), and never pays more than two single journeys for one delay.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.southwesternrailway.com/",
+   "info_url": "https://www.southwesternrailway.com/contact-and-help/delay-repay",
+   "complaints_url": "https://www.southwesternrailway.com/contact-and-help/complaints",
+   "account": "Yes for online claims: register the first time you claim.",
+   "postal": "Yes: the SWR form, from stations or as a download. Postal claims are paid by National Rail Vouchers or cheque only.",
+   "evidence": [
+    "A clear scan, photo or screenshot of the ticket, eTicket receipt or booking confirmation with the reference, journey and price (third-party order references are not accepted)",
+    "Oyster or contactless: a TfL statement"
+   ],
+   "payout": "Bank transfer (BACS), credit or debit card, cheque, National Rail Vouchers or a donation to Action for Children.",
+   "notes": [
+    "South Western Railway's Automated Delay Repay covers some tickets bought on its website; its pages do not say whether Island Line journeys are included, so claim by hand if you get no email.",
+    "South Western Railway has been in public ownership since May 2025."
+   ],
+   "sources": [
+    [
+     "SWR Delay Repay",
+     "https://www.southwesternrailway.com/contact-and-help/delay-repay"
+    ],
+    [
+     "SWR Passenger's Charter",
+     "https://www.southwesternrailway.com/other/about-us/passengers-charter"
+    ],
+    [
+     "SWR complaints",
+     "https://www.southwesternrailway.com/contact-and-help/complaints"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "lner",
+   "name": "LNER",
+   "short": "LNER",
+   "code": "GR",
+   "runs": "intercity trains on the East Coast Main Line from London King's Cross to Yorkshire, the North East and Scotland",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "bands_note": "For a return, LNER pays its percentage of the delayed half (the outward or return portion), which equals the return column above.",
+   "window": "within 28 days of travel",
+   "auto": [
+    "One-click Delay Repay",
+    "For LNER Advance eTickets booked direct on the LNER website or app, on an LNER train, when you opted in while buying. You get an email within about 30 minutes of arriving (or of a cancellation) with a claim link, and you have 28 days to click it; payment goes back to your card. Flexible, Off-Peak, Super Off-Peak and season tickets are not covered."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 10 (weekly), 40 (monthly) or 464 (annual). A Flexi Season is divided by 16, and a delay of 120 minutes or more pays two single journeys.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.lner.co.uk/delayrepayV2/",
+   "info_url": "https://www.lner.co.uk/support/delay-repay/",
+   "complaints_url": "https://www.lner.co.uk/support/customer-feedback/",
+   "account": "No for the claim form. If you booked direct, claim from My Account.",
+   "postal": "LNER's pages we read do not mention a postal form; contact LNER if you cannot claim online.",
+   "evidence": [
+    "Your ticket: eTicket barcode, paper ticket or smartcard",
+    "For split tickets, every ticket"
+   ],
+   "payout": "One-click claims are paid back to your card, or donated to CALM. The options for other claims are shown on the claim form.",
+   "notes": [
+    "If your LNER train is cancelled and you take an earlier, undisrupted train, LNER does not pay compensation.",
+    "Claims sent to LNER for another company's delay are passed on."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.lner.co.uk/support/delay-repay/"
+    ],
+    [
+     "Cancelled trains",
+     "https://www.lner.co.uk/travel-information/cancelled-train/"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.lner.co.uk/about-us/passenger-charter/"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "lumo",
+   "name": "Lumo",
+   "short": "Lumo",
+   "code": "LD",
+   "runs": "open access trains between London King's Cross, Newcastle and Edinburgh",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 minutes or more",
+     "100%",
+     "50%"
+    ]
+   ],
+   "bands_note": "Lumo has no separate 120-minute band: from 60 minutes late it pays the full single or half of a return.",
+   "window": "within 28 days of your travel date",
+   "auto": [
+    "Automated Delay Repay",
+    "Only for LumoFixed and LumoFlex tickets bought on the Lumo website or LumoGo app. Register and opt in with the same email as your Lumo booking account, no later than the day of travel (it does not work backwards). Processed within 24 hours of a delay of 30 minutes or more."
+   ],
+   "season": "Lumo divides the season price per delayed journey by weekly 20 (30 to 59 minutes) or 10 (60 minutes or more), monthly 80 or 40, quarterly 240 or 120, annual 928 or 464. Claim each journey separately.",
+   "claim_url": "https://delayrepay.lumo.co.uk/",
+   "info_url": "https://www.lumo.co.uk/help/delay-repay",
+   "complaints_url": "https://www.lumo.co.uk/about-us/complaints-handling-procedure",
+   "account": "No. An account is optional and lets you track claims.",
+   "postal": "Yes: the downloadable form with the original tickets and seat reservations or the full booking confirmation, sent to Freepost LUMO DELAY REPAY.",
+   "evidence": [
+    "Tickets plus seat reservations or the booking confirmation",
+    "Season tickets: a copy of the ticket"
+   ],
+   "payout": "Bank transfer (BACS), credit or debit card, cheque, Lumo e-vouchers or a donation to Action for Children; normally the way you paid.",
+   "reject": [
+    "You knew about the disruption before you bought the ticket. Lumo normally refuses those claims."
+   ],
+   "notes": [
+    "Lumo asks for appeals of rejected claims by email to customerexperience@lumo.co.uk."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.lumo.co.uk/help/delay-repay"
+    ],
+    [
+     "Complaints handling procedure",
+     "https://www.lumo.co.uk/about-us/complaints-handling-procedure"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.lumo.co.uk/"
+    ]
+   ],
+   "commuter": false,
+   "season_divisor": null
+  },
+  {
+   "slug": "merseyrail",
+   "name": "Merseyrail",
+   "short": "Merseyrail",
+   "code": "ME",
+   "runs": "the Northern and Wirral lines around Liverpool",
+   "scheme": "own",
+   "scheme_name": "Passenger Charter compensation",
+   "start": "more than 30 minutes",
+   "bands": [
+    [
+     "More than 30 minutes",
+     "100% (full single)",
+     "50% of the return"
+    ]
+   ],
+   "bands_note": "Merseyrail does not run Delay Repay. Its own scheme pays the full single or half a return when a journey entirely on Merseyrail is more than 30 minutes late. If your ticket also covers other train companies' lines, it pays 20% of the ticket price.",
+   "window": "as soon as you can: Merseyrail's help pages we read give no deadline for delay claims, so we suggest claiming within 28 days, the general limit in the National Rail Conditions of Travel",
+   "auto": null,
+   "season": "Merseyrail pays season tickets on average performance, not per journey: when the ticket ends, monthly and longer seasons can get 5% or 10% back if punctuality fell below its Passenger Charter targets. On a strike day, monthly and annual season holders who could not travel get a day's travel back, if they claim within 28 days of the strike.",
+   "claim_url": "https://help.merseyrail.org/hc/en-gb/requests/new?ticket_form_id=14848172231964",
+   "info_url": "https://help.merseyrail.org/hc/en-gb/articles/14723310591132-Single-Return-Ticket-Compensation-Information",
+   "complaints_url": "https://help.merseyrail.org/hc/en-gb/sections/14688420328604-Complaints-and-Feedback",
+   "account": "No. You claim through Merseyrail's help centre form.",
+   "postal": "For paper season tickets: the refund application form to Freepost MERSEYRAIL CUSTOMER RELATIONS or any staffed station.",
+   "evidence": [
+    "Proof of purchase, such as the confirmation email",
+    "Smartcard number or photocard ID for season and strike-day claims"
+   ],
+   "payout": "Usually the same way you paid for the ticket, within 14 days of the claim being accepted.",
+   "notes": [
+    "For a rejected claim, contact Merseyrail Customer Relations on 0151 555 1111 or comment@merseyrail.org."
+   ],
+   "sources": [
+    [
+     "Single and return ticket compensation",
+     "https://help.merseyrail.org/hc/en-gb/articles/14723310591132-Single-Return-Ticket-Compensation-Information"
+    ],
+    [
+     "Delay compensation for industrial action",
+     "https://help.merseyrail.org/hc/en-gb/articles/14723461582236-Delay-Compensation-for-Industrial-Action"
+    ],
+    [
+     "Passenger Charter",
+     "https://www.merseyrail.org/about-us/passenger-charter/"
+    ]
+   ],
+   "commuter": false,
+   "reject": [],
+   "season_divisor": null
+  },
+  {
+   "slug": "northern",
+   "name": "Northern",
+   "short": "Northern",
+   "code": "NT",
+   "commuter": true,
+   "runs": "local and regional trains across the North of England",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "bands_note": "Instead of money, Northern also offers free Northern tickets: one single for 30 to 59 minutes, one return for 60 to 119 minutes and two returns for 120 minutes or more.",
+   "window": "within 28 days of the date of travel",
+   "auto": [
+    "Automated Delay Repay",
+    "For Advance tickets for a specific train bought on the Northern website or app, when your Delay Repay account uses the same email address. Northern says existing account holders are opted in automatically. You get an email and accept the claim with one click; it is usually paid within 5 working days. It does not apply when the train is cancelled."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 10 (weekly), 40 (monthly) or 464 (annual). A Flexi Season is divided by 8 with half the percentages, which comes to the same as dividing by 16. Season holders delayed 30 minutes or more can take a free ticket instead.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.northernrailway.co.uk/",
+   "info_url": "https://help.northernrailway.co.uk/s/article/Delay-Repay",
+   "complaints_url": "https://help.northernrailway.co.uk/s/article/How-to-make-a-complaint",
+   "account": "No for a one-off claim. Automated Delay Repay needs an account.",
+   "postal": "Yes: a paper form from stations or as a download, sent to Freepost Northernrailway.",
+   "evidence": [
+    "Images of all tickets, or the smartcard number",
+    "Full journey details and the length of the delay",
+    "Receipts and booking confirmations are accepted only if they show a ticket number"
+   ],
+   "payout": "Bank transfer (BACS), UK debit or credit card, NatWest PayIt, Rail Travel Vouchers, a free Northern ticket, a cashable voucher (up to £50 at a Northern ticket office) or a donation to Samaritans.",
+   "reject": [
+    "You sent a booking confirmation without a ticket number. Northern accepts these only when the ticket number is shown."
+   ],
+   "notes": [
+    "Appeals go through your Delay Repay account, or to enquiries@northernrailway.co.uk or 0800 200 60 60."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://help.northernrailway.co.uk/s/article/Delay-Repay"
+    ],
+    [
+     "Automated Delay Repay",
+     "https://help.northernrailway.co.uk/s/article/Automated-Delay-Repay-Compensation"
+    ],
+    [
+     "Delay Repay claim site",
+     "https://delayrepay.northernrailway.co.uk/"
+    ]
+   ]
+  },
+  {
+   "slug": "scotrail",
+   "name": "ScotRail",
+   "short": "ScotRail",
+   "code": "SR",
+   "runs": "most trains within Scotland",
+   "scheme": "DR30",
+   "bands": [
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the delay (ScotRail must receive the claim within 28 days)",
+   "auto": null,
+   "season": "ScotRail pays season ticket holders too: claim with your Smartcard number or a scan or photo of the season ticket and photocard. Its Delay Repay page does not publish the per-journey formula, so check the amount ScotRail offers.",
+   "claim_url": "https://delayrepay.scotrail.co.uk/srt_dr?id=dr_submit_claim",
+   "info_url": "https://www.scotrail.co.uk/plan-your-journey/our-delay-repay-guarantee",
+   "complaints_url": "https://contact.scotrail.co.uk/",
+   "complaints_label": "ScotRail customer contact",
+   "account": "No. The claim form works as a guest.",
+   "postal": "Yes: a form from staffed stations or as a download, sent with your ticket to ScotRail Customer Relations, PO Box 27129, Glasgow G2 9LH.",
+   "evidence": [
+    "Smartcard: the number on the back",
+    "Paper ticket: the original ticket, or a scan or photo of the season ticket and photocard"
+   ],
+   "payout": "The claim form offers bank transfer (BACS), PayPal, rail travel vouchers (exchangeable for cash at a ScotRail ticket office within 28 days) or a donation to Age Scotland.",
+   "reject": [
+    "You were told about the delay before you bought the ticket. ScotRail says it does not normally accept those claims.",
+    "A temporary timetable was in place: ScotRail measures the delay against it."
+   ],
+   "notes": [
+    "ScotRail also pays when a delay on a ScotRail train makes you miss a connection."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.scotrail.co.uk/plan-your-journey/our-delay-repay-guarantee"
+    ],
+    [
+     "Delay Repay claim form",
+     "https://delayrepay.scotrail.co.uk/srt_dr?id=dr_submit_claim"
+    ]
+   ],
+   "commuter": false,
+   "season_divisor": null
+  },
+  {
+   "slug": "south-western-railway",
+   "name": "South Western Railway",
+   "short": "SWR",
+   "code": "SW",
+   "commuter": true,
+   "runs": "trains from London Waterloo to Surrey, Hampshire, Dorset, Berkshire and the South West",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "up to 28 days after your journey",
+   "auto": [
+    "Automated Delay Repay",
+    "For season tickets bought on the SWR website and loaded onto a Touch Smartcard (Tap2Go included), and Advance tickets bought on the SWR website. Sign up through your Delay Repay account using the same email as your SWR account, and tap in and out. A claim is usually raised within 3 days; accept, change or decline it within 14 days. No email? Claim by hand within 28 days."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 10 (weekly), 16 (Flexi Season), 40 (monthly) or 464 (annual). One delay never pays more than two single journeys.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.southwesternrailway.com/",
+   "info_url": "https://www.southwesternrailway.com/contact-and-help/delay-repay",
+   "complaints_url": "https://www.southwesternrailway.com/contact-and-help/complaints",
+   "account": "Yes for online claims: register the first time you claim.",
+   "postal": "Yes: the SWR form, from stations or as a download. Postal claims are paid by National Rail Vouchers or cheque only.",
+   "evidence": [
+    "A scan or photo of the ticket (with the barcode for eTickets), the season ticket and photocard, or an eTicket receipt or booking confirmation with the reference and price",
+    "Touch Smartcard: the number plus a receipt",
+    "Oyster or contactless: a TfL statement",
+    "Split tickets: every ticket"
+   ],
+   "payout": "Bank transfer (BACS), credit or debit card, cheque, National Rail Vouchers or a donation to Action for Children.",
+   "reject": [
+    "You gave another retailer's order reference: SWR needs the ticket or eTicket reference.",
+    "You had already claimed the maximum for that day's travel on a season ticket."
+   ],
+   "notes": [
+    "Split tickets: SWR works out compensation on the value of each ticket and adds them up, and needs to see every ticket.",
+    "If overcrowding stopped you boarding, that delay can count.",
+    "Appeal using the link in the decision email.",
+    "South Western Railway has been in public ownership since May 2025."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.southwesternrailway.com/contact-and-help/delay-repay"
+    ],
+    [
+     "Complaints",
+     "https://www.southwesternrailway.com/contact-and-help/complaints"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.southwesternrailway.com/other/about-us/passengers-charter"
+    ]
+   ]
+  },
+  {
+   "slug": "southeastern",
+   "name": "Southeastern",
+   "short": "Southeastern",
+   "code": "SE",
+   "commuter": true,
+   "runs": "trains from London to Kent and parts of East Sussex, including high-speed services from St Pancras",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "up to 28 days after your journey",
+   "auto": [
+    "One Click Delay Repay",
+    "For Key smartcard users, and eTickets, sTickets and Advance tickets bought on the Southeastern website or app, when you opt in through your Southeastern account. A claim is sent within 48 hours for you to confirm, within 28 days of the delayed journey. Paper season tickets are not covered: move them to Key."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 16 (Flexi), 10 (weekly), 40 (monthly), 120 (quarterly) or 464 (annual). Compensation for one delay is capped at the return journey value.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.southeasternrailway.co.uk/",
+   "info_url": "https://www.southeasternrailway.co.uk/help/refunds-and-compensation/delay-repay-compensation",
+   "complaints_url": "https://www.southeasternrailway.co.uk/get-in-touch/make-a-complaint",
+   "account": "No. You can claim as a guest; One Click Delay Repay needs a Southeastern account.",
+   "postal": "Yes: forms at stations or the downloadable Freepost form.",
+   "evidence": [
+    "A copy of the ticket, the season ticket or photocard number, the Key card number, the eTicket or sTicket reference, or a Southeastern booking reference",
+    "Oyster or contactless: a TfL statement",
+    "Receipts, confirmation emails and other retailers' order references are not accepted. You can upload one image."
+   ],
+   "payout": "Bank transfer, PayPal, eVoucher or a cashable National Rail voucher (up to £50; more is paid by cheque), or a charity donation. Southeastern cannot pay to a debit or credit card.",
+   "reject": [
+    "You sent a receipt, a confirmation email or a retailer's order reference instead of the ticket."
+   ],
+   "notes": [
+    "Season ticket holders (Flexi, monthly or longer) can claim a full day for each strike day they did not travel, with one claim per strike day, says Southeastern's industrial action page.",
+    "To challenge a decision, reply to the decision email, use the contact form or call 0345 322 7021."
+   ],
+   "sources": [
+    [
+     "Delay Repay compensation",
+     "https://www.southeasternrailway.co.uk/help/refunds-and-compensation/delay-repay-compensation"
+    ],
+    [
+     "One Click Delay Repay FAQs",
+     "https://www.southeasternrailway.co.uk/help/support/faqs/refunds/one-click-delay-repay-faqs"
+    ],
+    [
+     "Industrial action refunds",
+     "https://www.southeasternrailway.co.uk/help/refunds-and-compensation/industrial-action-refunds"
+    ]
+   ]
+  },
+  {
+   "slug": "southern",
+   "name": "Southern",
+   "short": "Southern",
+   "code": "SN",
+   "commuter": true,
+   "runs": "trains from London Victoria and London Bridge to Surrey, Sussex and the South Coast",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your delayed journey, online or by post",
+   "auto": [
+    "Auto Delay Repay",
+    "For Key Smartcard tickets (keyGo included) when you have signed up for Auto Delay Repay and touched in and out, on Thameslink, Southern, Great Northern or Gatwick Express. You get an email within 48 hours and confirm the claim; you have 28 days from the delayed journey to do so. A claim you make by hand cancels the automatic one, so check your email first. It only works when the whole journey is on one Key ticket."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 240 (six-monthly), 120 (quarterly), 40 (monthly) or 10 (weekly); a Flexi Season is divided by 16. A delay of 120 minutes or more pays 100% of a return journey, a full day's travel, and you can make only one 120-minute claim a day.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.southernrailway.com/",
+   "info_url": "https://www.southernrailway.com/help-and-support/delay-repay-compensation",
+   "complaints_url": "https://www.southernrailway.com/help-and-support/contact-us",
+   "account": "Optional. An account saves your details and is needed for e-Voucher payment.",
+   "postal": "Yes: the GTR postal form, sent to Freepost RUHE-TXXU-GHHA, GTR, Derby DE1 9RQ.",
+   "evidence": [
+    "Paper ticket: the ticket, its receipt, or a scan or photo of the season ticket and photocard",
+    "eTicket or barcode ticket: the ticket number (UTN) or an image",
+    "Key Smartcard: the card number",
+    "Oyster or contactless: a TfL journey history print-out",
+    "One image per claim, up to 5MB"
+   ],
+   "payout": "Online: bank transfer (BACS), e-Voucher (needs an online account), PayPal, cashable National Rail vouchers or a donation to Samaritans or Railway Children. Auto Delay Repay can also pay to a Visa card. Postal claims have fewer options.",
+   "reject": [
+    "You claimed by hand for a journey that Auto Delay Repay had already raised: the manual claim cancels the automatic one.",
+    "You made a second 120-minute claim on the same day on a season ticket: one full day's travel is the cap.",
+    "A missed connection where too little time was left for the change, or without a ticket for the whole journey: GTR pays missed connections only when enough time was left and you hold a ticket that covers the entire journey."
+   ],
+   "notes": [
+    "Southern is run by the same company as Thameslink, Great Northern and Gatwick Express (GTR).",
+    "Each traveller claims separately, with up to 3 claims in one submission."
+   ],
+   "sources": [
+    [
+     "Delay Repay compensation",
+     "https://www.southernrailway.com/help-and-support/delay-repay-compensation"
+    ],
+    [
+     "Auto Delay Repay",
+     "https://www.southernrailway.com/help-and-support/delay-repay-compensation/auto-delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.southernrailway.com/about-us/our-commitments/passengers-charter"
+    ]
+   ]
+  },
+  {
+   "slug": "thameslink",
+   "name": "Thameslink",
+   "short": "Thameslink",
+   "code": "TL",
+   "commuter": true,
+   "runs": "trains through central London from Bedford, Peterborough and Cambridge to Gatwick, Brighton and Kent",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your delayed journey, online or by post",
+   "auto": [
+    "Auto Delay Repay",
+    "For Key Smartcard tickets (keyGo included) when you have signed up for Auto Delay Repay and touched in and out, on Thameslink, Southern, Great Northern or Gatwick Express. You get an email within 48 hours and confirm the claim; you have 28 days from the delayed journey to do so. A claim you make by hand cancels the automatic one, so check your email first. It only works when the whole journey is on one Key ticket."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 240 (six-monthly), 120 (quarterly), 40 (monthly) or 10 (weekly); a Flexi Season is divided by 16. A delay of 120 minutes or more pays 100% of a return journey, a full day's travel, and you can make only one 120-minute claim a day.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.thameslinkrailway.com/",
+   "info_url": "https://www.thameslinkrailway.com/help-and-support/delay-repay",
+   "complaints_url": "https://www.thameslinkrailway.com/help-and-support/contact-us",
+   "account": "Optional. An account is needed for e-Voucher payment.",
+   "postal": "Yes: the GTR postal form, sent to Freepost RUHE-TXXU-GHHA, GTR, Derby DE1 9RQ.",
+   "evidence": [
+    "Paper ticket: the ticket, its receipt, or a scan or photo of the season ticket and photocard",
+    "eTicket or barcode ticket: the ticket number (UTN) or an image",
+    "Key Smartcard: the card number",
+    "Oyster or contactless: a TfL journey history print-out",
+    "One image per claim, up to 5MB"
+   ],
+   "payout": "Online: bank transfer (BACS), e-Voucher (needs an online account), PayPal, cashable National Rail vouchers or a donation to Samaritans or Railway Children. Auto Delay Repay can also pay to a Visa card. Postal claims have fewer options.",
+   "reject": [
+    "You claimed by hand for a journey that Auto Delay Repay had already raised: the manual claim cancels the automatic one.",
+    "You made a second 120-minute claim on the same day on a season ticket: one full day's travel is the cap.",
+    "A missed connection where too little time was left for the change, or without a ticket for the whole journey: GTR pays missed connections only when enough time was left and you hold a ticket that covers the entire journey."
+   ],
+   "notes": [
+    "Thameslink is run by the same company as Southern, Great Northern and Gatwick Express (GTR)."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://www.thameslinkrailway.com/help-and-support/delay-repay"
+    ],
+    [
+     "Auto Delay Repay",
+     "https://www.thameslinkrailway.com/help-and-support/delay-repay/auto-delay-repay"
+    ],
+    [
+     "Passenger's Charter",
+     "https://www.thameslinkrailway.com/about-us/our-commitments/passengers-charter"
+    ]
+   ]
+  },
+  {
+   "slug": "transpennine-express",
+   "name": "TransPennine Express",
+   "short": "TPE",
+   "code": "TP",
+   "commuter": true,
+   "runs": "intercity trains across the North of England and to Scotland: Liverpool, Manchester, Leeds, York, Newcastle and Edinburgh",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of the journey date",
+   "auto": [
+    "Automated Delay Repay",
+    "Only for TPE Advance tickets bought on the TPE website or app, when you opt in through a Delay Repay account with the same email as your TPE account. A claim is raised within 2 to 3 days and paid to the card you used."
+   ],
+   "season": "TPE publishes a divisor for each band; they work out the same as valuing each journey at the season price divided by 10 (weekly), 40 (monthly), 120 (quarterly) or 464 (annual), with 120 minutes or more paying two journeys. TPE publishes no Flexi Season row.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.tpexpress.co.uk/",
+   "info_url": "https://www.tpexpress.co.uk/help/delay-repay-compensation",
+   "complaints_url": "https://www.tpexpress.co.uk/help/complaints",
+   "account": "Needed for Automated Delay Repay; TPE's page does not say whether a manual claim needs one.",
+   "postal": "Yes: the downloadable form with your tickets, sent to FREEPOST TRANSPENNINE EXPRESS.",
+   "evidence": [
+    "Your tickets, or a screenshot or scan of them"
+   ],
+   "payout": "Normally back to how you paid. Options: debit or credit card, cheque, rail travel vouchers, TPE e-vouchers, or Payit (a link that pays into your bank account, since 18/10/2026).",
+   "notes": [
+    "TPE moved to a new Delay Repay system on 18/10/2026: older claims stay on its old claim site, new claim references start with TPT and some users had to reset their password.",
+    "Appeal by replying to the decision email.",
+    "TPE pays 50% of that leg if you had to stand despite a seat reservation."
+   ],
+   "sources": [
+    [
+     "Delay Repay compensation",
+     "https://www.tpexpress.co.uk/help/delay-repay-compensation"
+    ],
+    [
+     "Complaints",
+     "https://www.tpexpress.co.uk/help/complaints"
+    ],
+    [
+     "Passengers' Charter",
+     "https://www.tpexpress.co.uk/about-us/passengers-charter"
+    ]
+   ],
+   "reject": []
+  },
+  {
+   "slug": "transport-for-wales",
+   "name": "Transport for Wales",
+   "short": "TfW",
+   "code": "AW",
+   "runs": "trains across Wales and the borders, including Cardiff, Swansea, Chester, Shrewsbury and Manchester",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of completing your journey",
+   "auto": [
+    "Automatic Delay Repay",
+    "For Advance tickets bought on the Transport for Wales website or app for a TfW service. A claim is created within 24 hours and an email asks you to confirm it; payment takes up to 5 working days."
+   ],
+   "season": "Each journey on a season is valued at the season price divided by 464 (annual), 40 (monthly) or 10 (weekly). Each delayed journey is a separate claim, with at most two claims a day. Season tickets bought from TfW can also claim for strike days: choose Strike Action as the reason.",
+   "season_divisor": 464,
+   "claim_url": "https://delayrepay.trc.cymru/",
+   "info_url": "https://tfw.wales/help-and-contact/rail/delay-repay",
+   "complaints_url": "https://tfw.wales/help-and-contact/rail/complaint",
+   "account": "Optional (My Delay Repay Account).",
+   "postal": "Yes: the downloadable form; TfW replies within 20 working days.",
+   "evidence": [
+    "Journey date, train time, origin and destination",
+    "A scan or photo of the tickets; with no barcode ticket, a screenshot of the booking confirmation email"
+   ],
+   "payout": "Bank transfer, PayPal (online only), National Rail travel vouchers or a charity donation.",
+   "notes": [
+    "Appeal through Check My Claim Status within one month."
+   ],
+   "sources": [
+    [
+     "Delay Repay",
+     "https://tfw.wales/help-and-contact/rail/delay-repay"
+    ],
+    [
+     "Complaints",
+     "https://tfw.wales/help-and-contact/rail/complaint"
+    ],
+    [
+     "Passenger's Charter",
+     "https://tfw.wales/about-us/transparency/passengers-charter"
+    ]
+   ],
+   "commuter": false,
+   "reject": []
+  },
+  {
+   "slug": "west-midlands-railway",
+   "name": "West Midlands Railway and London Northwestern Railway",
+   "short": "WMR and LNR",
+   "code": "LM",
+   "runs": "local trains across the West Midlands (West Midlands Railway) and trains from London Euston to Northampton, Birmingham, Crewe and Liverpool (London Northwestern Railway)",
+   "scheme": "DR15",
+   "bands": [
+    [
+     "15 to 29 minutes",
+     "25%",
+     "12.5%"
+    ],
+    [
+     "30 to 59 minutes",
+     "50%",
+     "25%"
+    ],
+    [
+     "60 to 119 minutes",
+     "100%",
+     "50%"
+    ],
+    [
+     "120 minutes or more",
+     "100%",
+     "100%"
+    ]
+   ],
+   "window": "within 28 days of your travel date",
+   "auto": [
+    "One-click Delay Repay",
+    "Only for Advance Single tickets bought through your West Midlands Railway or London Northwestern Railway account on the website or app. If you are 15 minutes or more late, you get an email the day after travel; clicking its link submits the claim. Not for other tickets or tickets bought elsewhere."
+   ],
+   "season": "Both brands value a day's travel at the season price divided by 8 return journeys (Flexi Season), 5 (weekly), 20 (monthly) or 232 (annual), and pay 12.5%, 25%, 50% or 100% of it. That is the same as 25%, 50%, 100% or 200% of a single journey valued at the price divided by 16, 10, 40 or 464.",
+   "season_divisor": 464,
+   "claim_url": "https://westmidlandsrailway.delayrepaycompensation.com/index.cfm?fuseaction=Public.addclaim",
+   "info_url": "https://www.westmidlandsrailway.co.uk/about-us/delay-repay",
+   "claim_url2": [
+    "London Northwestern Railway claim form",
+    "https://londonnorthwesternrailway.delayrepaycompensation.com/index.cfm?fuseaction=Public.addclaim"
+   ],
+   "complaints_url": "https://www.westmidlandsrailway.co.uk/contact-us/customer-relations",
+   "account": "No. An account is optional and saves your season ticket details.",
+   "postal": "Yes: each brand has its own form, from staffed stations or as a download (West Midlands Railway: Freepost WEST MIDLANDS RAIL DELAY REPAY).",
+   "evidence": [
+    "A photo or screenshot of each ticket with its ticket number (all parts of a split ticket)",
+    "Smartcard or Swift card number",
+    "Oyster or contactless: a TfL statement",
+    "Receipts and booking emails are not accepted unless the ticket number is visible"
+   ],
+   "payout": "Credit or debit card, bank transfer (BACS), PayPal, National Rail vouchers or a donation to Birmingham Children's Hospital Charity. Paid within 14 days of the decision.",
+   "reject": [
+    "You claimed on the wrong brand's form: West Midlands Railway and London Northwestern Railway have separate claim forms, so use the one for the train that delayed you.",
+    "You sent a receipt or booking email without the ticket number."
+   ],
+   "notes": [
+    "You can appeal a decision within one month, through the claim site.",
+    "Extra costs such as a taxi, hotel or refreshments after a delay of 60 minutes or more go to Customer Relations."
+   ],
+   "sources": [
+    [
+     "West Midlands Railway Delay Repay",
+     "https://www.westmidlandsrailway.co.uk/about-us/delay-repay"
+    ],
+    [
+     "London Northwestern Railway Delay Repay",
+     "https://www.londonnorthwesternrailway.co.uk/about-us/delay-repay"
+    ],
+    [
+     "Complaint handling procedure",
+     "https://www.westmidlandsrailway.co.uk/about-us/our-policies/complaint-handling-procedure"
+    ]
+   ],
+   "commuter": false
+  }
+ ]
+}

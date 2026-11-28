@@ -41,7 +41,13 @@ Fragment placeholders (all optional):
   meta `pack: <key>`         exam page of a Sparkwise 1.2.0 pack (PACKS): its own sticky bar, app boxes,
                              closing card, after-sample line and sources; meta `sticky:` overrides the bar
   <!--sources-->             official sources card (on pack pages: "Where the exam facts come from")
+  meta `redirect: <path>/`   moved page: a noindex stub with a meta refresh (nginx sends the real 301); not in the sitemap
 FAQ items `<h3 class="faq-q">…</h3><div class="faq-a">…</div>` become FAQPage JSON-LD.
+
+FareBack (owner decision 28/11/2026, a full rail passenger-rights site): FAREBACK_HOST below is the one setting for its
+host (canonical, sitemap, robots, utm_source; deploy/deploy.sh reads it too). src/fareback/operators.json (facts read on
+each train company's own pages) renders /train-companies/<slug>/ via fareback_operators(); fragments may use
+<!--operator-list--> and {{operators}}. `python3 tools/linkcheck.py fareback` checks the links.
 Runbook: docs/deployment.md.
 """
 import datetime
@@ -64,6 +70,11 @@ IOS_LINE = "Android now; iPhone version not yet available."
 # position (utm_content) turns out not to be visible there, set this to True: the position is then
 # also appended to the campaign (`<page>--<position>`), so it shows up as its own row.
 UTM_POSITION_IN_CAMPAIGN = True
+# FareBack's canonical host. Owner decision 28/11/2026: FareBack moves to its own domain fareback.co.uk.
+# This one setting moves the canonical links, og:url, JSON-LD, sitemap, robots.txt and the Play referrer's
+# utm_source; deploy/deploy.sh reads it too (vhosts and checks). Switch-over steps: docs/deployment.md,
+# "FareBack: switch to fareback.co.uk". FAREBACK_HOST=fareback.co.uk in the environment overrides it for a test build.
+FAREBACK_HOST = os.environ.get("FAREBACK_HOST", "fareback.kodfu.com")
 
 E = html.escape
 
@@ -131,7 +142,8 @@ SOURCES = {
     "fareback": [
         ("Compensation and refunds", "National Rail", "https://www.nationalrail.co.uk/help-and-assistance/compensation-and-refunds/"),
         ("Find a train company", "National Rail", "https://www.nationalrail.co.uk/travel-information/find-a-train-company/"),
-        ("Know your rail rights", "Office of Rail and Road (ORR)", "https://www.orr.gov.uk/monitoring-regulation/rail/passengers/know-your-rail-rights"),
+        ("National Rail Conditions of Travel (edition from 30/07/2026)", "National Rail", "https://www.nationalrail.co.uk/NRCoT"),
+        ("Know your rail rights", "Office of Rail and Road (ORR)", "https://www.orr.gov.uk/rail/passengers/information/know-your-rail-rights"),
         ("Rail Ombudsman", "Rail Ombudsman", "https://www.railombudsman.org/"),
         ("Consumer Rights Act and transport services", "GOV.UK", "https://www.gov.uk/government/publications/consumer-rights-act-application-to-transport-services"),
     ],
@@ -275,24 +287,39 @@ SITES = {
 <p class="muted small">For Android phones, in the United Kingdom.</p>
 </section>'''),
     "fareback": dict(
-        host="fareback.kodfu.com", name="FareBack", tagline="Help with late train claims",
-        pkg="com.kodfu.fareback", category="TravelApplication", promote=True,
+        host=FAREBACK_HOST, name="FareBack", tagline="Train delay claims and rail passenger rights",
+        pkg="com.kodfu.fareback", category="TravelApplication", promote=True, today="2026-11-28",
         light="--bg:#F5F6F3;--fg:#10212B;--muted:#4A5A63;--line:#DCE1DD;--card:#FFFFFF;--accent:#0A6B57;--on-accent:#FFFFFF;--chip:#E2F1EC;--ok:#17733A;--okbg:#E7F4EC;--warnbg:#FFF3D6",
         dark="--bg:#121412;--fg:#E9EFEB;--muted:#A9B3AE;--line:#2E3833;--card:#1B211E;--accent:#4CD9A0;--on-accent:#0A2E22;--chip:#12392B;--ok:#4ADE80;--okbg:#10301C;--warnbg:#3A2A08",
-        band="--band:#0A6B57;--band2:#0A6B57;--on-band:#FFFFFF;--band-muted:#D5EFE6;--band-chip:rgba(0,0,0,.18);--band-hl:#FFFFFF;--band-line:rgba(255,255,255,.18);--play:#FFFFFF;--on-play:#0A6B57",
+        band="--band:#0A6B57;--band2:#085747;--on-band:#FFFFFF;--band-muted:#D5EFE6;--band-chip:rgba(0,0,0,.18);--band-hl:#FFD66B;--band-line:rgba(255,255,255,.18);--play:#FFFFFF;--on-play:#0A6B57",
         band_edge="0",
-        nav=[("home", "Support", ""), ("guide", "Delay Repay guide", "guide/")],
-        pitch="FareBack checks your saved train journeys, tells you when a delay may qualify and gets your Delay Repay claim ready. Free to use.",
-        sticky_sub="Free · for train journeys in Great Britain",
-        appcta_sub="Free to use · Pro optional, 7-day free trial on annual",
+        nav=[("home", "Home", ""), ("delay-repay", "Delay Repay", "delay-repay/"), ("operators", "Train companies", "train-companies/"),
+             ("commuters", "Commuters", "commuters/"), ("rejected", "Claim rejected?", "rejected-claim/"), ("faq", "FAQ", "faq/"),
+             ("support", "Support", "support/")],
+        pitch="Train late? FareBack checks your saved journeys against National Rail data, tells you what you can claim and gets your Delay Repay claim ready. Free to use.",
+        sticky_sub="Free · checks your trains",
+        appcta_sub="Free to use · Pro £1.99 a month or £12.99 a year, 7-day free trial on annual",
+        pro_line="FareBack Pro is £1.99 a month or £12.99 a year, with a 7-day free trial on the annual plan.",
+        footer_links='<a href="~/support/">Support</a> · <a href="~/#delete">Delete your data</a> · ',
+        screens={
+            "01-owed": ("Late train? See what you're owed", "A FareBack journey from Brighton to London Bridge, 34 minutes late, with an estimate of about £6.20 and how it was worked out from National Rail Darwin data (example)"),
+            "02-journeys": ("We check every journey for you", "The FareBack home screen with money paid, on its way and to claim, a claim that needs you and today's journeys"),
+            "03-claim-pack": ("Your claim, ready in a minute", "A FareBack Claim Pack: every detail the train company's form asks for with a copy button, and a button to open the train company's claim form"),
+            "04-deadlines": ("Never miss the 28-day deadline", "The FareBack claims list with the date each claim closes and the days left"),
+            "05-commute": ("Your commute, checked daily", "Setting up a commute in FareBack: stations, departure times, travel days and a season ticket (Pro)"),
+            "06-tracker": ("Track every claim to payout", "FareBack's paid claims list with the amount and date paid for each claim"),
+            "07-money": ("See your money recovered", "FareBack's money screen: £109.75 recovered, by month and by train company (example)"),
+        },
+        shots=["01-owed", "03-claim-pack", "05-commute"],
         notice='<strong>Independent app.</strong> FareBack is made by Kodfu Bilisim. It is not affiliated with or endorsed by any train company, National Rail, Network Rail, Rail Delivery Group, Great British Railways or the Department for Transport. You submit every claim yourself; the train company decides whether to pay.',
-        disclaimer='FareBack is made by Kodfu Bilisim. It is not affiliated with or endorsed by any train company, National Rail, Network Rail, Rail Delivery Group, Great British Railways or the Department for Transport. &#8220;Delay Repay&#8221; is the name of the train companies&#8217; compensation scheme and is used here only to describe that scheme.',
+        disclaimer='FareBack is made by Kodfu Bilisim. It is not affiliated with or endorsed by any train company, National Rail, Network Rail, Rail Delivery Group, Great British Railways, the Rail Ombudsman or the Department for Transport. &#8220;Delay Repay&#8221; is the name of the train companies&#8217; compensation scheme and is used here only to describe that scheme. This site is general information, not legal advice.',
         cta='''<section class="card cta" aria-labelledby="cta-h">
-<div class="cta-head"><img src="~/favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Let FareBack watch your journeys</h2></div>
-<p>Save a journey and FareBack checks it after the train arrives, tells you when a delay may qualify for compensation and gets your Claim Pack ready. You submit the claim yourself on the train company&#8217;s website, and any money goes to you.</p>
-<p><strong>Free</strong> to use. <strong>FareBack Pro</strong> (optional): £1.99 a month or £12.99 a year with a 7-day free trial. Prices include VAT.</p>
+<div class="cta-head"><img src="~/favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Let FareBack watch your trains</h2></div>
+<p>Save a journey and FareBack checks how late the train really arrived, using National Rail data, after it is due. If you can claim, you see the delay, the train company&#8217;s rule and an estimate, and your Claim Pack is ready: every detail with a copy button and a link to the right claim form. You submit the claim yourself, and every penny goes to you.</p>
+<!--shots-->
+<p><strong>Free:</strong> up to 30 journeys a month checked, Claim Packs, reminders before the 28-day window closes, a claim tracker and a Delay Repay calculator for single, return and season tickets.<br><strong>FareBack Pro, £1.99 a month or £12.99 a year</strong> (7-day free trial on annual): your commute checked every travel day, season ticket maths done for you, a 28-day look-back with a Claim Pack for every delay you can still claim, unlimited journeys and claim history export. Prices include VAT.</p>
 <p>''' + PLAY_BTN.format(pos="footer") + '''</p>
-<p class="muted small"><!--ios--> For train journeys in Great Britain.</p>
+<p class="muted small"><!--ios--> For train journeys in Great Britain. FareBack never takes a cut.</p>
 </section>'''),
 }
 
@@ -563,7 +590,7 @@ def relink(body, path):
     def sub(m):
         target = m.group(2)
         out = pre + target if target else pre
-        if out.startswith("./") and len(out) > 2:
+        if out.startswith("./") and len(out) > 2 and not out.startswith("./#"):
             out = out[2:]
         return f'{m.group(1)}="{out}"'
     return re.sub(r'(href|src)="~/([^"]*)"', sub, body)
@@ -585,7 +612,8 @@ def sources_card(app, pack=None):
             "hivis": "Test details can change. Check with CITB before you book.",
             "tickover": "Check your vehicle&#8217;s own record on GOV.UK. Tickover only shows the dates you enter.",
             "fareback": "Each train company sets its own claim rules and makes the final decision."}[app]
-    return (f'<section class="card" aria-labelledby="sources-h">\n<h2 id="sources-h">Official sources</h2>\n'
+    head = "Where these facts come from" if app == "fareback" else "Official sources"
+    return (f'<section class="card" aria-labelledby="sources-h">\n<h2 id="sources-h">{head}</h2>\n'
             f'<p class="muted">Check these public pages before you book, apply or claim.</p>\n<ul class="plain">\n{items}\n</ul>\n'
             f'<p class="muted small">{note}</p>\n</section>')
 
@@ -884,6 +912,9 @@ def expand(app, cfg, path, body, meta):
         return render_questions(qs)
     body = re.sub(r"<!--sample:([\w|-]+)(?: n=(\d+))?(?: ids=([\w,-]+))?-->", sample, body)
     body = re.sub(r"<!--after-sample:([\w|-]+)-->", lambda m: after_sample(cfg, shown.get(m.group(1), 8), m.group(1)), body)
+    if app == "fareback":
+        body = body.replace("<!--operator-list-->", fb_operator_links())
+        body = body.replace("{{operators}}", str(len(fb_ops()["operators"])))
     body = body.replace("<!--ios-->", IOS_LINE)
     body = fill_counts(body, cfg.get("bundle"))
     # old hard-coded store links get a referrer too
@@ -985,7 +1016,7 @@ def page(app, cfg, path, meta, body, crumbs=None):
 </main>
 <footer class="site"><div class="wrap">
 <p>{cfg['disclaimer']}</p>
-<p><a href="{home}">{'Home' if cfg['nav'][0][1] == 'Home' else 'Support'}</a> · <a href="{pre}privacy/">Privacy policy</a> · <a href="{pre}terms/">Terms of use</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+<p><a href="{home}">{'Home' if cfg['nav'][0][1] == 'Home' else 'Support'}</a> · {relink(cfg.get('footer_links', ''), path)}<a href="{pre}privacy/">Privacy policy</a> · <a href="{pre}terms/">Terms of use</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p>This site has no cookies, analytics or trackers. © 2026 Kodfu Bilisim{footer_date}</p>
 </div></footer>
 {sticky}</body>
@@ -1203,6 +1234,228 @@ pos: inline-top
     return total
 
 
+# ---------- FareBack: one page per train company (src/fareback/operators.json) ----------
+
+_FB_OPS = None
+
+
+def fb_ops():
+    global _FB_OPS
+    if _FB_OPS is None:
+        _FB_OPS = json.load(open(os.path.join(ROOT, "src", "fareback", "operators.json"), encoding="utf-8"))
+    return _FB_OPS
+
+
+def fb_scheme(o):
+    """('DR15', 'pays from 15 minutes late') etc."""
+    if o["scheme"] == "own":
+        return o.get("scheme_name", "Own scheme"), f"its own scheme, for delays of {o['start']}"
+    mins = o["scheme"][2:]
+    return o["scheme"], f"Delay Repay from {mins} minutes late"
+
+
+def fb_money(x):
+    return f"£{x:,.0f}" if x >= 1000 and x == int(x) else f"£{x:,.2f}"
+
+
+def fb_example(o):
+    """A worked example from the company's own bands (no invented rules)."""
+    if o["scheme"] in ("DR15", "DR30"):
+        single, ret = 24.60, 48.00
+        return (f"<p><strong>Example.</strong> You paid {fb_money(single)} for a single and your {E(o['short'])} train reached your "
+                f"destination 34 minutes late: 50% of the fare, <strong>{fb_money(single / 2)}</strong>. With a {fb_money(ret)} return and "
+                f"only the way home 34 minutes late: 25% of the return fare, <strong>{fb_money(ret / 4)}</strong>. "
+                f"An hour late on a single: the whole {fb_money(single)} back.</p>")
+    if o["code"] == "GC":
+        return "<p><strong>Example.</strong> A £60.00 single that arrives 75 minutes late pays 50%, <strong>£30.00</strong>; 2 hours 10 minutes late pays 75%, <strong>£45.00</strong>.</p>"
+    if o["code"] == "HX":
+        return "<p><strong>Example.</strong> A £25.00 ticket that arrives 40 minutes late pays 25%, <strong>£6.25</strong>; 65 minutes late pays 50%, <strong>£12.50</strong>.</p>"
+    if o["code"] == "ME":
+        return "<p><strong>Example.</strong> A £4.00 single on a Merseyrail train that arrives 35 minutes late: the full <strong>£4.00</strong> back.</p>"
+    return ""
+
+
+def fb_season_example(o):
+    d = o.get("season_divisor")
+    if not d:
+        return ""
+    price = 4640.0
+    per = price / d
+    first = "20 minutes late pays 25% of that, <strong>{}</strong>; ".format(fb_money(per / 4)) if o["scheme"] == "DR15" else ""
+    return (f"<p><strong>Example.</strong> An annual season costing {fb_money(price)} gives a journey value of {fb_money(price)} ÷ {d} = "
+            f"{fb_money(per)}. Arriving {first}34 minutes late pays 50%, <strong>{fb_money(per / 2)}</strong>. Small amounts, but a commuter "
+            f"delayed twice a week has around 90 claims a year.</p>")
+
+
+GENERIC_REJECT = [
+    "You gave the train you actually caught instead of the one you planned to catch. The National Rail Conditions of Travel (33.1) ask for the train you intended to use.",
+    "The claim arrived after the deadline.",
+    "The delay at your destination was under the threshold. It is measured against the timetable in force that day, so a published engineering-works timetable is the baseline, not the normal one (Conditions of Travel 32.1).",
+    "The ticket image does not show what the company needs, such as the ticket number, journey and price.",
+    "The journey was already claimed, including by an automatic claim.",
+]
+
+
+def fb_operator_page(cfg, o, prev, nxt):
+    scheme, scheme_txt = fb_scheme(o)
+    name, short = E(o["name"]), E(o["short"])
+    rows = "".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in o["bands"])
+    head_ret = "Return ticket (one way delayed)"
+    bands_note = f'<p class="muted small">{E(o["bands_note"])}</p>' if o.get("bands_note") else ""
+    if o["scheme"] == "own":
+        lead = f"{name} runs its own compensation scheme ({E(o['scheme_name'])}) instead of the standard Delay Repay bands. Claim {E(o['window'])}."
+    else:
+        lead = (f"{name} {'pay' if ' and ' in o['name'] else 'pays'} Delay Repay when your train arrives at least {o['scheme'][2:]} minutes late ({scheme}). "
+                f"Claim {E(o['window'])}. Here is how much you get, how to claim and what to do if {short} says no.")
+    auto = o.get("auto")
+    auto_html = (f"<h2 id=\"automatic\">Does {short} pay automatically?</h2>\n<p><strong>{E(auto[0])}.</strong> {E(auto[1])}</p>\n"
+                 f"<p>Anything it does not cover, you claim yourself.</p>") if auto else (
+        f"<h2 id=\"automatic\">Does {short} pay automatically?</h2>\n<p>No. {name} has no automatic or one-click scheme on the pages we read, so you claim every delayed journey yourself.</p>")
+    claim2 = ""
+    if o.get("claim_url2"):
+        claim2 = f' (for London Northwestern Railway, use its <a href="{E(o["claim_url2"][1])}" rel="noopener">own claim form</a>)'
+    ev = "".join(f"<li>{E(x)}</li>" for x in o["evidence"])
+    rej = "".join(f"<li>{E(x)}</li>" for x in o.get("reject", []) + GENERIC_REJECT)
+    notes = "".join(f"<li>{E(x)}</li>" for x in o.get("notes", []))
+    notes_html = f"<h2 id=\"good-to-know\">Good to know about {short}</h2>\n<ul>{notes}</ul>" if notes else ""
+    srcs = "".join(f'<li><a href="{E(u)}" rel="noopener">{E(t)}</a> <span class="muted">({name})</span></li>' for t, u in o["sources"])
+    complaints_label = E(o.get("complaints_label") or f"{o['short']} complaints and contact")
+    commuter = ""
+    if o.get("commuter"):
+        commuter = f"""<!--appcta
+title: Commute on {short}? Let FareBack Pro check every train
+text: Save your commute once. FareBack Pro checks it every travel day against National Rail data, does the season ticket maths and looks back 28 days for delays you can still claim. One 20-minute delay on a £10 season journey pays £2.50, more than a month of Pro.
+pos: inline-commuter
+-->"""
+    else:
+        commuter = f"""<!--appcta
+title: Know straight away when a {short} delay pays
+text: Save a journey and FareBack checks the real arrival time after the train is due, tells you if {short}'s rules say you can claim, and gets every detail ready to copy into the claim form.
+pos: inline-operator
+-->"""
+    window_short = "28 days" if "28 days" in o["window"] else "the deadline"
+    faq = f"""<h2 id="faq">{short} Delay Repay questions</h2>
+<h3 class="faq-q">Is {short} DR15 or DR30?</h3>
+<div class="faq-a"><p>{('It is ' + scheme + ': ' + name + ' pays from ' + o['scheme'][2:] + ' minutes late.') if o['scheme'] != 'own' else (name + ' runs its own scheme instead of Delay Repay: it pays for delays of ' + E(o['start']) + '.')} The amounts are in the table above. Checked on {short}&#8217;s own pages on {ddmmyyyy(fb_ops()['checked'])}.</p></div>
+<h3 class="faq-q">How long do I have to claim from {short}?</h3>
+<div class="faq-a"><p>Claim {E(o['window'])}. Claiming within a few days is easiest: you still have the ticket and know which train you planned to catch.</p></div>
+<h3 class="faq-q">Does {short} pay compensation automatically?</h3>
+<div class="faq-a"><p>{(E(auto[0]) + ': ' + E(auto[1])) if auto else 'No. You claim each delayed journey yourself.'}</p></div>
+<h3 class="faq-q">I bought my ticket from another website. Who do I claim from?</h3>
+<div class="faq-a"><p>From the train company whose train delayed you, not the website or app that sold the ticket. If your journey used several companies, you can send the claim to any of them and it must pass it on to the one responsible (National Rail Conditions of Travel 32.1). Refunds for journeys you did not make are different: those go to the retailer.</p></div>
+<h3 class="faq-q">What if {short} rejects or underpays my claim?</h3>
+<div class="faq-a"><p>Ask {short} to look again, with your evidence, then make a complaint. Train companies should usually give a full response within 20 working days. If you are still unhappy after its final response, or 40 working days have passed, take it to the Rail Ombudsman, which is free. See <a href="~/rejected-claim/">how to challenge a rejected claim</a>.</p></div>"""
+    body = f"""<p class="crumb"><a href="~/train-companies/">Train companies</a> › {name}</p>
+<h1>{name} Delay Repay: how to claim for a late train</h1>
+<p class="lead">{lead}</p>
+<p><a class="btn" href="~play:inline-top">Check my {short} train in FareBack</a></p>
+<div class="card" aria-labelledby="glance-h">
+<h2 id="glance-h">{short} at a glance</h2>
+<dl>
+<dt>Scheme</dt><dd>{E(scheme)}: {E(scheme_txt)}</dd>
+<dt>Claim window</dt><dd>{E(o['window'][0].upper() + o['window'][1:])}</dd>
+<dt>Automatic claims</dt><dd>{E(auto[0]) + ', for some tickets' if auto else 'None: claim yourself'}</dd>
+<dt>Account needed</dt><dd>{E(o['account'])}</dd>
+<dt>Claim online</dt><dd><a href="{E(o['claim_url'])}" rel="noopener">{short} claim form</a>{claim2} · <a href="{E(o['info_url'])}" rel="noopener">{short}&#8217;s Delay Repay page</a></dd>
+<dt>Complaints</dt><dd><a href="{E(o['complaints_url'])}" rel="noopener">{complaints_label}</a></dd>
+</dl>
+<p class="muted small">Checked {ddmmyyyy(fb_ops()['checked'])} on {name}&#8217;s own pages (sources below). Rules can change: the claim form shows the current ones, and {short} makes the final decision.</p>
+</div>
+<p>{name} {'run' if ' and ' in o['name'] else 'runs'} {E(o['runs'])}. FareBack is an independent app, not affiliated with {name}.</p>
+
+<h2 id="how-much">How much {short} pays</h2>
+<p>The delay is measured at the station where your journey ends, against the timetable in force that day. The percentages are of the price you paid.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Arrival delay</th><th>Single ticket</th><th>{head_ret}</th></tr></thead>
+<tbody>{rows}</tbody></table></div>
+{bands_note}
+{fb_example(o)}
+<p class="muted small">More on the bands and how they compare: <a href="~/delay-repay/">Delay Repay explained</a>.</p>
+
+{auto_html}
+
+<h2 id="how-to-claim">How to claim from {short}, step by step</h2>
+<ol>
+<li><strong>Note the train you planned to catch</strong>, its scheduled arrival and the time you really arrived. Claims are for the train you intended to use, even if you caught a later one.</li>
+<li><strong>Check the delay</strong> against the table above, at the station where your journey ended.</li>
+<li><strong>Get your ticket evidence ready</strong> (list below).</li>
+<li><strong>Open <a href="{E(o['claim_url'])}" rel="noopener">{short}&#8217;s claim form</a></strong>{claim2} and enter the journey, the delay and your ticket.</li>
+<li><strong>Choose how to be paid</strong> and submit. Keep the claim reference.</li>
+<li><strong>Watch for the answer.</strong> If it is refused or less than you expected, challenge it (see below).</li>
+</ol>
+<p><strong>Postal claims:</strong> {E(o['postal'])}</p>
+
+<h2 id="what-you-need">What you need</h2>
+<ul>{ev}</ul>
+<p><strong>How {short} pays:</strong> {E(o['payout'])}</p>
+{commuter}
+
+<h2 id="season-tickets">Season tickets on {short}</h2>
+<p>{E(o['season'])}</p>
+{fb_season_example(o)}
+<p>More on <a href="~/season-tickets/">season ticket Delay Repay</a> and <a href="~/strikes/">strike days</a>.</p>
+
+<h2 id="rejected">Why {short} claims get rejected</h2>
+<ul>{rej}</ul>
+<p>If you think the decision is wrong, ask {short} to review it with your evidence (<a href="{E(o['complaints_url'])}" rel="noopener">{complaints_label}</a>). Then follow <a href="~/rejected-claim/">our step-by-step challenge guide</a> (with a letter you can copy) and, if needed, the <a href="~/rail-ombudsman/">Rail Ombudsman</a>.</p>
+
+{notes_html}
+
+<h2 id="fareback">How FareBack helps with {short} claims</h2>
+<ul>
+<li>Save a journey and FareBack checks how late the {short} train really arrived, using National Rail data, after it is due.</li>
+<li>It applies {short}&#8217;s threshold and bands and shows an estimate, such as &#8220;about £6.20&#8221;. {short} makes the final decision.</li>
+<li>Your Claim Pack has every detail the form asks for, with copy buttons, your ticket photo and a link to {short}&#8217;s claim page. You submit it yourself in about a minute.</li>
+<li>A reminder comes before the claim window closes, and the claim tracker follows it to paid.</li>
+</ul>
+<p><a class="btn play" href="~play:inline-fareback">Get it on Google Play</a></p>
+
+{faq}
+
+<section class="card" aria-labelledby="sources-h">
+<h2 id="sources-h">Where these facts come from</h2>
+<p class="muted">Read on {ddmmyyyy(fb_ops()['checked'])}:</p>
+<ul class="plain">{srcs}
+<li><a href="https://www.nationalrail.co.uk/NRCoT" rel="noopener">National Rail Conditions of Travel</a> <span class="muted">(edition from 30/07/2026)</span></li></ul>
+<p class="muted small">{name} sets its own rules and makes the final decision on every claim. This page is general information, not legal advice.</p>
+</section>
+
+<h2 id="more">Other train companies</h2>
+<ul class="links"><li><a href="~/train-companies/{prev['slug']}/">{E(prev['name'])}<span>{E(fb_scheme(prev)[1])}</span></a></li>
+<li><a href="~/train-companies/{nxt['slug']}/">{E(nxt['name'])}<span>{E(fb_scheme(nxt)[1])}</span></a></li>
+<li><a href="~/train-companies/">All {len(fb_ops()['operators'])} train companies<span>Thresholds, deadlines and claim links</span></a></li></ul>
+<!--cta-->"""
+    title_short = o["short"] if len(o["name"]) > 22 else o["name"]
+    meta = {"title": f"{title_short} Delay Repay: How to Claim (2026) | FareBack",
+            "description": (f"How to claim Delay Repay from {o['name']}: {scheme_txt}, amounts, the {window_short} deadline, "
+                            f"automatic claims, season tickets and what to do if a claim is rejected.")[:158],
+            "nav": "operators", "updated": fb_ops()["checked"],
+            "pitch": f"Train late on {o['short']}? FareBack checks your journey against National Rail data and gets your {o['short']} claim ready. Free to use.",
+            "sticky": "Free · checks your trains"}
+    return body, meta
+
+
+def fb_operator_links():
+    items = []
+    for o in fb_ops()["operators"]:
+        scheme, txt = fb_scheme(o)
+        auto = " · automatic claims for some tickets" if o.get("auto") else ""
+        items.append(f'<li><a href="~/train-companies/{o["slug"]}/">{E(o["name"])}<span>{E(txt[0].upper() + txt[1:])} · claim within 28 days{auto}</span></a></li>'
+                     if o["window"].startswith(("within 28 days", "up to 28 days")) else
+                     f'<li><a href="~/train-companies/{o["slug"]}/">{E(o["name"])}<span>{E(txt[0].upper() + txt[1:])}{auto}</span></a></li>')
+    return '<ul class="links">' + "".join(items) + "</ul>"
+
+
+def fareback_operators(cfg, out):
+    ops = fb_ops()["operators"]
+    crumbs = [("Train companies", f"https://{cfg['host']}/train-companies/")]
+    for i, o in enumerate(ops):
+        body, meta = fb_operator_page(cfg, o, ops[i - 1], ops[(i + 1) % len(ops)])
+        path = f"train-companies/{o['slug']}/"
+        write(out, path, page("fareback", cfg, path, meta, body, crumbs))
+    return len(ops)
+
+
 # ---------- output ----------
 
 WRITTEN = []
@@ -1214,6 +1467,19 @@ def write(out, path, content):
     with open(f, "w", encoding="utf-8") as fh:
         fh.write(content)
     WRITTEN.append((path, f))
+
+
+def write_redirect(out, cfg, path, target):
+    """A moved page: meta refresh + canonical to the new URL, noindex. nginx sends a real 301 on the own host;
+    this stub covers the GitHub Pages copy and old bookmarks."""
+    rel = relink_href(target, path)
+    url = f"https://{cfg['host']}/{target}"
+    f = os.path.join(out, path, "index.html")
+    os.makedirs(os.path.dirname(f), exist_ok=True)
+    open(f, "w", encoding="utf-8").write(
+        f'<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n<meta name="robots" content="noindex">\n'
+        f'<meta http-equiv="refresh" content="0; url={rel}">\n<link rel="canonical" href="{url}">\n<title>Moved | {E(cfg["name"])}</title>\n'
+        f'</head>\n<body>\n<p>This page has moved to <a href="{rel}">{url}</a>.</p>\n</body>\n</html>\n')
 
 
 CSS_VERSION = "1"
@@ -1241,6 +1507,9 @@ def build(app):
         if "<!--questions-->" in body:
             body = body.replace("<!--questions-->", render_questions(json.load(open(qf))))
         path = url_path(rel)
+        if meta.get("redirect"):   # moved page: tiny stub (nginx also 301s it); not in the sitemap
+            write_redirect(out, cfg, path, meta["redirect"])
+            continue
         crumbs = [("Free practice", f"https://{cfg['host']}/practice/")] if path.startswith("practice/") and path != "practice/" else None
         write(out, path, page(app, cfg, path, meta, body, crumbs))
     extra = None
@@ -1248,6 +1517,8 @@ def build(app):
         extra = sparkwise_practice(cfg, out)
     if app == "hivis":
         extra = hivis_practice(cfg, out)
+    if app == "fareback":
+        extra = fareback_operators(cfg, out)
     os.makedirs(os.path.join(out, "assets"), exist_ok=True)
     open(os.path.join(out, "assets", "site.css"), "w").write(css)
     open(os.path.join(out, "favicon.svg"), "w").write(favicon(app, cfg) + "\n")
@@ -1260,7 +1531,7 @@ def build(app):
     nf = nf.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
     open(os.path.join(out, "404.html"), "w").write(nf)
     pages = [p for p, _ in WRITTEN[start:]]
-    urls = "\n".join(f"  <url><loc>https://{cfg['host']}/{p}</loc><lastmod>{TODAY}</lastmod></url>" for p in sorted(pages, key=lambda p: (p.count('/'), p)))
+    urls = "\n".join(f"  <url><loc>https://{cfg['host']}/{p}</loc><lastmod>{cfg.get('today', TODAY)}</lastmod></url>" for p in sorted(pages, key=lambda p: (p.count('/'), p)))
     open(os.path.join(out, "sitemap.xml"), "w").write(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
     open(os.path.join(out, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: https://{cfg['host']}/sitemap.xml\n")
@@ -1269,7 +1540,7 @@ def build(app):
     for name in os.listdir(ROOT):
         if name.startswith("google") and name.endswith(".html"):
             shutil.copy(os.path.join(ROOT, name), os.path.join(out, name))
-    print(f"{app}: {len(pages)} pages -> https://{cfg['host']}/" + (f" ({extra} practice questions)" if extra else ""))
+    print(f"{app}: {len(pages)} pages -> https://{cfg['host']}/" + (f" ({extra} {'train company pages' if app == 'fareback' else 'practice questions'})" if extra else ""))
 
 
 if __name__ == "__main__":

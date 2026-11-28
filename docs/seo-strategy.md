@@ -15,7 +15,7 @@ priorities below; the run log is `docs/seo-log.md`.
 | `https://sparkwiseapp.co.uk/` | Sparkwise `com.kodfu.sparkwise` (12 exams since 1.2.0: 18th Edition C&G 2382-26, ECS HS&E, 2391-52/-50/-51, AM2 knowledge, EWA entry test, PAT 2377, EV 2921-34, ECS ESU, solar PV 2922 + battery 2923) | Play installs → an unlock: Pro £12.99 (18th Edition + ECS HS&E), one exam £7.99 or £9.99, All exams £24.99. The only app with a sale (25/11/2026). | **Lead: most runs** |
 | `https://bluebell.kodfu.com/` | Bluebell `com.kodfu.bluebell` (Life in the UK Test) | Play installs → Pro (£6.99). Very crowded market: win high-intent long-tail searches. | Second |
 | `https://hivis.kodfu.com/` | HiVis `com.kodfu.hivis` (CITB HS&E test for the CSCS card) | Play installs → Pro (£5.99). Test-level and topic practice searches. | Third |
-| `https://fareback.kodfu.com/` | FareBack `com.kodfu.fareback` (Delay Repay claims; live rail data since 27/11/2026) | Play installs (subscription). Delay Repay how-to by operator. | Occasional |
+| `https://fareback.kodfu.com/` (moving to `https://fareback.co.uk/`, see the FareBack section) | FareBack `com.kodfu.fareback` (Delay Repay claims; live rail data since 27/11/2026) | Play installs → Pro (£1.99 a month / £12.99 a year). Full rail passenger-rights site since 28/11/2026: one page per train company and per right. | Occasional (see FareBack section) |
 | `https://tickover.kodfu.com/` | Tickover: **unpublished 27/11/2026**, to be re-released by another company | None. Keep the pages up, do not invest. | — |
 
 Search Console (account `info.kodfu@gmail.com`): `sc-domain:sparkwiseapp.co.uk` and URL-prefix
@@ -84,3 +84,34 @@ Never add analytics, cookies or scripts to measure more: the apps declare "Data 
 - GitHub Pages switch-off: after Google has approved the 27/11/2026 Play privacy-URL changes and the
   1.1.0 / FareBack 1.0.1 updates have been out about a week (≈ from 05/12/2026), the coordinator turns
   Pages off. The routine only reports when that point looks reached.
+
+## FareBack (owner decision 28/11/2026)
+
+Brief: `~/Code/fareback/AGENTS.md`, "FareBack becomes the best commuter app, and fareback.co.uk a full rights site".
+The site is a UK rail passenger-rights site built, like sparkwiseapp.co.uk, to send visitors to the Play listing; the
+target user is the commuter (season ticket, hybrid 2-3 days a week) on the often-late lines (Southern, Thameslink,
+Northern, Avanti, TransPennine, GWR, SWR, Southeastern). Pay-off line: Pro £1.99 a month pays for itself with one claim.
+Layout, data file and the domain switch: `docs/deployment.md`, "FareBack: rights site and the move to fareback.co.uk".
+
+Rules for any run that touches FareBack:
+- Facts per train company live in `src/fareback/operators.json` (checked on each company's own pages, 28/11/2026). Change
+  a fact only after reading the company's page; update that entry's sources. Never publish a fact the source does not
+  state: say the company does not publish it.
+- The app copy describes only what the Google Play version does today; `docs/fareback-pending-features.md` holds the
+  lines that wait for 1.1.0.
+- `id="delete"` must stay on the home page (Play Data safety URL `/#delete`) and on `/support/`.
+- `tools/linkcheck.py fareback` must pass before a commit.
+
+Search intents per page (high intent first): "<company> delay repay" / "how to claim delay repay <company>"
+(the 26 `/train-companies/` pages: the main traffic pages), "delay repay calculator / how much" (`/delay-repay/`),
+"season ticket delay repay" (`/season-tickets/`), "delay repay rejected / appeal" (`/rejected-claim/`), "rail ombudsman"
+(`/rail-ombudsman/`), "train cancelled refund" (`/cancelled-trains/`), "split ticket delay repay" (`/split-tickets/`),
+"missed connection compensation" (`/missed-connections/`), "train strike refund season ticket" (`/strikes/`).
+Play referrer campaigns: the page slug (`train-companies-southern--sticky` etc.); in-content positions on FareBack pages
+are `inline-top`, `inline-commuter` / `inline-operator`, `inline-fareback`, `inline-<topic>`, `footer`, `sticky`, `hero`.
+
+Educated guesses (28/11/2026, FareBack site session):
+- Until the switch, Search Console uses the existing URL-prefix property `https://fareback.kodfu.com/`; the new sitemap
+  (41 URLs) is served there. After the switch, the Domain property `sc-domain:fareback.co.uk` and Change of Address.
+- The daily routine keeps FareBack at "Occasional" weight until GSC shows impressions on the train company pages; the
+  first FareBack work then is CTR on those pages.
