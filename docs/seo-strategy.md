@@ -22,24 +22,6 @@ Search Console (account `info.kodfu@gmail.com`): `sc-domain:sparkwiseapp.co.uk` 
 properties for the four `*.kodfu.com` hosts. Keyword research and competitor notes from the store
 side: `~/Code/exam-apps/store/<brand>/aso.md` (Sparkwise, Bluebell, HiVis), `~/Code/fareback/store/aso.md`.
 
-## Deploy gate: Sparkwise 1.2.0 exam pages (28/11/2026, check at the start of every run until done)
-
-The exam pages built on 28/11/2026 (`/exams/`, `/pat-testing-exam-2377/`, `/ev-charging-exam-2921/`,
-`/inspection-testing-exam-2391/`, `/ecs-electrical-safety-unit/`, `/am2-knowledge-test/`, `/ewa-entry-test/`,
-`/solar-pv-battery-exam-2922-2923/`, plus the home, FAQ, practice hub, nav and closing-card changes) say the
-app has these exams, which is only true once Sparkwise **1.2.0** is live on Google Play. They are committed
-and pushed but **not deployed**. First thing on every run, until this section is removed:
-
-1. `curl -sL -A 'Mozilla/5.0' 'https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&hl=en_GB&gl=GB' | grep -o '\[\[\["[0-9.]*"\]\]'`
-   (shows e.g. `[[["1.1.0"]]`).
-2. If it shows `1.2.0` or later: `python3 tools/build.py`, commit if anything changed, `deploy/deploy.sh sparkwise`,
-   `deploy/deploy.sh check`, check the eight new URLs answer 200, request indexing for them in Search Console
-   (`sc-domain:sparkwiseapp.co.uk`, URL inspection → Request indexing), push, log it in `docs/seo-log.md`, and
-   delete this section (with a commit). That run's own job is this deploy.
-3. If it still shows 1.1.0: do **not** deploy Sparkwise at all (any Sparkwise deploy ships the exam pages,
-   because the release is the committed HEAD). Work on Bluebell, HiVis or FareBack that day, or commit Sparkwise
-   source changes without deploying them, and say "Sparkwise 1.2.0 not live yet" in the log row.
-
 ## Measuring conversion (no trackers on the sites)
 
 Every Play link on the sites carries an install referrer
