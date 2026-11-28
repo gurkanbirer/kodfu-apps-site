@@ -30,7 +30,9 @@ Fragment placeholders (all optional):
   <!--shots:a,b,c-->         screenshot strip; <!--shot:name[:eager]--> one screenshot
   <!--ios-->                 the honest iPhone line
   <!--hero-->...<!--/hero--> home hero, moved into the coloured header band
-  {{count:all|<exam>|<exam>/<topic>|<exam>/group:<n>}}, {{free:...}}, {{worked:...}},
+  {{count:all|<exam>|<exam>/<topic>|<exam>/group:<n>|<exam>+<exam>}}, {{free:...}}, {{worked:...}},
+                             (Sparkwise: use {{count:bs7671+ecs-hse}}, not all: the bundle also
+                             holds the per-exam packs that the £12.99 Pro does not unlock)
   {{topics:<exam>}}          real numbers from the shipped bundle
   <!--sources-->             official sources card
 FAQ items `<h3 class="faq-q">…</h3><div class="faq-a">…</div>` become FAQPage JSON-LD.
@@ -141,7 +143,7 @@ SITES = {
         band_edge="1px solid #262D3A",
         nav=[("home", "Home", ""), ("exam", "18th Edition", "18th-edition-exam/"), ("a4", "Amendment 4", "amendment-4/"),
              ("ecs", "ECS HS&E", "ecs-hse-assessment/"), ("practice", "Practice", "practice/"), ("faq", "FAQ", "faq/")],
-        pitch="Practise for the 18th Edition and the ECS HS&amp;E on your phone: {{count:all}} original questions, timed mock exams and worked calculations.",
+        pitch="Practise for the 18th Edition and the ECS HS&amp;E on your phone: {{count:bs7671+ecs-hse}} original questions, timed mock exams and worked calculations.",
         sticky_sub="Free to try · Pro £12.99 once",
         appcta_sub="Free to try · Pro £12.99 one-off, both exams · no subscription",
         pro_line="Sparkwise Pro is £12.99 one-off and unlocks every question, every mock exam and every worked solution for both exams. No subscription.",
@@ -160,7 +162,7 @@ SITES = {
         disclaimer='Sparkwise is an independent study app made by Kodfu Bilisim. Not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. Practice questions are original; always check real installations against your own copy of BS 7671.',
         cta='''<section class="card cta" aria-labelledby="cta-h">
 <div class="cta-head"><img src="~/favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Practise both exams in the Sparkwise app</h2></div>
-<p>{{count:all}} original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
+<p>{{count:bs7671+ecs-hse}} original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
 <ul class="plain">
 <li>18th Edition: {{count:bs7671}} questions, 60-question mock exams in 2 hours, a maximum Z<sub>s</sub> calculator and a guide to Amendment 4</li>
 <li>ECS HS&amp;E: {{count:ecs-hse}} questions and 50-question mock tests in 30 minutes</li>
@@ -542,6 +544,8 @@ def facts(brand):
 
 def fact(brand, kind, key):
     F = facts(brand)
+    if "+" in key:  # {{count:bs7671+ecs-hse}}: the sum over several exams (Sparkwise Pro covers two)
+        return sum(fact(brand, kind, k.strip()) for k in key.split("+"))
     if key == "all":
         if kind == "count":
             return F["total"]
@@ -897,7 +901,7 @@ def sparkwise_practice(cfg, out):
     bs, ecs = files["manifest.bs7671.json"], files["manifest.ecs-hse.json"]
     body = f"""<h1>Free 18th Edition and ECS HS&amp;E practice questions</h1>
 <p class="lead">{total} free practice questions by topic for the 18th Edition (City &amp; Guilds 2382-26, BS 7671:2018+A4:2026) and the ECS Health, Safety and Environmental assessment, each with the answer and an explanation.</p>
-<p class="muted">Free, with no sign-up and nothing saved. Every question is original and comes from the Sparkwise app, which has all {{{{count:all}}}}; only questions we have checked are published. No app or website can show you the real exam questions.</p>
+<p class="muted">Free, with no sign-up and nothing saved. Every question is original and comes from the Sparkwise app, which has all {{{{count:bs7671+ecs-hse}}}}; only questions we have checked are published. No app or website can show you the real exam questions.</p>
 <div class="toc"><a href="#18th-edition">18th Edition topics</a> · <a href="#ecs-hse">ECS HS&amp;E topics</a></div>
 <h2 id="18th-edition">18th Edition practice (BS 7671:2018+A4:2026)</h2>
 <p>The City &amp; Guilds 2382-26 exam tests whether you can find and apply the requirements of the current Wiring Regulations. It is an online multiple-choice exam of {bs['mock']['questionCount']} questions in {bs['mock']['minutes']} minutes, and it is open book, so practise with your own copy of BS 7671 to hand. Each answer points to a regulation, table or appendix to look up. Read the <a href="~/18th-edition-exam/">18th Edition exam guide</a> and <a href="~/amendment-4/">what changed in Amendment 4</a>.</p>
@@ -915,7 +919,7 @@ pos: inline-18th
     meta = {"title": "Free 18th Edition & ECS HS&E Practice Questions | Sparkwise",
             "description": f"{total} free practice questions by topic for the 18th Edition (C&G 2382-26, BS 7671 A4:2026) and the ECS HS&E assessment, with answers and explanations.",
             "nav": "practice", "updated": files["manifest.json"].get("updated", TODAY),
-            "pitch": "Try free questions here, then practise all {{count:all}} in the Sparkwise app, with timed mock exams in the real format."}
+            "pitch": "Try free questions here, then practise all {{count:bs7671+ecs-hse}} in the Sparkwise app, with timed mock exams in the real format."}
     write(out, "practice/", page("sparkwise", cfg, "practice/", meta, body))
     return total
 
