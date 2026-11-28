@@ -34,7 +34,13 @@ Fragment placeholders (all optional):
                              (Sparkwise: use {{count:bs7671+ecs-hse}}, not all: the bundle also
                              holds the per-exam packs that the £12.99 Pro does not unlock)
   {{topics:<exam>}}          real numbers from the shipped bundle
-  <!--sources-->             official sources card
+  {{count:<a>|<b>}}          unique questions over exams that share topic files (2391, solar + battery);
+                             {{count:exams}} = number of exams in the bundle; {{price:<pack>|pro|all}}
+  <!--sample:<a>[|<b>] n=8 [ids=x,y]-->  free sample from the shipped bank (one per topic, spread)
+  <!--after-sample:<a>[|<b>]-->          "You've seen 8 of N" card for that sample
+  meta `pack: <key>`         exam page of a Sparkwise 1.2.0 pack (PACKS): its own sticky bar, app boxes,
+                             closing card, after-sample line and sources; meta `sticky:` overrides the bar
+  <!--sources-->             official sources card (on pack pages: "Where the exam facts come from")
 FAQ items `<h3 class="faq-q">…</h3><div class="faq-a">…</div>` become FAQPage JSON-LD.
 Runbook: docs/deployment.md.
 """
@@ -135,14 +141,15 @@ PLAY_BTN = '<a class="btn play" href="~play:{pos}">Get it on Google Play</a>'
 
 SITES = {
     "sparkwise": dict(
-        host="sparkwiseapp.co.uk", name="Sparkwise", tagline="18th Edition and ECS HS&E exam practice",
+        host="sparkwiseapp.co.uk", name="Sparkwise", tagline="UK electrician exam practice",
         pkg="com.kodfu.sparkwise", category="EducationalApplication", bundle="sparkwise", promote=True,
         light="--bg:#FFFFFF;--fg:#14171C;--muted:#4A5260;--line:#E3E6EB;--card:#F6F7F9;--accent:#1D4ED8;--on-accent:#FFFFFF;--chip:#EEF2FF;--ok:#17733A;--okbg:#E7F4EC;--warnbg:#FFF3D6",
         dark="--bg:#0D1119;--fg:#ECEEF2;--muted:#B4BAC4;--line:#262D3A;--card:#161B26;--accent:#93C5FD;--on-accent:#0B1220;--chip:#1B2546;--ok:#4ADE80;--okbg:#10301C;--warnbg:#3A2A08",
         band="--band:#111827;--band2:#18233A;--on-band:#FFFFFF;--band-muted:#C9D1DE;--band-chip:rgba(255,255,255,.09);--band-hl:#FFC21A;--band-line:rgba(255,255,255,.12);--play:#FFC21A;--on-play:#111827",
         band_edge="1px solid #262D3A",
-        nav=[("home", "Home", ""), ("exam", "18th Edition", "18th-edition-exam/"), ("a4", "Amendment 4", "amendment-4/"),
-             ("ecs", "ECS HS&E", "ecs-hse-assessment/"), ("practice", "Practice", "practice/"), ("faq", "FAQ", "faq/")],
+        nav=[("home", "Home", ""), ("exam", "18th Edition", "18th-edition-exam/"), ("ecs", "ECS HS&E", "ecs-hse-assessment/"),
+             ("exams", "All 12 exams", "exams/"), ("practice", "Practice", "practice/"), ("a4", "Amendment 4", "amendment-4/"),
+             ("faq", "FAQ", "faq/")],
         pitch="Practise for the 18th Edition and the ECS HS&amp;E on your phone: {{count:bs7671+ecs-hse}} original questions, timed mock exams and worked calculations.",
         sticky_sub="Free to try · Pro £12.99 once",
         appcta_sub="Free to try · Pro £12.99 one-off, both exams · no subscription",
@@ -156,10 +163,26 @@ SITES = {
             "06-max-zs": ("Max Zs in one tap", "The Sparkwise maximum Zs calculator for Type B, C and D circuit-breakers with the 80% rule"),
             "07-a4": ("What changed in A4:2026", "The Sparkwise Amendment 4 hub listing new and changed regulations to read"),
             "08-results": ("Pay once. Both exams.", "Sparkwise practice test results for the ECS HS&E, by topic (sample data)"),
+            # Sparkwise 1.2.0 emulator screens (28/11/2026), 480x1067
+            "11-exam-switch": ("12 exams in one app", "The Sparkwise exam switcher: ECS HS&E, 18th Edition, PAT 2377, EV 2921-34, 2391-52, 2391-50, 2391-51, ECS ESU, AM2 knowledge, EWA entry test, Solar PV 2922 and Battery 2923", (480, 1067)),
+            "20-pat-home": ("PAT 2377 home", "Sparkwise home screen for PAT 2377 with today's practice, Quick 10 and a 105-minute mock test", (480, 1067)),
+            "21-pat-mock": ("PAT mock: 50 questions, 1 h 45", "A Sparkwise PAT 2377 mock test: question 1 of 50, open book, with the timer at 1:44:56", (480, 1067)),
+            "22-pat-explain": ("Every answer explained", "An answered PAT 2377 question on equipment types with the explanation and its source", (480, 1067)),
+            "23-pat-result": ("Results by area", "A PAT 2377 mock result with the 40 of 50 pass mark and marks by area (sample data)", (480, 1067)),
+            "24-pat-paywall": ("Unlock one exam, or all", "The Sparkwise unlock screen: PAT 2377 for £7.99 or All exams for £24.99, both one-off", (480, 1067)),
+            "30-am2-mocks": ("AM2 mock tests", "The Sparkwise AM2 knowledge mock list: 45 questions, 90 minutes, open book, one free mock", (480, 1067)),
+            "31-am2-mock": ("AM2 knowledge mock", "A Sparkwise AM2 knowledge mock: question 1 of 45, a Select TWO question on Section 443, with the timer", (480, 1067)),
+            "32-am2-explain": ("Every answer explained", "An answered AM2 knowledge question on safe isolation with the explanation and where to look", (480, 1067)),
+            "33-am2-paywall": ("AM2 knowledge: £9.99 once", "The Sparkwise unlock screen: AM2 knowledge for £9.99 or All exams for £24.99, both one-off", (480, 1067)),
+            "40-ewa-topics": ("EWA topics by Part", "The Sparkwise EWA entry test topic list, Part 1 knowledge and Part 2 scenarios", (480, 1067)),
+            "41-ewa-mock": ("EWA mock: 50 questions", "A Sparkwise EWA entry test mock: question 1 of 50, open book, with the 100-minute timer", (480, 1067)),
+            "42-ewa-result": ("Scored by Part", "An EWA entry test mock result with the score for Part 1 and Part 2 (sample data)", (480, 1067)),
+            "43-ewa-paywall": ("EWA entry test: £7.99 once", "The Sparkwise unlock screen: EWA entry test for £7.99 or All exams for £24.99, both one-off", (480, 1067)),
+            "50-2391-paywall": ("Three 2391 exams, one unlock", "The Sparkwise unlock screen in dark mode and large text: 2391-52, 2391-50 and 2391-51 for £9.99, or All exams for £24.99", (480, 1067)),
         },
         shots=["03-mock", "04-question", "05-worked"],
-        notice='<strong>Not a government app.</strong> Sparkwise is an independent study app made by Kodfu Bilisim. It is not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. It does not contain the real exam questions and never reproduces BS 7671 text.',
-        disclaimer='Sparkwise is an independent study app made by Kodfu Bilisim. Not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, ECS or JIB. Practice questions are original; always check real installations against your own copy of BS 7671.',
+        notice='<strong>Not a government app.</strong> Sparkwise is an independent study app made by Kodfu Bilisim. It is not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, EAL, NET, the ECS, the JIB, NICEIC, NAPIT, MCS, HSE or OZEV. It does not contain the real exam questions and never reproduces BS 7671 text.',
+        disclaimer='Sparkwise is an independent study app made by Kodfu Bilisim. Not affiliated with or endorsed by the IET, BSI, City &amp; Guilds, EAL, NET, the ECS, the JIB, NICEIC, NAPIT, MCS, HSE or OZEV. Practice questions are original; always check real installations against your own copy of BS 7671.',
         cta='''<section class="card cta" aria-labelledby="cta-h">
 <div class="cta-head"><img src="~/favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Practise both exams in the Sparkwise app</h2></div>
 <p>{{count:bs7671+ecs-hse}} original questions across every Part of BS 7671:2018+A4:2026 and every ECS HS&amp;E syllabus area, timed mock exams in the real format, worked solutions for calculations and explanations that show where to look in the book.</p>
@@ -171,6 +194,7 @@ SITES = {
 <!--shots-->
 <p><strong>Free:</strong> two full topics in each exam, three questions in every other topic, one full mock exam for each exam, the maximum Z<sub>s</sub> calculator and checklists.<br><strong>Sparkwise Pro, £12.99 one-off:</strong> every question, every mock exam and every worked solution, for both exams. No subscription.</p>
 <p>''' + PLAY_BTN.format(pos="footer") + '''</p>
+<p class="muted small">Also in Sparkwise, each sold on its own: <a href="~/pat-testing-exam-2377/">PAT 2377</a>, <a href="~/ev-charging-exam-2921/">EV 2921-34</a>, <a href="~/inspection-testing-exam-2391/">2391</a>, <a href="~/ecs-electrical-safety-unit/">ECS Electrical Safety Unit</a>, <a href="~/am2-knowledge-test/">AM2 knowledge test</a>, <a href="~/ewa-entry-test/">EWA entry test</a> and <a href="~/solar-pv-battery-exam-2922-2923/">solar PV and battery storage</a>, or <a href="~/exams/">all {{count:exams}} exams for {{price:all}}</a>.</p>
 <p class="muted small"><!--ios--> Sparkwise helps you prepare; it cannot promise a pass.</p>
 </section>'''),
     "bluebell": dict(
@@ -271,6 +295,114 @@ SITES = {
 <p class="muted small"><!--ios--> For train journeys in Great Britain.</p>
 </section>'''),
 }
+
+# Sparkwise 1.2.0 (Google Play, 28/11/2026): every new exam is sold on its own inside the one app
+# (owner decision 27/11/2026, ~/Code/exam-apps/AGENTS.md; product ids and prices in
+# ~/Code/exam-apps/config/sparkwise.json PRODUCTS). `sparkwise_pro_lifetime` (£12.99) keeps covering
+# 18th Edition + ECS HS&E; "All exams" (£24.99) covers every exam, present and future.
+# A fragment with `pack: <key>` in its meta gets the pack's sticky bar, app boxes, after-questions
+# line, closing card (<!--cta-->) and sources card (<!--sources-->). {{price:<key>|pro|all}} prints a price.
+PRO_PRICE = "£12.99"
+ALL_EXAMS_PRICE = "£24.99"
+C_G = "https://www.cityandguilds.com/qualifications-and-apprenticeships/building-services-industry/electrical-installation/"
+PACKS = {
+    "cg2377": dict(
+        short="PAT 2377", exams=["cg2377"], unlock="PAT 2377", price="£7.99", page="pat-testing-exam-2377/",
+        label="PAT testing (2377-77)", what="the C&amp;G 2377-77 PAT testing exam",
+        mocks="timed 50-question mocks of 1 hour 45 minutes with the 40-of-50 pass mark",
+        shots=["21-pat-mock", "22-pat-explain", "24-pat-paywall"],
+        sources=[("2377 Electrical Equipment Maintenance and Testing", "City & Guilds", C_G + "2377-electrical-equipment-maintenance-and-testing"),
+                 ("Maintaining portable electrical equipment (INDG236)", "Health and Safety Executive (HSE)", "https://www.hse.gov.uk/pubns/indg236.htm"),
+                 ("Portable appliance testing FAQs", "Health and Safety Executive (HSE)", "https://www.hse.gov.uk/electricity/faq-portable-appliance-testing.htm"),
+                 ("The Electricity at Work Regulations 1989", "legislation.gov.uk", "https://www.legislation.gov.uk/uksi/1989/635/contents")]),
+    "cg2921": dict(
+        short="EV 2921", exams=["cg2921"], unlock="EV 2921-34", price="£7.99", page="ev-charging-exam-2921/",
+        label="EV charging (2921-34)", what="the C&amp;G 2921-34 EV charging exam",
+        mocks="timed 30-question mocks of 1 hour",
+        shots=["11-exam-switch", "32-am2-explain", "24-pat-paywall"],
+        sources=[("2921 Electric Vehicle Charging", "City & Guilds", C_G + "2921-electric-vehicle-charging"),
+                 ("Regulations: electric vehicle smart charge points", "GOV.UK", "https://www.gov.uk/guidance/regulations-electric-vehicle-smart-charge-points"),
+                 ("Infrastructure for charging electric vehicles: Approved Document S", "GOV.UK", "https://www.gov.uk/government/publications/infrastructure-for-charging-electric-vehicles-approved-document-s"),
+                 ("BS 7671 18th Edition wiring regulations", "IET", "https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/")]),
+    "cg2391": dict(
+        short="2391", exams=["cg2391", "cg2391-50", "cg2391-51"], unlock="2391-52 + 2391-50 + 2391-51", price="£9.99",
+        page="inspection-testing-exam-2391/", label="2391 inspection and testing", what="the C&amp;G 2391-52, 2391-50 and 2391-51 exams",
+        mocks="timed mocks in each format: 60 questions in 2 hours for 2391-52, 40 questions in 90 minutes for 2391-50 and 2391-51",
+        shots=["11-exam-switch", "22-pat-explain", "50-2391-paywall"],
+        sources=[("2391 Initial and Periodic Electrical Inspection and Testing", "City & Guilds", C_G + "2391-initial-and-periodic-electrical-inspection-and-testing"),
+                 ("BS 7671 18th Edition wiring regulations", "IET", "https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/"),
+                 ("Electrical safety standards in the private and social rented sectors", "GOV.UK", "https://www.gov.uk/government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance")]),
+    "ecs-esu": dict(
+        short="ECS ESU", exams=["ecs-esu"], unlock="ECS ESU", price="£7.99", page="ecs-electrical-safety-unit/",
+        label="ECS Electrical Safety Unit", what="the ECS Electrical Safety Unit assessment",
+        mocks="timed 30-question mocks of 30 minutes with the 21-of-30 pass mark",
+        shots=["11-exam-switch", "32-am2-explain", "24-pat-paywall"],
+        sources=[("Electrical Safety Unit assessment", "ECS, run by the JIB", "https://www.ecscard.org.uk/content/Electrical-Safety-Unit-Assessment"),
+                 ("ECS Related Discipline card", "ECS, run by the JIB", "https://www.ecscard.org.uk/card-types/Related-Disciplines/ECS-Related-Discipline"),
+                 ("Electricity at work: safe working practices (HSG85)", "Health and Safety Executive (HSE)", "https://www.hse.gov.uk/pubns/books/hsg85.htm")]),
+    "am2": dict(
+        short="AM2", exams=["am2"], unlock="AM2 knowledge", price="£9.99", page="am2-knowledge-test/",
+        label="AM2 knowledge test", what="the AM2, AM2S and AM2E knowledge test (Section E)",
+        mocks="timed 45-question mocks of 90 minutes, the AM2S v1 Section E format",
+        shots=["31-am2-mock", "32-am2-explain", "33-am2-paywall"],
+        sources=[("AM2", "NET", "https://www.netservices.org.uk/am2/"),
+                 ("AM2S v1", "NET", "https://www.netservices.org.uk/am2s-v1/"),
+                 ("AM2E", "NET", "https://www.netservices.org.uk/am2e/"),
+                 ("AM2 pre-assessment manual", "NET", "https://www.netservices.org.uk/pre-assessment-manual/")]),
+    "ewa": dict(
+        short="EWA", exams=["ewa"], unlock="EWA entry test", price="£7.99", page="ewa-entry-test/",
+        label="EWA entry test", what="the EWA entry test",
+        mocks="timed 50-question mocks of 100 minutes, scored by Part 1 and Part 2",
+        shots=["41-ewa-mock", "42-ewa-result", "43-ewa-paywall"],
+        sources=[("EWA entry test", "Electrotechnical Skills Partnership (TESP)", "https://www.electrical-ewa.org.uk/entry-test/"),
+                 ("Experienced Worker Entry Test", "NAPIT", "https://www.napit.org.uk/napit-training/electrical-training/ewet/"),
+                 ("BS 7671 18th Edition wiring regulations", "IET", "https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/")]),
+    "cg2922": dict(
+        short="Solar + battery", exams=["cg2922", "cg2923"], unlock="Solar PV 2922 + Battery 2923", price="£7.99",
+        page="solar-pv-battery-exam-2922-2923/", label="solar PV and battery storage", what="the C&amp;G 2922-34 solar PV and 2923-34 battery storage exams",
+        mocks="timed 30-question mocks of 1 hour for each exam",
+        shots=["11-exam-switch", "22-pat-explain", "24-pat-paywall"],
+        sources=[("2922 Small Solar Photovoltaic Systems", "City & Guilds", C_G + "2922-small-solar-photovoltaic-systems"),
+                 ("2923 Small Electrical Energy Storage Systems", "City & Guilds", C_G + "2923-small-electrical-energy-storage-systems"),
+                 ("BS 7671 18th Edition wiring regulations", "IET", "https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/")]),
+}
+
+
+def price(key):
+    return {"pro": PRO_PRICE, "all": ALL_EXAMS_PRICE}.get(key) or PACKS[key]["price"]
+
+
+def pack_key(pack):
+    return "|".join(pack["exams"])
+
+
+def pack_cfg(cfg, key):
+    """Site config for a page that sells one exam pack."""
+    p = PACKS[key]
+    k = pack_key(p)
+    one = len(p["exams"]) == 1
+    scope = "this exam" if one else "these exams"
+    each = "" if one else " in each exam"
+    free_line = (f"two full topics and three questions in every other topic{each}, and one full mock "
+                 + ("" if one else "for each exam ") + "({{free:" + k + "}} questions)")
+    pro_line = (f"The {p['unlock']} unlock is {p['price']} one-off: every question and every mock for {scope}. "
+                f"Or get All exams, {ALL_EXAMS_PRICE} one-off: all {{{{count:exams}}}} exams in Sparkwise and any exam added later. No subscription.")
+    cta = f'''<section class="card cta" aria-labelledby="cta-h">
+<div class="cta-head"><img src="~/favicon.svg" width="48" height="48" alt=""><h2 id="cta-h">Practise {p['what']} in the Sparkwise app</h2></div>
+<p>{{{{count:{k}}}}} original questions for {p['what']}, each with an explanation and where to look, and {p['mocks']}. Spaced review brings back the questions you got wrong.</p>
+<ul class="plain">
+<li>Works offline. No ads, no account, no data collected.</li>
+<li>The same app has the 18th Edition, the ECS HS&amp;E and every other exam: <a href="~/exams/">see all {{{{count:exams}}}}</a>.</li>
+</ul>
+<!--shots-->
+<p><strong>Free:</strong> {free_line}.<br><strong>{p['unlock']}, {p['price']} one-off:</strong> every question and every mock for {scope}.<br><strong>All exams, {ALL_EXAMS_PRICE} one-off:</strong> all {{{{count:exams}}}} exams in Sparkwise and every exam we add later. No subscription.</p>
+<p>''' + PLAY_BTN.format(pos="footer") + '''</p>
+<p class="muted small"><!--ios--> Sparkwise helps you prepare; it cannot promise a pass.</p>
+</section>'''
+    return dict(cfg, pack=key, cta=cta, pro_line=pro_line, shots=p["shots"],
+                sticky_sub=f"Free to try · {p['short']} {p['price']} once",
+                appcta_sub=f"Free to try · {p['price']} one-off for {scope} · no subscription")
+
 
 CSS = """:root{color-scheme:light dark;%(light)s;%(band)s}
 @media (prefers-color-scheme:dark){:root{%(dark)s}}
@@ -441,9 +573,13 @@ def relink_href(target, path):
     return re.search(r'href="([^"]*)"', relink(f'href="~/{target}"', path)).group(1)
 
 
-def sources_card(app):
+def sources_card(app, pack=None):
     items = "\n".join(f'<li><a href="{E(u)}" rel="noopener">{E(t)}</a> <span class="muted">({E(p)})</span></li>'
-                      for t, p, u in SOURCES[app])
+                      for t, p, u in (PACKS[pack]["sources"] if pack else SOURCES[app]))
+    if pack:  # exam pages: never the word "official" (owner copy rule for the 1.2.0 exam pages)
+        return (f'<section class="card" aria-labelledby="sources-h">\n<h2 id="sources-h">Where the exam facts come from</h2>\n'
+                f'<p class="muted">The format, time and pass mark above come from these public pages. Check them, or ask your centre, before you book.</p>\n<ul class="plain">\n{items}\n</ul>\n'
+                f'<p class="muted small">Exam details can change. Sparkwise is not linked to any awarding or assessment body.</p>\n</section>')
     note = {"bluebell": "Bluebell&#8217;s guides are general information, not immigration advice.",
             "sparkwise": "Exam details can change. Check with the awarding body or your exam centre before you book, and always check real installations against your own copy of BS 7671.",
             "hivis": "Test details can change. Check with CITB before you book.",
@@ -532,11 +668,19 @@ def facts(brand):
         for t in m["topics"]:
             qs = files[t["file"]]["questions"]
             n = len(qs)
-            topics[t["id"]] = dict(n=n, free=n if t["id"] in free_ids else min(per, n), free_topic=t["id"] in free_ids,
-                                   worked=sum(1 for q in qs if q.get("worked")), title=t["title"], group=t.get("group", ""))
+            free_q = qs if t["id"] in free_ids else qs[:per]   # free = free topics in full + first N of the rest
+            topics[t["id"]] = dict(n=n, free=len(free_q), free_topic=t["id"] in free_ids,
+                                   worked=sum(1 for q in qs if q.get("worked")), title=t["title"],
+                                   group=t.get("group", ""), part=t.get("part") or t.get("area") or "",
+                                   ids={q["id"] for q in qs}, free_set={q["id"] for q in free_q},
+                                   worked_set={q["id"] for q in qs if q.get("worked")})
+        ids = set().union(*(t["ids"] for t in topics.values()))
+        free_set = set().union(*(t["free_set"] for t in topics.values()))
+        worked_set = set().union(*(t["worked_set"] for t in topics.values()))
         exams[m["id"]] = dict(title=m["title"], short=m.get("shortTitle", m["title"]), mock=m["mock"], topics=topics,
-                              free_ids=free_ids, per=per, n=sum(t["n"] for t in topics.values()),
-                              free=sum(t["free"] for t in topics.values()), worked=sum(t["worked"] for t in topics.values()))
+                              free_ids=free_ids, per=per, n=len(ids), ids=ids, free_set=free_set, worked_set=worked_set,
+                              free=len(free_set), worked=len(worked_set), description=m.get("description", ""),
+                              order=m.get("order", 99))
     total = sum(len(f["questions"]) for f in files.values() if isinstance(f, dict) and isinstance(f.get("questions"), list))
     _FACTS[brand] = dict(exams=exams, total=total)
     return _FACTS[brand]
@@ -544,8 +688,19 @@ def facts(brand):
 
 def fact(brand, kind, key):
     F = facts(brand)
+    if "|" in key:  # {{count:cg2391|cg2391-50|cg2391-51}}: unique questions over exams that share topic files
+        keys = [k.strip() for k in key.split("|")]
+        for k in keys:
+            if k not in F["exams"]:
+                raise SystemExit(f"{brand}: unknown exam '{k}' in {{{{{kind}:{key}}}}}")
+        if kind == "topics":
+            return len({t for k in keys for t in F["exams"][k]["topics"]})
+        field = {"count": "ids", "free": "free_set", "worked": "worked_set"}[kind]
+        return len(set().union(*(F["exams"][k][field] for k in keys)))
     if "+" in key:  # {{count:bs7671+ecs-hse}}: the sum over several exams (Sparkwise Pro covers two)
         return sum(fact(brand, kind, k.strip()) for k in key.split("+"))
+    if key == "exams":
+        return len(F["exams"])
     if key == "all":
         if kind == "count":
             return F["total"]
@@ -571,6 +726,7 @@ def fact(brand, kind, key):
 
 
 def fill_counts(s, brand):
+    s = re.sub(r"\{\{price:([\w-]+)\}\}", lambda m: price(m.group(1)), s)
     if not brand:
         return s
     return re.sub(r"\{\{(count|free|worked|topics):([^}]+)\}\}", lambda m: f"{fact(brand, m.group(1), m.group(2).strip()):,}", s)
@@ -611,6 +767,48 @@ def after_questions(app, cfg, shown, exam_id, sub=None, label=None):
 </section>"""
 
 
+def sample_questions(brand, exams, n, ids=None):
+    """A free sample for an exam page: one question from each topic file of the exams (shared files
+    once), spread evenly, single-answer or 'Select TWO' items of middle difficulty first. `ids` picks them by hand."""
+    files = load_bundle(brand)
+    seen, per_topic, by_id = set(), [], {}
+    for e in exams:
+        for t in files[f"manifest.{e}.json"]["topics"]:
+            if t["file"] in seen:
+                continue
+            seen.add(t["file"])
+            qs = files[t["file"]]["questions"]
+            for q in qs:
+                by_id[q["id"]] = q
+            good = [q for q in qs if q.get("difficulty") == 2 and q["type"] in ("single", "multi")
+                    and len(q.get("explanation", "")) >= 60 and not q.get("scenario")] or qs
+            per_topic.append(good[len(good) // 2])
+    if ids:
+        missing = [i for i in ids if i not in by_id]
+        if missing:
+            raise SystemExit(f"{brand}: sample ids not shipped: {missing}")
+        return [by_id[i] for i in ids]
+    return pick(per_topic, n)
+
+
+def after_sample(cfg, shown, key):
+    """'You've seen 8 of N' card after the sample on an exam page (the page's pack sets pro_line)."""
+    exams = key.split("|")
+    F = facts(cfg["bundle"])
+    n, free, worked = (fact(cfg["bundle"], k, key) for k in ("count", "free", "worked"))
+    p = PACKS.get(cfg.get("pack"), {})
+    label = p.get("label") or F["exams"][exams[0]]["short"]
+    topics = fact(cfg["bundle"], "topics", key)
+    worked_txt = f", and {worked} calculations have a step-by-step worked solution" if worked else ""
+    return f"""<section class="card aq" aria-labelledby="aq-h">
+<h2 id="aq-h">You&#8217;ve seen {shown} of {n:,} questions for the {E(label)}</h2>
+<p>The {E(cfg['name'])} app has all {n:,} across {topics} topics, each with an explanation and where to look{worked_txt}. It also has {p.get('mocks', 'timed mock exams')}.</p>
+<p><strong>{free:,} of them are free</strong> in the app. {cfg['pro_line']}</p>
+<p>{PLAY_BTN.format(pos='after-questions')}</p>
+<p class="muted ios"><!--ios--></p>
+</section>"""
+
+
 # ---------- screenshots ----------
 
 SHOT_W, SHOT_H = 480, 853
@@ -634,9 +832,10 @@ def ensure_screens(app, cfg, out):
 
 
 def shot_img(cfg, name, eager=False):
-    cap, alt = cfg["screens"][name]
+    cap, alt, *size = cfg["screens"][name]
+    w, h = size[0] if size else (SHOT_W, SHOT_H)   # emulator shots (1.2.0) are 480x1067
     lazy = "" if eager else ' loading="lazy"'
-    return (f'<img class="shot" src="~/assets/screens/{name}.webp" width="{SHOT_W}" height="{SHOT_H}"'
+    return (f'<img class="shot" src="~/assets/screens/{name}.webp" width="{w}" height="{h}"'
             f' alt="{E(cap)}: {E(alt)}"{lazy} decoding="async">')
 
 
@@ -676,6 +875,15 @@ def expand(app, cfg, path, body, meta):
         shown = int(m.group(2) or 10)
         return after_questions(app, cfg, shown, exam, sub or None, m.group(3))
     body = re.sub(r"<!--after-questions:([^\s>]+?)(?: shown=(\d+))?(?: label=([^>]*?))?-->", aq, body)
+    shown = {}
+
+    def sample(m):
+        ids = [i.strip() for i in m.group(3).split(",")] if m.group(3) else None
+        qs = sample_questions(cfg["bundle"], m.group(1).split("|"), int(m.group(2) or 8), ids)
+        shown[m.group(1)] = len(qs)
+        return render_questions(qs)
+    body = re.sub(r"<!--sample:([\w|-]+)(?: n=(\d+))?(?: ids=([\w,-]+))?-->", sample, body)
+    body = re.sub(r"<!--after-sample:([\w|-]+)-->", lambda m: after_sample(cfg, shown.get(m.group(1), 8), m.group(1)), body)
     body = body.replace("<!--ios-->", IOS_LINE)
     body = fill_counts(body, cfg.get("bundle"))
     # old hard-coded store links get a referrer too
@@ -693,8 +901,11 @@ def page(app, cfg, path, meta, body, crumbs=None):
     nav_key = meta.get("nav", "home" if path == "" else "")
     legal = path in ("privacy/", "terms/")
     promote = cfg.get("promote")
+    if meta.get("pack"):
+        cfg = pack_cfg(cfg, meta["pack"])
+        crumbs = crumbs or [("All exams", f"https://{host}/exams/")]
     body = expand(app, cfg, path, body, meta)
-    body = body.replace("<!--sources-->", sources_card(app))
+    body = body.replace("<!--sources-->", sources_card(app, cfg.get("pack")))
     hero = ""
     m = re.search(r"<!--hero-->(.*?)<!--/hero-->", body, re.S)
     if m:
@@ -702,7 +913,8 @@ def page(app, cfg, path, meta, body, crumbs=None):
     body = relink(body, path)
     hero = relink(hero, path)
     body = re.sub(r'\s+style="[^"]*"', "", body)   # CSP: style-src 'self' (no inline styles)
-    title, desc = meta["title"], meta.get("description", "")
+    title = fill_counts(meta["title"], cfg.get("bundle"))
+    desc = fill_counts(meta.get("description", ""), cfg.get("bundle"))
     updated = meta.get("updated", TODAY)
     lds = []
     if path == "":
@@ -738,7 +950,7 @@ def page(app, cfg, path, meta, body, crumbs=None):
     if promote:
         sticky = (f'<div class="sticky" role="complementary" aria-label="Get {E(cfg["name"])}"><div class="wrap">'
                   f'<img src="{pre}favicon.svg" width="36" height="36" alt="">'
-                  f'<span class="s-txt"><strong>{E(cfg["name"])}</strong><small>{cfg["sticky_sub"]}</small></span>'
+                  f'<span class="s-txt"><strong>{E(cfg["name"])}</strong><small>{meta.get("sticky") or cfg["sticky_sub"]}</small></span>'
                   f'<a class="btn play" href="{E(play_link(cfg, path, "sticky"))}">Get it on Google Play</a></div></div>\n')
     body_class = ' class="home"' if hero else ""
     return f"""<!doctype html>
@@ -856,6 +1068,19 @@ def topic_pitch(cfg, bundle, exam_id, topic_id, short):
     return f"The {cfg['name']} app has all {t['n']} {E(short)} questions in this topic, with explanations: {free}."
 
 
+def more_exams_links():
+    """Links from /practice/ to the per-exam pages of the Sparkwise 1.2.0 packs."""
+    F = facts("sparkwise")
+    items = []
+    for key, p in PACKS.items():
+        k = pack_key(p)
+        names = " and ".join(F["exams"][e]["title"] for e in p["exams"]) if len(p["exams"]) < 3 else \
+            "2391-52, 2391-50 and 2391-51 inspection and testing"
+        items.append(f'<li><a href="~/{p["page"]}">{E(p["label"][0].upper() + p["label"][1:])}: free exam questions'
+                     f'<span>{names} · {fact("sparkwise", "count", k):,} questions in the app · {p["price"]} once</span></a></li>')
+    return '<ul class="links">' + "".join(items) + "</ul>"
+
+
 def sparkwise_practice(cfg, out):
     files = load_bundle("sparkwise")
     PER = 10
@@ -902,10 +1127,11 @@ def sparkwise_practice(cfg, out):
     body = f"""<h1>Free 18th Edition and ECS HS&amp;E practice questions</h1>
 <p class="lead">{total} free practice questions by topic for the 18th Edition (City &amp; Guilds 2382-26, BS 7671:2018+A4:2026) and the ECS Health, Safety and Environmental assessment, each with the answer and an explanation.</p>
 <p class="muted">Free, with no sign-up and nothing saved. Every question is original and comes from the Sparkwise app, which has all {{{{count:bs7671+ecs-hse}}}}; only questions we have checked are published. No app or website can show you the real exam questions.</p>
-<div class="toc"><a href="#18th-edition">18th Edition topics</a> · <a href="#ecs-hse">ECS HS&amp;E topics</a></div>
+<div class="toc"><a href="#18th-edition">18th Edition topics</a> · <a href="#ecs-hse">ECS HS&amp;E topics</a> · <a href="#more-exams">2391, AM2, EWA, PAT, EV, ESU, solar PV</a></div>
 <h2 id="18th-edition">18th Edition practice (BS 7671:2018+A4:2026)</h2>
 <p>The City &amp; Guilds 2382-26 exam tests whether you can find and apply the requirements of the current Wiring Regulations. It is an online multiple-choice exam of {bs['mock']['questionCount']} questions in {bs['mock']['minutes']} minutes, and it is open book, so practise with your own copy of BS 7671 to hand. Each answer points to a regulation, table or appendix to look up. Read the <a href="~/18th-edition-exam/">18th Edition exam guide</a> and <a href="~/amendment-4/">what changed in Amendment 4</a>.</p>
 {topic_links('practice/18th-edition/', bs, files, PER)}
+<p class="muted">Sitting the 2391, AM2, EWA entry test, PAT, EV charging, the ECS Electrical Safety Unit or solar PV? <a href="#more-exams">Jump to those exams</a>.</p>
 <!--appcta
 title: All {{{{count:bs7671}}}} 18th Edition questions, and full mock exams, in the app
 text: Practise every Part of BS 7671 with explanations that point to the regulation to look up, worked solutions for calculations and timed 60-question mock exams of 2 hours. {{{{free:bs7671}}}} of the 18th Edition questions are free in the app.
@@ -914,9 +1140,12 @@ pos: inline-18th
 <h2 id="ecs-hse">ECS HS&amp;E practice</h2>
 <p>The ECS Health, Safety and Environmental assessment is the test most electrotechnical workers pass to get or renew an ECS card. It has {ecs['mock']['questionCount']} multiple-choice questions in {ecs['mock']['minutes']} minutes and is closed book. The CITB HS&amp;E test used for CSCS cards does not count for ECS. Read the <a href="~/ecs-hse-assessment/">ECS HS&amp;E assessment guide</a>.</p>
 {topic_links('practice/ecs-hse/', ecs, files, PER)}
+<h2 id="more-exams">Free questions for the other exams in Sparkwise</h2>
+<p>Each page has 8 to 10 free questions with answers and explanations, the real exam format and what it covers.</p>
+{more_exams_links()}
 <!--cta-->
 <!--sources-->"""
-    meta = {"title": "Free 18th Edition & ECS HS&E Practice Questions | Sparkwise",
+    meta = {"title": "Free 18th Edition, ECS, 2391 & AM2 Practice Questions | Sparkwise",
             "description": f"{total} free practice questions by topic for the 18th Edition (C&G 2382-26, BS 7671 A4:2026) and the ECS HS&E assessment, with answers and explanations.",
             "nav": "practice", "updated": files["manifest.json"].get("updated", TODAY),
             "pitch": "Try free questions here, then practise all {{count:bs7671+ecs-hse}} in the Sparkwise app, with timed mock exams in the real format."}

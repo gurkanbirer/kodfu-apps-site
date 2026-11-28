@@ -98,8 +98,9 @@ deploy/deploy.sh check
   the page's "Last updated" date moves when its text changes.
 - Exam sites: never imply official status, no logos, never copy BS 7671 / handbook / official
   question-bank text, never promise a pass; only shipped (verified) questions are published; every
-  page carries the brand disclaimer (Sparkwise: "Not affiliated with or endorsed by the IET, BSI,
-  City & Guilds, ECS or JIB"). Tickover must not promise plate lookup or MOT history (plate lookup is
+  page carries the brand disclaimer (Sparkwise, since 28/11/2026: "Not affiliated with or endorsed
+  by the IET, BSI, City & Guilds, EAL, NET, the ECS, the JIB, NICEIC, NAPIT, MCS, HSE or OZEV", the
+  bodies the 1.2.0 paywall names). Tickover must not promise plate lookup or MOT history (plate lookup is
   unavailable, `~/Code/tickover/docs/api-access.md`). FareBack's `/#delete` section is linked from
   Google Play's data-deletion field: keep the id.
 - No cookies, analytics or trackers; support email gurkancaner@kodfu.com everywhere.
@@ -124,3 +125,35 @@ Cloudflare zone (`deploy/cloudflare.py txt …`; keep the record). URL-prefix pr
 `https://hivis.kodfu.com/`, `https://fareback.kodfu.com/`, `https://tickover.kodfu.com/`, verified by the HTML file
 `googleea66026b8981bf38.html`: it lives at the repo root and `tools/build.py` copies it to every host's root. Do not delete
 it, or those properties lose verification. Every host's `sitemap.xml` is submitted.
+
+## Sparkwise exam pages (1.2.0, 28/11/2026)
+
+Sparkwise 1.2.0 sells each new exam on its own inside the one app (owner decision 27/11/2026 in
+`~/Code/exam-apps/AGENTS.md`; product ids and prices in `~/Code/exam-apps/config/sparkwise.json` `PRODUCTS`):
+PAT 2377 £7.99, EV 2921-34 £7.99, 2391-52 + 2391-50 + 2391-51 £9.99, ECS ESU £7.99, AM2 knowledge £9.99,
+EWA entry test £7.99, solar PV 2922 + battery 2923 £7.99; Pro £12.99 still covers 18th Edition + ECS HS&E;
+All exams £24.99. `PACKS` in `tools/build.py` holds each pack's page, price, sources and screenshots, and a
+fragment with `pack: <key>` gets that pack's sticky bar, app boxes, closing card and sources. Counts are
+unique question ids (`{{count:a|b}}`), never sums of shared topic files. The pages wait for 1.2.0 on Play:
+see the deploy gate in `docs/seo-strategy.md`.
+
+Educated guesses (28/11/2026, site session; the owner can override):
+- URLs name the exam and its code: `/pat-testing-exam-2377/`, `/ev-charging-exam-2921/`,
+  `/inspection-testing-exam-2391/` (one page for all three 2391 exams, as they are one unlock),
+  `/ecs-electrical-safety-unit/`, `/am2-knowledge-test/`, `/ewa-entry-test/`,
+  `/solar-pv-battery-exam-2922-2923/` (one page, one unlock), and a hub `/exams/` ("All 12 exams" in the nav).
+- Each page: crumb, h1 for the search, Play button + "try free questions" anchor, the real format (with the
+  awarding body's page linked), what the exam covers (real question split where published + app counts),
+  a free sample of 8 to 10 shipped questions (one per topic, picked by the build; `ids=` pins them), the
+  "You've seen N of M" card, how to prepare, 4 to 5 FAQ (FAQPage JSON-LD), the pack's closing card and a
+  sources card headed "Where the exam facts come from" (the copy rule for these pages bans the word
+  "official"; older pages keep their "Official sources" card).
+- Screenshots: real 1.2.0 emulator screens (`/private/tmp/claude-501/sparkwise-test/`, 1080×2400) resized
+  to 480×1067 WebP (`src/sparkwise/screens/11-*`, `2x-pat-*`, `3x-am2-*`, `4x-ewa-*`, `50-2391-paywall`);
+  `screens` entries carry their size. EV, ESU, 2391 and solar have no screens of their own yet, so they show
+  the exam switcher, a PAT or AM2 answered question and the PAT/2391 unlock screen, with honest alt text.
+  Replace them with exam-specific shots when the store screenshots for those exams exist.
+- Pass marks that the awarding body gives only as "about 75%" (2921, 2391, 2922/2923) are written that way;
+  the app's mock cut-off is named as Sparkwise's. AM2 Section E: NET does not publish a pass mark, so the
+  page says so and calls the app's 32/45 a working figure.
+- Mobile layout: tables of 3 columns at most; the exam list on `/exams/` is a link list, not a table.

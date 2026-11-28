@@ -12,7 +12,7 @@ priorities below; the run log is `docs/seo-log.md`.
 
 | Host | App (Google Play) | Goal | Weight |
 |---|---|---|---|
-| `https://sparkwiseapp.co.uk/` | Sparkwise `com.kodfu.sparkwise` (18th Edition C&G 2382-26, BS 7671:2018+A4:2026, ECS HS&E) | Play installs → Pro (£12.99). The only app with a sale (25/11/2026). | **Lead: most runs** |
+| `https://sparkwiseapp.co.uk/` | Sparkwise `com.kodfu.sparkwise` (12 exams since 1.2.0: 18th Edition C&G 2382-26, ECS HS&E, 2391-52/-50/-51, AM2 knowledge, EWA entry test, PAT 2377, EV 2921-34, ECS ESU, solar PV 2922 + battery 2923) | Play installs → an unlock: Pro £12.99 (18th Edition + ECS HS&E), one exam £7.99 or £9.99, All exams £24.99. The only app with a sale (25/11/2026). | **Lead: most runs** |
 | `https://bluebell.kodfu.com/` | Bluebell `com.kodfu.bluebell` (Life in the UK Test) | Play installs → Pro (£6.99). Very crowded market: win high-intent long-tail searches. | Second |
 | `https://hivis.kodfu.com/` | HiVis `com.kodfu.hivis` (CITB HS&E test for the CSCS card) | Play installs → Pro (£5.99). Test-level and topic practice searches. | Third |
 | `https://fareback.kodfu.com/` | FareBack `com.kodfu.fareback` (Delay Repay claims; live rail data since 27/11/2026) | Play installs (subscription). Delay Repay how-to by operator. | Occasional |
@@ -21,6 +21,24 @@ priorities below; the run log is `docs/seo-log.md`.
 Search Console (account `info.kodfu@gmail.com`): `sc-domain:sparkwiseapp.co.uk` and URL-prefix
 properties for the four `*.kodfu.com` hosts. Keyword research and competitor notes from the store
 side: `~/Code/exam-apps/store/<brand>/aso.md` (Sparkwise, Bluebell, HiVis), `~/Code/fareback/store/aso.md`.
+
+## Deploy gate: Sparkwise 1.2.0 exam pages (28/11/2026, check at the start of every run until done)
+
+The exam pages built on 28/11/2026 (`/exams/`, `/pat-testing-exam-2377/`, `/ev-charging-exam-2921/`,
+`/inspection-testing-exam-2391/`, `/ecs-electrical-safety-unit/`, `/am2-knowledge-test/`, `/ewa-entry-test/`,
+`/solar-pv-battery-exam-2922-2923/`, plus the home, FAQ, practice hub, nav and closing-card changes) say the
+app has these exams, which is only true once Sparkwise **1.2.0** is live on Google Play. They are committed
+and pushed but **not deployed**. First thing on every run, until this section is removed:
+
+1. `curl -sL -A 'Mozilla/5.0' 'https://play.google.com/store/apps/details?id=com.kodfu.sparkwise&hl=en_GB&gl=GB' | grep -o '\[\[\["[0-9.]*"\]\]'`
+   (shows e.g. `[[["1.1.0"]]`).
+2. If it shows `1.2.0` or later: `python3 tools/build.py`, commit if anything changed, `deploy/deploy.sh sparkwise`,
+   `deploy/deploy.sh check`, check the eight new URLs answer 200, request indexing for them in Search Console
+   (`sc-domain:sparkwiseapp.co.uk`, URL inspection → Request indexing), push, log it in `docs/seo-log.md`, and
+   delete this section (with a commit). That run's own job is this deploy.
+3. If it still shows 1.1.0: do **not** deploy Sparkwise at all (any Sparkwise deploy ships the exam pages,
+   because the release is the committed HEAD). Work on Bluebell, HiVis or FareBack that day, or commit Sparkwise
+   source changes without deploying them, and say "Sparkwise 1.2.0 not live yet" in the log row.
 
 ## Measuring conversion (no trackers on the sites)
 
@@ -45,7 +63,13 @@ Never add analytics, cookies or scripts to measure more: the apps declare "Data 
    app", "2382-26 practice questions", "ECS HS&E test practice / mock", "18th Edition open book exam
    tips", "how to pass the 18th Edition" (never promise a pass), "2382-26 vs 2382-22"; for Bluebell and
    HiVis the equivalent "mock test / practice questions / app" searches. These pages lead with the
-   practice offer.
+   practice offer. Since 1.2.0 each new Sparkwise exam has its own page aimed at its searches
+   (`~/Code/exam-apps/docs/electrician-exams-research-2026-11-27.md` §3): "PAT testing exam questions",
+   "2377 practice test", "2921-34 / EV charging exam", "2391 exam questions / revision", "ecs electrical
+   safety unit questions / mock test", "am2 knowledge test / am2s / am2e mock exam", "ewa entry test
+   questions (and answers pdf)", "solar pv / battery storage course exam 2922 2923". Once they have GSC
+   data, work their CTR and UTM conversion like the 18th Edition pages; a next page per exam (mock test,
+   topic explainer such as EICR codes for 2391-51) is a good use of a run.
 3. **Sparkwise topic depth that feeds a buyer path.** Regulation-area explainers that electricians
    search (RCD protection, earthing TN-C-S/TN-S/TT, bathroom zones, cable sizing and voltage drop, Zs and
    max earth fault loop impedance, SPDs after A4, EV charging 722, solar PV 712, inspection and testing
